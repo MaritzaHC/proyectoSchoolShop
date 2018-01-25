@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SchoolShop</title>
+	<link rel="stylesheet" type="text/css" href="eEstudiante.css">
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="funcionesEstudiante.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="inicio">
+		<div class="logo">
+			<img src="imagenes\logo.png" onclick="ini()">
+			<p onclick="ini()">SchoolSop</p>
+		</div>
+		<div class="notificacion">
+			<img src="imagenes\campana.png" onclick="notifica()">
+		</div>
+		<div class="cuenta" onclick="cuenta()">
+			<img src="imagenes\cuenta.png">
+			<p>Mi cuenta</p>
+		</div>
+		<div class="publicar" onclick="publica()"><p>Publicar</p></div>
+		<div class="barraBuscar">
+			<input type="text" name="">
+			<img src="imagenes\buscar.png"><!--PENDIENTE PHP-->
+		</div>
+	</div>
+	<div id="opciones">
+		<div class="objetos" tabindex="0" onclick="vista('objetos');"><p>Objetos perdidos</p></div>
+		<div class="pedidos" tabindex="1" onclick="vista('pedidos');"><p>Pedidos</p></div>
+		<div class="compras" tabindex="2" onclick="vista('compras');"><p>Compras</p></div>
+	</div>
+		<div id="opcompras">
+			<div class="categorias"><p>Categorias<br></p>
+				<!-- PENDIENTE PHP -->
+			</div>
+			<!-- TEMPORAL -->
+			<div class="productos" onclick="informacionCompra()">
+				<img src="b.jpg">
+				<div class="info">
+					<div class="titulo">
+						<p>Titulo lsdlisdjsdlvjlskvlks</p>
+					</div>
+					<div class="precio">
+						<p>$0.00</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="oppedidos">
+			<div class="productos" onclick="informacionOferta()">
+				<img src="na.jpg">
+				<div class="info">
+					<div class="titulo">
+						<p>Titulo soy una oferta</p>
+					</div>
+					<div class="precio">
+						<p>$0.00</p>
+					</div>
+				</div>
+			</div>
+			<div class="productos" onclick="informacionPedido()">
+				<img src="ga.jpg">
+				<div class="info">
+					<div class="titulo">
+						<p>Titulo soy un pedido</p>
+					</div>
+					<div class="descripcion">
+						<p>Pequeña descripcion</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="opobjetos">
+			<div class="productos" onclick="informacionObjeto()">
+				<img src="aa.jpg">
+				<div class="info">
+					<div class="titulo">
+						<p>Titulo lsdlisdjsdlvjlskvlks</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN TEMPORAL -->
+		<script type="text/javascript">
+			var id;
+			vista(id);
+		</script>
+</body>
+</html>
+	

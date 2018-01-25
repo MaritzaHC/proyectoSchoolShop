@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SchollShop</title>
+	<link rel="stylesheet" type="text/css" href="eAdministrador.css">
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="funcionesAdministrador.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="inicio">
+		<div class="logo">
+			<img src="imagenes\logo.png" onclick="irPagina('notificaciones')">
+			<p onclick="irPagina('notificaciones')">SchoolSop</p>
+		</div>
+		<div class="notificacion">
+			<img src="imagenes\campana.png" onclick="irPagina('notificaciones')">
+		</div>
+		<div class="cuenta" onclick="irPagina('cuenta')">
+			<img src="imagenes\cuenta.png">
+			<p>Mi cuenta</p>
+		</div>
+	</div>
+	<div id="barraMenu">
+		<div class="comerciantes" onclick="irPagina('comerciantes')"><p>Comerciantes</p></div>
+		<div class="almacenistas" onclick="irPagina('almacenistas')"><p>Almacenistas</p></div>
+		<div class="alumnos" onclick="irPagina('alumnos')"><p>Alumnos</p></div>
+		<div class="restricciones" onclick="irPagina('restricciones')"><p>Restricciones</p></div>
+		<div class="estadisticas" onclick="irPagina('estadisticas')"><p>Estadisticas</p></div>
+		<div class="categorias" onclick="irPagina('categorias')"><p>Categorias</p></div>
+		<div class="lugares" onclick="irPagina('lugares')"><p>Lugares</p></div>
+	</div>
+<div class="contenido">
+	<div class="informacion">
+		<p class="nombre">Nombre de la institucion</p>
+		<div class="telefono">
+			<p>Telefono</p>
+			<input type="text" name="telefono" size="10">
+		</div>
+		<div class="contrasena">
+			<p style="margin-bottom: 5px">Nueva contraseña:</p>
+			<p>Contraseña anterior</p>
+			<input type="text" name="contrasena">
+			<p>Nueva contraseña</p>
+			<input type="text" name="contrasenaconu">
+			<p>Confirmar contraseña</p>
+			<input type="text" name="contrasenacon">
+		</div>
+		<div class="boton">Guardar</div>
+	</div>
+	<div class="imagenCuenta"><img src="caja.png"></div>
+</div>
+</body>

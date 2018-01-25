@@ -1,0 +1,485 @@
+body{
+	margin:0px;
+	padding: 0px;
+	font-family: Trebuchet MS;
+	background-color: #FAFAFA;
+	display: inline-block;
+	width: 100%;
+	overflow: auto;
+}
+body #inicio{
+	background-color: #543222;
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: 60px;
+	display: inline-block;
+	float: left;
+}
+p{margin: 0px;}
+#inicio .logo img{
+	width: 75px;
+	height: auto;
+	margin: 2px 2px 0px 2px;
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+	margin-left: 3%;
+}
+#inicio .logo p{
+	margin: 0px;
+	margin-left: 5px;
+	padding-top: 0px;
+	width: 170px;
+	height: auto;
+    display: inline-block;
+	float: left;
+	color: white;
+	font-family: Brush Script MT; 
+	font-size:48px;
+	cursor:pointer;
+}
+#inicio .cuenta{
+	display: inline-block;
+	float: right;
+	margin-left: 2%;
+	width: 110px;
+}
+#inicio .cuenta img{
+	height: 38px;
+	width: auto;
+	margin: 10px 5px 0px 0px;
+	display: inline-block;
+	float: left;
+	margin-left: 3%;
+	cursor:pointer;
+}
+#inicio .cuenta p{
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	color: white;
+	cursor:pointer;
+}
+#inicio .notificacion img{
+	height: 38px;
+	width: auto;
+	margin: 10px 0px 0px 10px;
+	display: inline-block;
+	float: right;
+	margin-right: 3%;
+	cursor:pointer;
+}
+#barraMenu .comerciantes p, #barraMenu .almacenistas p, #barraMenu .restricciones p, #barraMenu .estadisticas p, #barraMenu .categorias p{
+	text-align: center;
+	height: auto;
+	border-radius: 10px 10px 0px 0px;
+    cursor:pointer;
+    color: white;
+	font-size: 20px;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 5px;
+}
+#barraMenu .comerciantes, #barraMenu .almacenistas, #barraMenu .restricciones, #barraMenu .estadisticas, #barraMenu .categorias{
+	width: 16%;
+	display: inline-block;	
+	float: left;
+	background-color: #543222;
+}
+#barraMenu .alumnos, #barraMenu .lugares{
+	width: 10%;
+	display: inline-block;	
+	float: left;
+	background-color: #543222;	
+}
+#barraMenu .alumnos p, #barraMenu .lugares p{
+	text-align: center;
+	height: auto;
+	border-radius: 10px 10px 0px 0px;
+    cursor:pointer;
+    color: white;
+	font-size: 20px;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 5px;	
+}
+#barraMenu .comerciantes p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .almacenistas p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .restricciones p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .estadisticas p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .categorias p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .alumnos p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+#barraMenu .lugares p:hover{
+	background-color: #FAFAFA;
+	color: black;
+}
+/*-------------------------------------------------------*/
+.contenido{
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.notificacionesTitulo {
+	display: inline-block;
+	float: left;
+	width: 25%;
+	padding-left: 10%;
+}
+.notificacionesTitulo .titulo p{
+	font-size: 30px;
+	margin-top: 45px;
+}
+.lasNotificaciones{
+	height: 400px;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;	
+	margin-top: 10px;
+	overflow-y:visible;
+	overflow-y:auto;
+}
+.lasNotificaciones .notificacion{
+	padding: 8px 0px 8px 5px;
+	cursor: pointer;
+}
+.lasNotificaciones .notificacion:hover{
+	background-color: #f1a480;
+}
+.contenidoNoti{
+	margin: 90px 0px 0px 10px;
+	display: inline-block;
+	float: left;
+	width: 50%;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;
+	overflow-y:visible;
+	overflow-y:auto;
+	padding: 10px 0px 0px 10px;
+}
+.contenidoNoti .boton{
+	float: right;
+	margin: 15px 10px 10px 0px;
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+}
+.contenidoNoti .titulo p{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+/*---------------------------------------------------------*/
+.calificacion{
+	display: inline-block;
+	float: left;
+}
+.calificacion p{
+	text-align: center;
+}
+.calificacion .estrellas img{
+	display: inline-block;
+	float: left;
+	width: 20px;
+	height: auto;
+}
+.boton{
+	width: 110px;
+	height: auto;
+	background-color: #E0855B;
+	display: inline-block;
+	float: left;
+	/*margin: 0px 5% 15px 0px;*/
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+.botonAzul{
+	width: 110px;
+	height: auto;
+    background-color: #2197A1;
+	display: inline-block;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+input, select{
+	border-radius: 5px;
+	font-family: Trebuchet MS;
+}
+/*---------------------------------------------------------------*/
+.informacion{
+	display: inline-block;
+	float: left;
+	margin: 45px 15px 0px 7%;
+	width: 30%
+}
+.informacion .nombre{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.informacion .telefono{
+	margin-bottom: 20px;
+	display: inline-block;
+	float: left;
+	width: 100%
+}
+..informacion .telefono p{
+	margin-bottom: 5px
+}
+.informacion .contrasena{
+	margin-bottom: 30px;
+	display: inline-block;
+	float: left;
+	width: 100%
+}
+.informacion .telefono p{
+	margin-bottom: 5px
+}
+ .imagenCuenta{
+	width: 60%;
+	display: inline-block;
+	float: left;
+}
+.imagenCuenta img{
+	width: 500px;
+	height: auto;
+	margin-top: 45px;
+}
+/*------------------------------------------------------------------*/
+.barraBuscar{
+	float: right;
+	display: inline-block;
+	width: 335px;
+	margin-right: 4%;
+}
+.barraBuscar input{
+	border-radius: 8px 0px 0px 8px;
+	border: 2px solid #ffffff;
+	display: inline-block;
+	float: left;
+	height: 23px;
+	margin-left: 1%;
+	margin-top: 15px
+}
+.barraBuscar img{
+	border-radius: 0px 8px 8px 0px;
+    background-color: #E0855B;
+ 	display: inline-block;
+	float: left;
+	height: 22.6667px;
+	width: auto;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+}
+.abajo{
+	display: inline-block;
+	float: left;
+	width: 100%;
+	height: 80px;
+}
+.abajo{
+	display: inline-block;
+	float: left;
+	margin: 0px 6% 0px 6%;
+	width: 88%;
+	height: auto;
+}
+.resultado:hover{
+	background-color: #f4e9e4;
+}
+.resultado{
+	width: 100%;
+	height: 55px;
+	display: inline-block;
+	float: left;
+	background-color: white;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.arriba{
+	display: inline-block;
+	float: left;
+	width: 88%;
+	height: 60px;
+	margin: 45px 6% 20px 6%;
+	background-color: #754330;
+}
+.arriba .boton {
+	margin: 15px 0px 0px 15px;
+}
+.resultado p{
+	font-size: 20px;
+	margin: 15px 0px 0px 15px;
+	float: left;
+}
+.resultado .calificacion{
+	float: right;
+	margin: 15px 5px 0px 0px;
+}
+.resultado .imagen img{
+	float: right;
+	margin: 10px 15px 0px 5px;
+}
+/*----------------------------------------------*/
+.restriccion{
+	display: inline-block;
+	float: left;
+	margin: 15px 0px 0px 7%;
+	width: 86%;
+	height: auto;
+}
+.restriccion p{
+	margin: 5px 0px 0px 5px;
+	display: inline-block;
+	float: left;
+}
+.restriccion .opciones{
+	margin-left: 120px;
+	display: inline-block;
+	float: left;
+	width: 86%;
+	height: auto;
+}
+/*--------------------------------------------------------*/
+.eComerciantes, .eEstudiantes{
+	display: inline-block;
+	float: left;
+	margin: 35px 0px 0px 7%;
+	width: 93%;
+	height: auto;
+}
+.eComerciantes p, .eEstudiantes p{
+	font-size: 28px;
+}
+.eComerciantes .estadistica img, .eEstudiantes .estadistica img{
+	width: 550px;
+	height: auto;
+	display: inline-block;
+	float: left;
+	margin: 15px;
+}
+/*--------------------------------------------------------------*/
+.listadoCategorias{
+	width: 45%;
+	display: inline-block;
+	float: left;
+	margin: 45px 0px 0px 6%;
+}
+.agregarCategoria{
+	width: 35%;
+	display: inline-block;
+	float: left;
+	margin: 45px 0px 0px 0px;
+}
+.listadoCategorias p{
+	font-size: 28px;
+}
+.listadoCategorias .cuadro{
+	width: 500px;
+	height: auto;
+	display: inline-block;
+	float: left;
+	margin-top: 10px;
+	background-color: white;
+}
+.listadoCategorias .cuadro p{
+	font-size: 22px;
+	float: left;
+	display: inline-block;
+	margin: 8px 0px 10px 5px;
+}
+.listadoCategorias .cuadro img{
+	float: right;
+	display: inline-block;
+	width: 45px;
+	height: auto;
+	cursor: pointer;
+}
+.cuadro:hover{
+	background-color: #eadfdf;
+}
+textarea{
+	font-family: Trebuchet MS;
+	display: inline-block;
+	float: left;
+}
+.agregarCategoria .boton{
+	display: inline-block;
+	float: left;
+	margin-top: 15px;
+}
+.agregarCategoria p{
+	margin-bottom: 10px;
+}
+.agregarCategoria input{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+/*--------------------------------------------------------------*/
+.informacionComerciantes, .informacionAlmacenista, .informacionAlumnos{
+	width: 30%;
+	margin: 45px 0px 0px 10%;
+	display: inline-block;
+	float: left;
+}
+.informacionComerciantes p, .informacionAlmacenista p, .informacionAlumnos p{
+	margin: 5px 0px 5px 0px;
+}
+.informacionComerciantes .boton, .informacionAlmacenista .boton, .informacionAlumnos .boton{
+	margin-top: 15px;
+}
+/*------------------------------------------------------------*/
+.informacionAlumnos .comprador{
+	display: inline-block;
+	float: left;
+	margin-right: 25px;
+}
+.informacionAlumnos .vendedor{
+	display: inline-block;
+	float: left;
+}
+.informacionAlumnos .boton{
+	margin-right: 70px;
+}
+.estadisticasAlumno{
+	width: 60%;
+	margin-top: 45px;
+	display: inline-block;
+	float: left;
+}
+.estadisticasAlumno img{
+	width: 500px;
+	height: auto;
+	margin-bottom: 10px;
+}

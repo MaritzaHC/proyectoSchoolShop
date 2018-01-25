@@ -1,0 +1,785 @@
+body{
+	margin:0px;
+	padding: 0px;
+	font-family: Trebuchet MS;
+	background-color: #FAFAFA;
+	display: inline-block;
+	width: 100%;
+	overflow: auto;
+}
+body #inicio{
+	background-color: #543222;
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: 60px;
+	display: inline-block;
+	float: left;
+}
+#inicio .logo img{
+	width: 75px;
+	height: auto;
+	margin: 2px 2px 0px 2px;
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+	margin-left: 3%;
+}
+#inicio .logo p{
+	margin: 0px;
+	margin-left: 5px;
+	padding-top: 0px;
+	width: 170px;
+	height: auto;
+    display: inline-block;
+	float: left;
+	color: white;
+	font-family: Brush Script MT; 
+	font-size:48px;
+	cursor:pointer;
+}
+#inicio .barraBuscar{
+	float: right;
+	display: inline-block;
+	width: 19%;
+	margin-right: 2%;
+}
+#inicio .barraBuscar input{
+	border-radius: 8px 0px 0px 8px;
+	border: 2px solid #ffffff;
+	display: inline-block;
+	float: left;
+	height: 23px;
+	margin-left: 1%;
+	margin-top: 15px;
+	width: 76%;
+}
+
+#inicio .barraBuscar img{
+	border-radius: 0px 8px 8px 0px;
+    background-color: #E0855B;
+ 	display: inline-block;
+	float: left;
+	height: 22.6667px;
+	width: auto;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+}
+#inicio .publicar{
+	display: inline-block;
+	float: right;
+	margin-right: 2%;
+	margin-top: 15px;
+}
+#inicio .publicar p{
+	margin: 0px;
+	width: 70px;
+	height: auto;
+	padding: 5px;
+	background-color: #E0855B;
+	color: white;
+	letter-spacing:1px;
+	text-align: center;
+	 border-radius: 8px;
+	 cursor:pointer;
+}
+#inicio .cuenta{
+	display: inline-block;
+	float: right;
+	width: 110px;
+}
+#inicio .cuenta img{
+	height: 38px;
+	width: auto;
+	margin: 10px 5px 0px 0px;
+	display: inline-block;
+	float: left;
+	margin-left: 3%;
+	cursor:pointer;
+}
+#inicio .cuenta p{
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	color: white;
+	cursor:pointer;
+}
+#inicio .notificacion img{
+	height: 38px;
+	width: auto;
+	margin: 10px 0px 0px 10px;
+	display: inline-block;
+	float: right;
+	margin-right: 3%;
+	cursor:pointer;
+}
+/*---------------------------------------------------------------*/
+#opciones {
+	background-color: #543222;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 40px;
+	display: inline-block;	
+	float: left;
+}
+#opciones p{
+	color: white;
+    width: 100px;
+    height: 30px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 10px;
+    letter-spacing:1px; 
+    border-radius: 10px 10px 0px 0px;
+    cursor:pointer;
+}
+#opciones .compras{
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;	
+	float: right;
+}
+#opciones .pedidos{
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;	
+	float: right;
+}
+#opciones .objetos{
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;	
+	float: right;
+	margin-right: 3%;
+}
+#opciones .objetos p{
+	padding: 0px;
+	height: 40px;
+}
+/*---------------------------------------------------------------*/
+#opcompras{
+	display: inline-block;
+	width: 100%;
+	height: auto;
+}
+.categorias{
+	color: #2197A1;
+	margin: 0px;
+	margin-right: 35px;
+	padding: 10px 0px 10px 20px;
+	font-size: 20px;
+	width: 180px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #2D1A12;
+	box-shadow: 5px 5px 3px -2px rgba(45,26,18,0.49);
+	display: inline-block;
+	float: left;
+	height: 500px;
+}
+/*---------------------------------------------------------------*/
+.productos img{
+	height: 250px;
+	width: 210px;
+	float: left;
+	position: absolute;
+}
+.productos .info{
+	display: block;
+	position: relative;
+}
+.productos .titulo p{	
+	margin: 0px;
+	width: 210px;
+	margin-top: 255px;
+}
+.productos .precio p{	
+	margin: 0px;
+	width: 210px;
+	font-family: sans-serif;
+}
+.productos{
+	background-color: white;
+	display: inline-block;
+	float: left;
+	width: 210px;
+	margin: 25px;
+	cursor:pointer;
+}
+#opobjetos{
+	float: left;
+	padding: 0px 150px 0px 150px;
+}
+#oppedidos{
+	float: left;
+	padding: 0px 150px 0px 150px;
+}
+#oppedidos .descripcion p{margin:0px;}
+/*----------------------------------------------------------------*/
+.imagen img{
+	padding: 0px;
+	margin: 15px;
+	width: 430px;
+	height: 500px;
+	display: inline-block;
+	float: left;
+}
+.datos{
+	padding: 0px;
+	margin: 15px;
+	display: inline-block;
+	float: left;
+	width: 40%;
+}
+.datos p{
+	margin: 0px;
+}
+.datos .titulo{
+	margin: 25px 0px 15px 0px;
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.datos .titulo p{font-size: 28px;}
+.datos .descripcion{
+	margin: 0px 0px 15px 0px;
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.datos .descripcion p{font-size: 18px;}
+.datos .precio p{
+	margin: 0px 0px 15px 0px;
+	font-family: sans-serif;
+	font-size: 18px;
+}
+.datos .comprar , .datosPedido .enviar{
+	width: 110px;
+	height: auto;
+	background-color: #E0855B;
+	display: inline-block;
+	float: left;
+	margin: 0px 5% 15px 0px;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+.contactar{
+	width: 110px;
+	height: auto;
+    background-color: #2197A1;
+	display: inline-block;
+	float: left;
+	margin: 0px 18% 15px 0px;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+.calificacion{
+	display: inline-block;
+	float: left;
+	margin: 0px 0px 15px 0px;
+}
+.calificacion p{
+	text-align: center;
+}
+ .calificacion .estrellas{padding-left: 20%}
+.calificacion .estrellas img{
+	display: inline-block;
+	float: left;
+	width: 20px;
+	height: auto;
+}
+.reportar{
+	width: 30%;
+	padding-left: 250px;
+}
+.reportar p{margin:0px;}
+.reportar .boton{
+	height: 25px;
+	width: 90px;
+	background-color: #AD0500;
+	display: inline-block;
+	float: left;
+	padding: 2px;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.reportar .boton img{
+	width: 10px
+	height: auto;
+	display: inline-block;
+	float: left;
+}
+.reportar .boton p{
+	color: black;
+	display: inline-block;
+	float: left;
+}
+.reportar .razones{
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.reportar .razones p{
+	margin: 8px 0px 8px 0px;
+}
+.reportar .razones button{
+	margin-top: 8px;
+	background-color: #E0855B;
+	border-color: #E0855B;
+	border-radius: 5px;
+	font-size: 15px;
+	cursor:pointer;
+}
+/*-------------------------------------------*/
+.datosPedido{
+	padding: 0px;
+	margin: 15px;
+	margin-left: 15px;
+	display: inline-block;
+	float: left;
+	width: 20%;
+}
+.imagenn{
+	margin-left: 9%;
+	display: inline-block;
+	float: left;
+}
+.datosPedido p{
+	margin: 0px 0px 5px 0px;
+	display: inline-block;	
+}
+.datosPedido .titulo{
+	margin: 25px 0px 15px 0px;
+	display: inline-block;
+}
+.datosPedido .titulo p{
+	font-size: 28px;
+}
+.datosPedido .producto , .datosPedido .precio , .datosPedido .dia, .datosPedido .cantidad, .datosPedido .descripcion{
+	margin-bottom: 15px;
+}
+input, select{
+	border-radius: 5px;
+}
+.datosPedido .cantidad , .datosPedido .precio{
+	display: inline-block;
+	margin-right: 10px;
+}
+.datosPedido .contactar{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+
+.datosLocal{
+	width: 100%;
+}
+.imagenn img{
+	padding: 0px;
+	margin: 15px;
+	width: 430px;
+	height: 500px;
+	display: inline-block;
+	float: left;
+}
+/*--------------------------------------------------------*/
+.datosObjeto p{
+	margin: 0px 0px 5px 0px;
+	display: inline-block;	
+}
+.datosObjeto .titulo{
+	margin: 25px 0px 15px 0px;
+	display: inline-block;
+}
+.datosObjeto .titulo p{
+	font-size: 28px;
+}
+.datosObjeto .descripcion{
+	margin-bottom: 15px;
+}
+.datosObjeto{
+	padding: 0px;
+	margin: 15px;
+	margin-left: 15px;
+	display: inline-block;
+	float: left;
+	width: 20%;
+}
+/*----------------------------------------------------------------*/
+.imagenp{
+	width: 430px;
+	height: 500px;
+	background-image: url(pay.jpg);
+	display: inline-block;
+	float: left;
+	margin: 30px 30px 0px 9%;
+}
+.imagenp .imagen img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 410px 10px 10px 0px;
+}
+.datosPublica{
+	display: inline-block;
+	float: left;
+}
+.datosPublica p{
+	margin: 0px 0px 8px 0px;
+	display: inline-block;	
+}
+.datosPublica .titulo{
+	margin: 25px 0px 15px 0px;
+	display: inline-block;
+}
+.datosPublica .titulo p{
+	font-size: 28px;
+}
+.datosPublica .descripcion{
+	margin-bottom: 15px;
+}
+.datosPublica .tipos {
+	margin-bottom: 25px;
+}
+.datosPublica .Publicar{
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+textarea{
+	font-family: Trebuchet MS;
+}
+.datosPublica .titulo input{
+	font-size: 28px;
+	margin-top: 10px;
+}
+.imagenp .bloqueado{
+	width: 430px;
+	background-color: #AD0500;
+	position: absolute; z-index: 3;
+}
+.imagenp .bloqueado  p{
+	font-size: 30px;
+	padding-top: 15px;
+	margin: 0px 0px 0px 15px;
+}
+/*----------------------------------------*/
+.contenido{
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.contenido p{
+	margin: 0px;
+}
+.contenido .menui{
+	display: inline-block;
+	float: left; 
+	width: 30%;
+	height: 100%;
+}
+.contenido .menu{
+	display: inline-block;
+	float: left;
+	margin: 45px 0% 0px 18%;
+	padding: 15px;
+	width: 62%;
+	height: 30%;
+	border: 1px solid;
+	border-color: #2D1A12;
+	box-shadow: 5px 5px 3px -2px rgba(45,26,18,0.49);
+}
+.contenido .menu p{
+	font-size: 25px;
+	margin: 0px 0px 30px 0px;
+}
+.contenido .menu p:hover{
+	color:#2197A1;
+	cursor: pointer;
+}
+.cuadros{
+	width: inherit;
+	display: inline-block;
+	float: left;
+	width: 50%;
+	padding: 20px 0px 0px 80px;
+}
+.contenido .cuadros .mensajes, .contenido .cuadros .ventas,.contenido .cuadros .compras,.contenido .cuadros .pedidos{
+	width: 180px;
+	height: 150px;
+	display: block;
+	float: left;
+	border: 1px solid;
+	border-color: #2D1A12;
+	margin-bottom: 26%
+	/*box-shadow: 5px 5px 3px -2px rgba(45,26,18,0.49);*/
+}
+.contenido .arriba{
+	display: inline-block;
+	float: left;
+	width: 250px;
+	margin: 45px 5% 0px 0px 
+}
+.contenido .abajo{
+	display: inline-block;
+	float: left;
+	width: 250px;
+	margin: 45px 0px 0px 0px
+}
+
+.contenido .cuadros .titulo p{
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 40px;
+	font-size: 20px;
+}
+.contenido .cuadros .cuenta p{
+	text-align: center;
+	font-size: 15px;
+}
+.contenido .cuadros .pedidos:hover{	
+	cursor: pointer;
+	background-color: #2197A1 ;
+}
+.contenido .cuadros .compras:hover{	
+	cursor: pointer;
+	background-color: #2197A1 ;
+}
+.contenido .cuadros .ventas:hover{	
+	cursor: pointer;
+	background-color: #2197A1 ;
+}
+.contenido .cuadros .mensajes:hover{	
+	cursor: pointer;
+	background-color: #2197A1 ;
+}
+/*----------------------------------------------------*/
+.perfil{
+	display: inline-block;
+	float: left;
+	width: 60%;
+}
+.perfil .imagenPerfil{
+	width: 350px;
+	height: 350px;
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin-top: 45px;
+}
+.perfil .imagenPerfil img{
+	width: 350px;
+	height: 350px;
+	border-radius: 175px;
+}
+.perfil .imagenPerfil .agregar{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	background-image: url(camara.png);
+	position: absolute; left: 250px; top: 270px; z-index: 3;
+}
+.perfil .info {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	margin: 90px 0px 50px 30px;
+}
+.perfil .info p{
+	margin-bottom: 5px;
+}
+.perfil .info .boton{
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+	margin-top:15px;
+}
+.perfil .calificacion{
+	width: 350px;
+	display: inline-block;
+	float: left;
+}
+.perfil input{
+	margin-bottom: 10px:;
+}
+.perfil .calificacion .comprador, .perfil .calificacion .vendedor{
+	width: 150px;
+	display: inline-block;
+	float: left;
+}
+.perfil .calificacion .comprador p, .perfil .calificacion .vendedor p{
+	padding-left: 10px;
+}
+/*-----------------------------------------------*/
+.notificacionesTitulo {
+	display: inline-block;
+	float: left;
+	width: 25%;
+}
+.notificacionesTitulo .titulo p{
+	font-size: 30px;
+	margin-top: 45px;
+}
+.lasNotificaciones{
+	height: 400px;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;	
+	margin-top: 10px;
+	overflow-y:visible;
+	overflow-y:auto;
+}
+.lasNotificaciones .notificacion{
+	padding: 8px 0px 8px 5px;
+	cursor: pointer;
+}
+.lasNotificaciones .notificacion:hover{
+	background-color: #f1a480;
+}
+.contenidoNoti{
+	margin: 90px 0px 0px 10px;
+	display: inline-block;
+	float: left;
+	width: 35%;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;
+	overflow-y:visible;
+	overflow-y:auto;
+	padding: 10px 0px 0px 10px;
+}
+.contenidoNoti .boton{
+	float: right;
+	margin: 15px 10px 10px 0px;
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+}
+.contenidoNoti .titulo p{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+/*----------------------------------------------------------*/
+.Ventas .Titulo{
+	font-size: 28px;
+	margin-bottom: 15px;
+}
+.Ventas{
+	display: inline-block;
+	float: left;
+	width: 60%;
+	margin-top: 45px;
+}
+.publicado, .bloqueado, .finalizado{
+	margin-top: 10px;
+}
+.Ventas .curso, .publicado, .bloqueado, .finalizado {
+	width: 95%;
+	display: inline-block;
+	height: 60px;
+	margin-bottom: 10px;
+	background-color: white;
+}
+.Ventas .curso .foto, .publicado .foto, .bloqueado .foto, .finalizado .foto{
+	width: 80px;
+	height: 55px;
+	float: left;
+	display: inline-block;
+	margin-right: 5px;
+}
+.Ventas img{
+	width: 80px;
+	height: 55px;
+}
+.Ventas .curso .resumen, .publicado .resumen, .bloqueado .resumen, .finalizado .resumen{
+	display: inline-block;
+	float: left;
+	height: 55px;
+	width: 30%;
+	padding-top: 10px;
+}
+.Ventas .curso .detalles, .publicado .detalles, .bloqueado .detalles, .finalizado .detalles{
+	height: 55px;
+	display: inline-block;
+	float: right;
+	width: 100px;
+	padding-top: 20px;
+}
+.Ventas .curso .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.Ventas .curso .boton, .publicado .boton, .bloqueado .boton, .finalizado .boton{
+	display: inline-block;
+	float: right;
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	color: white;
+	text-align: center;
+	height: 22px;
+	padding: 3px;
+	margin: 15px 5px 0px 0px;
+}
+.publicado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.bloqueado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.finalizado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.finalizado .eliminar{
+	height: 40px;
+	width: 35px;
+	float: right;
+	display: inline-block;
+	margin: 10px 8px 0px 0px;
+	cursor: pointer;
+}
+.finalizado .eliminar img{
+	height: 40px;
+	width: 35px;
+	float: right;
+	display: inline-block;
+}
+/*---------------------------------------------*/
+.contenido .imagenError{
+	margin-top: 70px;
+}

@@ -1,0 +1,266 @@
+body{
+	margin:0px;
+	padding: 0px;
+	font-family: Trebuchet MS;
+	background-color: #FAFAFA;
+	display: inline-block;
+	width: 100%;
+	overflow: auto;
+}
+body #inicio{
+	background-color: #543222;
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: 60px;
+	display: inline-block;
+	float: left;
+}
+p{margin: 0px;}
+#inicio .logo img{
+	width: 75px;
+	height: auto;
+	margin: 2px 2px 0px 2px;
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+	margin-left: 3%;
+}
+#inicio .logo p{
+	margin: 0px;
+	margin-left: 5px;
+	padding-top: 0px;
+	width: 170px;
+	height: auto;
+    display: inline-block;
+	float: left;
+	color: white;
+	font-family: Brush Script MT; 
+	font-size:48px;
+	cursor:pointer;
+}
+#inicio .cuenta{
+	display: inline-block;
+	float: right;
+	margin-right: 2%;
+	width: 110px;
+}
+#inicio .cuenta img{
+	height: 38px;
+	width: auto;
+	margin: 10px 5px 0px 0px;
+	display: inline-block;
+	float: left;
+	margin-left: 3%;
+	cursor:pointer;
+}
+#inicio .cuenta p{
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	color: white;
+	cursor:pointer;
+}
+.contenido{
+	display: inline-block;
+	float: left;
+	width: 100%;
+}
+.boton{
+	width: 110px;
+	height: auto;
+	background-color: #E0855B;
+	display: inline-block;
+	float: left;
+	/*margin: 0px 5% 15px 0px;*/
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+input, select{
+	border-radius: 5px;
+	font-family: Trebuchet MS;
+}
+.menu{
+	width: 17%;
+	display: inline-block;
+	float: left;
+	margin: 0px 0px 0px 0%;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	box-shadow: 5px 5px 3px -2px rgba(45,26,18,0.49);
+	padding: 45px 0px 0px 25px;
+	font-size: 20px;
+	height: 300px;
+}
+.menu p{
+	margin-bottom: 8px
+}
+.menu p:hover{
+	color:#2197A1;
+	cursor: pointer;
+}
+/*----------------------------------------------------------------------------*/
+.notificacionesTitulo {
+	display: inline-block;
+	float: left;
+	width: 25%;
+	padding-left: 2%;
+}
+.notificacionesTitulo .titulo p{
+	font-size: 30px;
+	margin-top: 45px;
+}
+.lasNotificaciones{
+	height: 400px;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;	
+	margin-top: 10px;
+	overflow-y:visible;
+	overflow-y:auto;
+}
+.lasNotificaciones .notificacion{
+	padding: 8px 0px 8px 5px;
+	cursor: pointer;
+}
+.lasNotificaciones .notificacion:hover{
+	background-color: #f1a480;
+}
+.contenidoNoti{
+	margin: 90px 0px 0px 10px;
+	display: inline-block;
+	float: left;
+	width: 40%;
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: #2D1A12;
+	overflow-y:visible;
+	overflow-y:auto;
+	padding: 10px 0px 0px 10px;
+}
+.contenidoNoti .boton{
+	float: right;
+	margin: 15px 10px 10px 0px;
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+}
+.contenidoNoti .titulo p{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.boton{
+	width: 110px;
+	height: auto;
+	background-color: #E0855B;
+	display: inline-block;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+/*--------------------------------------------------------------*/
+.imagenp{
+	width: 430px;
+	height: 500px;
+	display: inline-block;
+	float: left;
+	margin: 30px 30px 0px 9%;
+}
+.imagenp img{
+	width: 430px;
+	height: 500px;
+}
+.datosPublica{
+	display: inline-block;
+	float: left;
+}
+.datosPublica p{
+	margin: 0px 0px 8px 0px;
+	display: inline-block;	
+}
+.datosPublica .titulo{
+	margin: 30px 0px 15px 0px;
+	display: inline-block;
+}
+.datosPublica .titulo input{
+	font-size: 28px;
+}
+.datosPublica .descripcion{
+	margin-bottom: 15px;
+}
+textarea{
+	font-family: Trebuchet MS;
+}
+/*-----------------------------------------------------------------------*/
+.perfil{
+	display: inline-block;
+	float: left;
+	width: 60%;
+}
+.perfil .imagenPerfil{
+	width: 350px;
+	height: 350px;
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin-top: 45px;
+	margin-left: 10%;
+	margin-right: 10px;
+}
+.perfil .imagenPerfil img{
+	width: 350px;
+	height: 350px;
+	border-radius: 175px;
+}
+.perfil .imagenPerfil .agregar img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	position: absolute; left: 250px; top: 270px; z-index: 3;
+}
+.imagenp .agregar img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	position: absolute; left: 550px; top: 500px; z-index: 3;
+}
+.perfil .info {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	margin: 90px 0px 50px 30px;
+}
+.perfil .info p{
+	margin-bottom: 5px;
+}
+.perfil .info .boton{
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+	margin-top:15px;
+}

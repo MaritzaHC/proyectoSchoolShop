@@ -1,0 +1,22 @@
+.menu{
+	width: 100%;
+	display: inline-block;
+	float: left;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 45px 0px 0px;
+	font-size: 20px;
+	height: 30px;
+	background-color: var(--barra);
+	color: var(--fondo);
+}
+.menu .submenu p:hover{
+	cursor: pointer;
+	color:var(--color-letra-base);
+	background-color: var(--fondo);
+}
+.menu .submenu p{
+	display: inline-block;
+	float: right;
+	padding: 3px 25px 0px 25px;
+	height: 30px;
+}

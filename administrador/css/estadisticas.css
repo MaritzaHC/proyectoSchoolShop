@@ -1,0 +1,17 @@
+.eComerciantes, .eEstudiantes{
+	display: inline-block;
+	float: left;
+	margin: 35px 0px 0px 7%;
+	width: 93%;
+	height: auto;
+}
+.eComerciantes p, .eEstudiantes p{
+	font-size: 28px;
+}
+.eComerciantes .estadistica img, .eEstudiantes .estadistica img{
+	width: 550px;
+	height: auto;
+	display: inline-block;
+	float: left;
+	margin: 15px;
+}

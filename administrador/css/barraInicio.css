@@ -1,0 +1,123 @@
+body #inicio{
+	background-color: var(--barra);
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: 60px;
+	display: inline-block;
+	float: left;
+}
+p{margin: 0px;}
+#inicio .logo img{
+	width: 75px;
+	height: auto;
+	margin: 2px 2px 0px 2px;
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+	margin-left: 3%;
+}
+#inicio .logo p{
+	margin: 0px;
+	margin-left: 5px;
+	padding-top: 0px;
+	width: 170px;
+	height: auto;
+    display: inline-block;
+	float: left;
+	color: white;
+	font-family: Brush Script MT; 
+	font-size:48px;
+	cursor:pointer;
+}
+#inicio .cuenta{
+	display: inline-block;
+	float: right;
+	margin-left: 2%;
+	width: 110px;
+}
+#inicio .cuenta img{
+	height: 38px;
+	width: auto;
+	margin: 10px 5px 0px 0px;
+	display: inline-block;
+	float: left;
+	margin-left: 3%;
+	cursor:pointer;
+}
+#inicio .cuenta p{
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	color: white;
+	cursor:pointer;
+}
+#inicio .notificacion img{
+	height: 38px;
+	width: auto;
+	margin: 10px 0px 0px 10px;
+	display: inline-block;
+	float: right;
+	margin-right: 3%;
+	cursor:pointer;
+}
+#barraMenu .comerciantes p, #barraMenu .almacenistas p, #barraMenu .restricciones p, #barraMenu .estadisticas p, #barraMenu .categorias p{
+	text-align: center;
+	height: auto;
+	border-radius: 10px 10px 0px 0px;
+    cursor:pointer;
+    color: white;
+	font-size: 20px;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 5px;
+}
+#barraMenu .comerciantes, #barraMenu .almacenistas, #barraMenu .restricciones, #barraMenu .estadisticas, #barraMenu .categorias{
+	width: 16%;
+	display: inline-block;	
+	float: left;
+	background-color: var(--barra);
+}
+#barraMenu .alumnos, #barraMenu .lugares{
+	width: 10%;
+	display: inline-block;	
+	float: left;
+	background-color: var(--barra);	
+}
+#barraMenu .alumnos p, #barraMenu .lugares p{
+	text-align: center;
+	height: auto;
+	border-radius: 10px 10px 0px 0px;
+    cursor:pointer;
+    color: white;
+	font-size: 20px;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 5px;	
+}
+#barraMenu .comerciantes p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .almacenistas p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .restricciones p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .estadisticas p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .categorias p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .alumnos p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .lugares p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}

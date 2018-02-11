@@ -1,0 +1,81 @@
+.barraBuscar{
+	float: right;
+	display: inline-block;
+	width: 335px;
+	margin-right: 4%;
+}
+.barraBuscar input{
+	border-radius: 8px 0px 0px 8px;
+	border: 2px solid #ffffff;
+	display: inline-block;
+	float: left;
+	height: 23px;
+	margin-left: 1%;
+	margin-top: 15px
+}
+.barraBuscar img{
+	border-radius: 0px 8px 8px 0px;
+    background-color: var(--boton);
+ 	display: inline-block;
+	float: left;
+	height: 22.6667px;
+	width: auto;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+}
+.abajo{
+	display: inline-block;
+	float: left;
+	width: 100%;
+	height: 80px;
+}
+.abajo{
+	display: inline-block;
+	float: left;
+	margin: 0px 6% 0px 6%;
+	width: 88%;
+	height: auto;
+}
+.resultado:hover{
+	background-color: #f4e9e4;
+}
+.resultado{
+	width: 100%;
+	height: 55px;
+	display: inline-block;
+	float: left;
+	background-color: white;
+	margin-bottom: 10px;
+	cursor: pointer;
+	border: solid 3px;
+	border-color: var(--bordes);
+	border-radius: 10px;
+}
+.arriba{
+	display: inline-block;
+	float: left;
+	width: 88%;
+	height: 60px;
+	margin: 45px 6% 20px 6%;
+	background-color: var(--barra);
+	border-radius: 10px;
+}
+.arriba .boton {
+	margin: 15px 0px 0px 15px;
+}
+.resultado p{
+	font-size: 20px;
+	margin: 15px 0px 0px 15px;
+	float: left;
+}
+.resultado .calificacion{
+	float: right;
+	margin: 15px 5px 0px 0px;
+}
+.resultado .imagen img{
+	float: right;
+	margin: 15px 15px 0px 5px;
+	height: 25px;
+	width: auto;
+}

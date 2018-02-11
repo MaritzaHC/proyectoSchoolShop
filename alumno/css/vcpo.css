@@ -1,0 +1,92 @@
+.Ventas .Titulo{
+	font-size: 28px;
+	margin-bottom: 15px;
+}
+.Ventas{
+	display: inline-block;
+	float: left;
+	width: 60%;
+	margin-top: 45px;
+}
+.publicado, .bloqueado, .finalizado{
+	margin-top: 10px;
+}
+.Ventas .curso, .publicado, .bloqueado, .finalizado {
+	width: 100%;
+	display: inline-block;
+	height: 60px;
+	margin-bottom: 10px;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	border: 3px solid;
+	border-color: var(--bordes);
+	color: gray;
+}
+.Ventas .curso .foto, .publicado .foto, .bloqueado .foto, .finalizado .foto{
+	width: 80px;
+	height: 55px;
+	float: left;
+	display: inline-block;
+	margin-right: 5px;
+}
+.Ventas img{
+	width: 80px;
+	height: 55px;
+}
+.Ventas .curso .resumen, .publicado .resumen, .bloqueado .resumen, .finalizado .resumen{
+	display: inline-block;
+	float: left;
+	height: 55px;
+	width: 30%;
+	padding-top: 10px;
+}
+.Ventas .curso .detalles, .publicado .detalles, .bloqueado .detalles, .finalizado .detalles{
+	height: 55px;
+	display: inline-block;
+	float: right;
+	width: 100px;
+	padding-top: 20px;
+}
+.Ventas .curso .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.Ventas .curso .boton, .publicado .boton, .bloqueado .boton, .finalizado .boton{
+	display: inline-block;
+	float: right;
+	width: 90px;
+	height: auto;
+	background-color: #E0855B;
+	color: white;
+	text-align: center;
+	height: 22px;
+	padding: 3px;
+	margin: 15px 5px 0px 0px;
+}
+.publicado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.bloqueado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.finalizado .detalles:hover{
+	color: #2197A1;
+	cursor: pointer;
+}
+.finalizado .eliminar{
+	height: 40px;
+	width: 35px;
+	float: right;
+	display: inline-block;
+	margin: 10px 8px 0px 0px;
+	cursor: pointer;
+}
+.finalizado .eliminar img{
+	height: 40px;
+	width: 35px;
+	float: right;
+	display: inline-block;
+}

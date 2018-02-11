@@ -1,0 +1,38 @@
+.informacion{
+	display: inline-block;
+	float: left;
+	margin: 45px 15px 0px 7%;
+	width: 30%
+}
+.informacion .nombre{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.informacion .telefono{
+	margin-bottom: 20px;
+	display: inline-block;
+	float: left;
+	width: 100%
+}
+..informacion .telefono p{
+	margin-bottom: 5px
+}
+.informacion .contrasena{
+	margin-bottom: 30px;
+	display: inline-block;
+	float: left;
+	width: 100%
+}
+.informacion .telefono p{
+	margin-bottom: 5px
+}
+ .imagenCuenta{
+	width: 60%;
+	display: inline-block;
+	float: left;
+}
+.imagenCuenta img{
+	width: 500px;
+	height: auto;
+	margin-top: 45px;
+}

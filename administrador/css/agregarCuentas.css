@@ -1,0 +1,27 @@
+.informacionComerciantes, .informacionAlmacenista, .informacionAlumnos{
+	width: 30%;
+	margin: 45px 0px 0px 10%;
+	display: inline-block;
+	float: left;
+}
+.informacionComerciantes p, .informacionAlmacenista p, .informacionAlumnos p{
+	margin: 5px 0px 5px 0px;
+}
+.informacionComerciantes .boton, .informacionAlmacenista .boton, .informacionAlumnos .boton{
+	margin-top: 15px;
+}
+ .imagenCuenta{
+	width: 60%;
+	display: inline-block;
+	float: left;
+}
+.imagenCuenta img{
+	width: 500px;
+	height: auto;
+	margin-top: 45px;
+}
+.contenido{
+	display: inline-block;
+	float: left;
+	width: 100%;
+}

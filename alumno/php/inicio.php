@@ -66,7 +66,7 @@
 		</div>
 		<!-- FIN TEMPORAL -->
 		<script type="text/javascript">
-			var id="compras";
+			var id="ñe";
 			vista(id);
 		</script>
 </body>

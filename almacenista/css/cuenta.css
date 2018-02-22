@@ -1,0 +1,45 @@
+.perfil{
+	display: inline-block;
+	float: left;
+	width: 60%;
+}
+.perfil .imagenPerfil{
+	width: 350px;
+	height: 350px;
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin-top: 45px;
+	margin-left: 10%;
+	margin-right: 10px;
+}
+.perfil .imagenPerfil img{
+	width: 350px;
+	height: 350px;
+	border-radius: 175px;
+}
+.perfil .imagenPerfil .agregar img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	position: absolute; left: 250px; top: 270px; z-index: 3;
+}
+.imagenp .agregar img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	position: absolute; left: 550px; top: 500px; z-index: 3;
+}
+.perfil .info {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	margin: 90px 0px 50px 30px;
+}
+.perfil .info p{
+	margin-bottom: 5px;
+}

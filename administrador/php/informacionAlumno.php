@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="..\..\css\general.css">
 	<link rel="stylesheet" type="text/css" href="..\css\barraInicio.css">
 	<link rel="stylesheet" type="text/css" href="..\css\informacionAlumno.css">
+	<script type="text/javascript" src="..\..\javaScript\general.js"></script>
 	<script type="text/javascript" src="..\javaScript\jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="..\javaScript\funcionesAdministrador.js"></script>
 	<meta charset="utf-8">
@@ -14,9 +15,9 @@
 <div class="contenido">
 	<div class="informacionAlumnos">
 		<p>Nombre</p>
-		<input type="text" name="nombre" size="30">
+		<p><b>El nombre</b></p>
 		<p>Registro</p>
-		<input type="text" name="registro" size="40">
+		<p><b>El registro</b></p>
 		<p>Calificacion</p>
 		<div class="calificacion">
 			<div class="comprador">

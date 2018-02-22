@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" href="..\css\general.css">
+<link rel="stylesheet" type="text/css" href="..\alumno\css\informacionCompra.css">
+<script type="text/javascript" src="..\javaScript\jquery-3.2.1.js"></script>
+<script type="text/javascript" src="..\javaScript\general.js"></script>
 
 <div id="popup">
    <div class="popup-contenedor">
@@ -18,5 +22,18 @@
       <p>¿Esta seguro de realizar esta accion?</p>
       <div class="boton" onclick="popup(2,'seguro')">Aceptar</div>
       <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
+   </div>
+</div>
+
+<div id="razones">
+   <div class="popup-contenedor">
+      <div class="popup-cerrar" onclick="popup(2,'razones')">X</div>
+      <p>Seleccione la razon</p>
+         <input type="checkbox" name="razon" value="1">Lenguaje inapropiado <br><br>
+         <input type="checkbox" name="razon" value="2">La foto no coincide con la descripcion <br><br>
+         <input type="checkbox" name="razon" value="3">La descripcion no coincide con la foto <br><br>
+         <input type="checkbox" name="razon" value="5">No corresponden las categorias <br><br>
+         <input type="checkbox" name="razon" value="6">El precio no es razonable <br><br>
+         <div class="boton" onclick="popup(2,'razones')">Enviar</div>
    </div>
 </div>

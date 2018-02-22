@@ -1,0 +1,17 @@
+#imagen{
+	width: 300px;
+	height: auto;
+	display: inline-block;
+	float: left;
+}
+#datos .olvidar:hover{
+	cursor: pointer;
+	color: var(--bordes);
+	float: left;
+}
+#con{
+	display: inline-flex;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+}

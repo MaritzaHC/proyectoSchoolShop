@@ -21,6 +21,7 @@
     letter-spacing:1px; 
     border-radius: 10px 10px 0px 0px;
     cursor:pointer;
+    border: none;
 }
 #opciones .compras{
 	padding: 0px;

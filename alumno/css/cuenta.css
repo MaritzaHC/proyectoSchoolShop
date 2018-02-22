@@ -3,7 +3,14 @@
 	float: left;
 	width: 60%;
 }
-.perfil .imagenPerfil{
+.primero{
+	width: 350px;
+	height: 350px;
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+.imagenPerfil{
 	width: 350px;
 	height: 350px;
 	display: inline-block;
@@ -11,12 +18,12 @@
 	position: relative;
 	margin-top: 45px;
 }
-.perfil .imagenPerfil img{
+.imagenPerfil .imagen img{
 	width: 350px;
 	height: 350px;
 	border-radius: 175px;
 }
-.perfil .imagenPerfil .agregar{
+.imagenPerfil .agregar{
 	width: 94px;
 	height: 76px;
 	float: right;
@@ -42,6 +49,7 @@
 	width: 350px;
 	display: inline-block;
 	float: left;
+	margin: 15px 0px 15px 0px;
 }
 .perfil input{
 	margin-bottom: 10px:;

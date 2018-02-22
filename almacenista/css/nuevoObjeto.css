@@ -1,7 +1,3 @@
-
-/*----------------------------------------------------------------------------*/
-
-/*--------------------------------------------------------------*/
 .imagenp{
 	width: 430px;
 	height: 500px;
@@ -12,6 +8,14 @@
 .imagenp img{
 	width: 430px;
 	height: 500px;
+}
+.imagenp .agregar img{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: 0px 10px 10px 0px;
+	position: absolute; left: 450px; top: 540px; z-index: 3;
 }
 .datosPublica{
 	display: inline-block;
@@ -34,4 +38,3 @@
 textarea{
 	font-family: Trebuchet MS;
 }
-/*-----------------------------------------------------------------------*/

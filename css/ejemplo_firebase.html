@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCnfy_bSImO8Yw2mTbHDJWxafzWJbrSwhA",
+    authDomain: "ejem-d74d5.firebaseapp.com",
+    databaseURL: "https://ejem-d74d5.firebaseio.com",
+    projectId: "ejem-d74d5",
+    storageBucket: "ejem-d74d5.appspot.com",
+    messagingSenderId: "1014068970636"
+  };
+  firebase.initializeApp(config);
+</script>
+  <h1 id="hola">m</h1>
+  <h2 id="eliddeljavascript"></h2>
+  <script type="text/javascript">
+    /*var holas = document.getElementById('hola');
+    var adios = document.getElementById('eliddeljavascript');
+    var dbRef = firebase.database().ref().child('hola');
+    var db = firebase.database().ref().child('adios');
+    dbRef.on('value',snap =>hola.innerText = snap.val());
+    db.on('value',snap =>eliddeljavascript.innerText = snap.val());*/
+
+    var postsRef = ref.child("titulo");
+
+    var newPostRef = postsRef.push();
+    postsRef.set({
+      otro: "ne",
+      sub: "gracehop"
+    });
+
+  </script>
+
+</body>
+
+
+</html>

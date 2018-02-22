@@ -1,30 +1,30 @@
 function ini(){
 	id="compras";
-	window.location="inicio.html?i="+id;
+	window.location="inicio.php?i="+id;
 }
 function iniOtra(id){
-	window.location="inicio.html?i="+id;
+	window.location="inicio.php?i="+id;
 }
 function notifica(){
-	window.open("notificaciones.html");
+	window.open("notificaciones.php");
 }
 function cuenta(){
-	window.open("menuMiCuenta.html");
+	window.open("menuMiCuenta.php");
 }
 function publica(){
-	window.open("publicacion.html");
+	window.open("publicacion.php");
 }
 function informacionCompra(){
-	window.open("informacionCompra.html");
+	window.open("informacionCompra.php");
 }
 function informacionPedido(){
-	window.open("informacionPedido.html");
+	window.open("informacionPedido.php");
 }
 function informacionOferta(){
-	window.open("informacionOferta.html");
+	window.open("informacionOferta.php");
 }
 function informacionObjeto(){
-	window.open("informacionObjeto.html");
+	window.open("informacionObjeto.php");
 }
 function vista(id){
 	if (id!="pedidos" && id!="compras" && id!="objetos") {
@@ -33,7 +33,7 @@ function vista(id){
 	if(id != "pedidos"){vistaNo("pedidos");}
 	if(id != "compras"){vistaNo("compras");}
 	if(id != "objetos"){vistaNo("objetos");}
-	$("." + id + " p").css({"background-color":"#fffade", "color":"#000000"});	
+	$("." + id + " p").css({"background-color":"#fffade", "color":"#af5145"});	
 	$("#op"+id).css("display","block");
 }
 function vistaNo(id){

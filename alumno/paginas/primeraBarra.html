@@ -1,17 +1,17 @@
 <link rel="stylesheet" type="text/css" href="..\css\primeraBarra.css">
 <div id="inicio">
 		<div class="logo">
-			<img src="..\..\imagenes\logo.png" onclick="ini()">
-			<p onclick="ini()">SchoolShop</p>
+			<img src="..\..\imagenes\logo.png" onclick="iniOtra('compras')">
+			<p onclick="iniOtra('compras')">SchoolShop</p>
 		</div>
 		<div class="notificacion">
-			<img src="..\..\imagenes\campana.png" onclick="notifica()">
+			<img src="..\..\imagenes\campana.png" onclick="nuevasPaginas('notificaciones')">
 		</div>
-		<div class="cuenta" onclick="cuenta()">
+		<div class="cuenta" onclick="nuevasPaginas('menuMiCuenta')">
 			<img src="..\..\imagenes\cuenta.png">
 			<p>Mi cuenta</p>
 		</div>
-		<div class="publicar" onclick="publica()"><p>Publicar</p></div>
+		<div class="publicar" onclick="nuevasPaginas('publicacion')"><p>Publicar</p></div>
 		<div class="barraBuscar">
 			<input type="text" name="">
 			<img src="..\..\imagenes\buscar.png"><!--PENDIENTE PHP-->

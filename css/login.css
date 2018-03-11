@@ -1,17 +1,33 @@
 #imagen{
 	width: 300px;
-	height: auto;
+	height: 300px;
 	display: inline-block;
 	float: left;
+	background-color: black;
+	margin-bottom: 10px;
 }
-#datos .olvidar:hover{
+#datos{
+	display: inline-block;
+}
+#datos .olvidar p:hover{
 	cursor: pointer;
-	color: var(--bordes);
-	float: left;
+	color: var(--reportar);
 }
 #con{
-	display: inline-flex;
-	margin: auto;
-	height: 100%;
-	width: 100%;
+  transform: translateY(10%);
+  height: 100%;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.conn{
+	width: 300px;
+}
+.nombre, .contrasena{
+	margin: 0px 0px 10px 0px;
+}
+.boton{
+	margin: 0px 0px 5px 20px;
 }

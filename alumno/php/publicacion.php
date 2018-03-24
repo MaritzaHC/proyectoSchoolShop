@@ -19,7 +19,7 @@
 	<div class="imagenp">
 		<img src="pay.jpg">
 		<div class="bloqueado"><p>Bloqueado</p></div>
-		<div class="imagen"><img src="..\..\imagenes\camara.png"></div>
+		<div class="imagen"><input type="file" name="userfile"></div>
 	</div>
 
 	<div class="datosPublica" style="width: 40%">
@@ -56,12 +56,12 @@
 		<p>Precio </p>
 		<input type="text" name="precio" size="3"><br><br>
 		
-		<div class="Publicar" onclick="popup(1,'seguro')">Publicar</div>
+		<div class="Publicar" onclick="popup(1,'seguro')"><input type="submit" name="publilcar"></div>
 	</div>
 	<div class="objeto">
 		<p>¿Donde lo dejo?</p>
 		<textarea name="donde" rows="7" cols="60"></textarea><br><br>
-		<div class="Publicar" onclick="popup(1,'seguro')">Publicar</div>
+		<div class="Publicar" onclick="popup(1,'seguro')"><input type="submit" name="publicar"></div>
 	</div>
 	</div>
 	</form>

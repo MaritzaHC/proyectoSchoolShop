@@ -18,7 +18,7 @@
 		<p>Por temporada, se dará un mes al inicio del semestre y al final para poder vender, el resto del tiempo no se podrá</p>
 	</div>
 	<div class="restriccion">
-		<div class="botonAzul">Quitar</div>
+		<div class="botonAzul" name="utiles" action="<?php echo $_SERVER["PHP_SELF"]?>">Quitar</div>
 		<p>Solo se pueden vender útiles escolares </p>
 	</div>
 	<div class="restriccion">

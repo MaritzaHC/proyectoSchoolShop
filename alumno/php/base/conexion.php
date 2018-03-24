@@ -5,9 +5,9 @@
   $mysql_user = 'root';
   $mysql_pass = '';*/
 
-  $mysql_host = '50.62.209.162';
-  $mysql_user = 'UsuarioSS';
-  $mysql_pass = 'Algodecente1';
+  $mysql_host = 'den1.mysql6.gear.host';
+  $mysql_user = 'baseSS';
+  $mysql_pass = 'Algodecente1.';
   $mysql_bd   = 'baseSS';
 
   $mysqli = new mysqli($mysql_host, $mysql_user, $mysql_pass, $mysql_bd);

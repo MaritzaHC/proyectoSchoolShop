@@ -1,14 +1,7 @@
 <?php
 require 'conexion.php';
 
-function mostrarProductos(){
-global $mysqli;
-$sql = "SELECT idProductos, foto, precio, titulo FROM productos WHERE tipo = 1";
-
-if(!$resultado = $mysqli->query($sql)){
-   echo "Error al consultar0.";
-   exit;
-}
+mostrarProductos();
 echo "	<div id='opcompras'>
 		<div class=\"categorias\"><p>Categorias<br></p></div>";
 	while($resul = $resultado->fetch_assoc()){
@@ -26,15 +19,7 @@ echo "	<div id='opcompras'>
 			</div>";
 	}
 echo "</div>";
-}
-function mostrarPedidos(){
-	global $mysqli;
-	$sql = "SELECT idProductos, foto, precio, titulo FROM productos WHERE tipo = 2";
-
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar1.";
-	   exit;
-	}
+mostrarPedidos()
 	echo "<div id='oppedidos'>";
 	while($resul = $resultado->fetch_assoc()){
 	    $titulo = $resul['titulo'];
@@ -50,13 +35,7 @@ function mostrarPedidos(){
 			</div>
 		</div>";
 	}
-
-	$sql = "SELECT idProductos, foto, descripcion, titulo FROM productos WHERE tipo = 3";
-
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar2.";
-	   exit;
-	}
+	mostrarOfertas();
 	while($resul = $resultado->fetch_assoc()){
 	    $titulo = $resul['titulo'];
 	    $descripcion = $resul['descripcion'];

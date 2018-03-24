@@ -11,12 +11,16 @@
 	float: left;
 	margin: 30px 30px 0px 9%;
 }
-.imagenp .imagen img{
+.imagenp .imagen input{
 	width: 94px;
 	height: 76px;
 	float: right;
 	cursor: pointer;
 	margin: -90px 10px 10px 0px;
+	background-image: url(..\..\imagenes\camara.png);
+}
+.imagenp .imagen{
+	background-image: url(..\..\imagenes\camara.png);
 }
 .datosPublica{
 	display: inline-block;
@@ -40,6 +44,18 @@
 	margin-bottom: 25px;
 }
 .datosPublica .Publicar{
+	width: 90px;
+	height: auto;
+	background-color: var(--boton);
+	float: left;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px
+}
+.datosPublica .Publicar input{
 	width: 90px;
 	height: auto;
 	background-color: var(--boton);

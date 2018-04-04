@@ -1,4 +1,4 @@
-<?php
+se<?php
 function mostrarProductos(){
 	global $mysqli;
 	$sql = "SELECT idProductos, foto, precio, titulo FROM productos WHERE tipo = 1";

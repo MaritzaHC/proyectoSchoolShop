@@ -6,7 +6,7 @@ function nuevasPaginas(id){
 	window.open(id+".php");// reemplazo notificaciones, menuMiCuenta, publicacion
 }
 function informacionProducto(tipo,cual){
-	window.open("infomracion"+tipo+".php?i="+cual+"");
+	window.open("infomracion"+tipo+".php?id="+cual+"");
 }
 function vista(id){
 	if (id!="pedidos" && id!="compras" && id!="objetos") {
@@ -41,4 +41,24 @@ function variable(variable) {
        }
    }
    return false;
+}
+function ar(evt) {
+    var files = evt.target.files; // FileList object
+             
+      // Obtenemos la imagen del campo "file".
+      for (var i = 0, f; f = files[i]; i++) {
+        //Solo admitimos imágenes.
+        if (!f.type.match('image.*')) {continue;}
+            
+        var reader = new FileReader();
+             
+        reader.onload = (function(theFile) {
+            return function(e) { // Insertamos la imagen
+             document.getElementById("list").innerHTML = 
+             ['<img src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+            };
+        })(f);
+             
+        reader.readAsDataURL(f);
+    }
 }

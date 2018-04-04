@@ -30,13 +30,15 @@ body #inicio{
 	font-size:48px;
 	cursor:pointer;
 }
+
+
 #inicio .barraBuscar{
 	float: right;
 	display: inline-block;
 	width: 19%;
 	margin-right: 2%;
 }
-#inicio .barraBuscar input{
+#inicio .barraBuscar input.buscar{
 	border-radius: 8px 0px 0px 8px;
 	border: 2px solid #ffffff;
 	display: inline-block;
@@ -46,7 +48,6 @@ body #inicio{
 	margin-top: 15px;
 	width: 76%;
 }
-
 #inicio .barraBuscar img{
 	border-radius: 0px 8px 8px 0px;
     background-color: var(--boton);
@@ -57,7 +58,22 @@ body #inicio{
 	padding: 3px;
 	margin-top: 15px;
 	cursor:pointer;
+	z-index: 1;
 }
+#inicio .barraBuscar input.botonbuscar{
+ 	display: inline-block;
+	float: left;
+	height: 26.6667px;
+	width: 25px;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+	z-index: 2;
+	margin-left: -27px;
+	opacity: 0;
+}
+
+
 #inicio .publicar{
 	display: inline-block;
 	float: right;

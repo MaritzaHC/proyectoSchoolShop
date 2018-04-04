@@ -1,3 +1,9 @@
+.imagenp img{
+	width: 430px;
+	height: 500px;
+	display: inline-block;
+	float: left;
+} 
 .imagenp{
 	width: 430px;
 	height: 500px;
@@ -5,17 +11,23 @@
 	float: left;
 	margin: 30px 30px 0px 9%;
 }
-.imagenp img{
-	width: 430px;
-	height: 500px;
-}
-.imagenp .agregar img{
+.imagenp .imagen input{
 	width: 94px;
 	height: 76px;
 	float: right;
 	cursor: pointer;
-	margin: 0px 10px 10px 0px;
-	position: absolute; left: 450px; top: 540px; z-index: 3;
+	border:none;
+	opacity: 0; 
+	z-index: 2;
+}
+.imagenp .imagen{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: -90px 10px 10px 0px;
+	background: url(http://localhost/proyecto/alumno/css/camara.png);
+	z-index: 1;
 }
 .datosPublica{
 	display: inline-block;

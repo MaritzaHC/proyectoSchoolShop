@@ -16,7 +16,7 @@
 		<div class="contrasena"><input type="password" name="contrasena" size="20"></div>
 		<div class="boton">Ingresar</div>
 		<div class="olvidar"><p>Recuperar contraseña</p></div>
-		<div class="ej" onclick="window.location='http://shoolshop.com/alumno/php/inicio.php?i=compras'">alumno</div>
+		<div class="ej" onclick="window.location='alumno/php/inicio.php?i=compras'">alumno</div>
 		<div class="ej" onclick="window.location='almacenista/php/notificaciones.php'">almacenista</div>
 		<div class="ej" onclick="window.location='administrador/php/notificaciones.php'">administrador</div>
 	</div>

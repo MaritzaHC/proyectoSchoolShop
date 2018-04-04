@@ -16,11 +16,19 @@
 	height: 76px;
 	float: right;
 	cursor: pointer;
-	margin: -90px 10px 10px 0px;
-	background-image: url(..\..\imagenes\camara.png);
+	border:none;
+	opacity: 0; 
+	background: url(camara.png);
+	z-index: 2;
 }
 .imagenp .imagen{
-	background-image: url(..\..\imagenes\camara.png);
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	margin: -90px 10px 10px 0px;
+	background: url(camara.png);
+	z-index: 1;
 }
 .datosPublica{
 	display: inline-block;

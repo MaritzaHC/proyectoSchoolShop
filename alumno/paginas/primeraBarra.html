@@ -13,7 +13,15 @@
 		</div>
 		<div class="publicar" onclick="nuevasPaginas('publicacion')"><p>Publicar</p></div>
 		<div class="barraBuscar">
-			<input type="text" name="">
-			<img src="..\..\imagenes\buscar.png"><!--PENDIENTE PHP-->
+			<form method="get" action="inicio.php" name="gg">
+				<script type="text/javascript">
+					var x = variable("i");
+			 		if(x==false) x="compras";
+			 	</script>
+				<input type="text" name="buscar" class="buscar">
+				<img src="..\..\imagenes\buscar.png">
+				<input type="submit" name="i" class="botonbuscar">
+				<script>document.gg.i.value = x;</script>
+			</form>
 		</div>
 	</div>

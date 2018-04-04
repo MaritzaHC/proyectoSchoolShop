@@ -15,9 +15,16 @@
 	<?php include '..\paginas\menu.html'; ?>
 
 	<div class="imagenp">
-		<div class="agregar"><img src="..\..\imagenes\camara.png"></div>
-		<img src="pay.jpg">
+		<output id="list"><img src="pay.jpg"></output>
+		<div class="imagen"><input type="file" id="files" name="files[]" value=" " /></div>
 	</div>
+	 <script type="text/javascript">
+		function archivo(evt) {
+			var evento = evt;
+			ar(evento);
+		}
+        document.getElementById('files').addEventListener('change', archivo, false);
+      </script>
 
 	<div class="datosPublica" style="width: 40%">
 	<div class="titulo"><input type="text" name="titulo"  placeholder="Titulo de la publicacion"></div>

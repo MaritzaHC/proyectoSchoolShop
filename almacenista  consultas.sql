@@ -43,4 +43,43 @@ select vendedor.nombre, vendedor.telefono, login.password, vendedor.ubicacion
 from vendedor, login 
 where vendedor.usuario=login.usuario and vendedor.idVendedor=ALGO;
 
-select 
+/*Restricciones*/
+UPDATE restricciones
+SET
+estado = ALGO
+WHERE idRestricciones=ALGO;
+
+SELECT estado from restricciones where idRestricciones=ALGO;
+/*Bases de las escuelas*/
+
+use escuela1;
+
+create table calificacion (id int primary key, calificacionGeneral float);
+create table maestros (id int primary key, nombre varchar(30),nomina int, materia varchar(30));
+create table alumno (id int primary key, nombre varchar(30),
+apellidoPaterno varchar(30),apellidoMaterno varchar(30),
+direccion varchar(100),fechaNacimiento datetime,
+calificacionG int, FOREIGN KEY (calificacionG) REFERENCES calificacion(id));
+
+use escuela2;
+
+create table calificacion (id int primary key, calificacionGeneral float);
+create table personal (id int primary key, nombre varchar(30),nomina int, materia varchar(30));
+create table estudiante (idAlumno int primary key,
+ nombres varchar(30),apellidoPaterno varchar(30),
+ apellidoMaterno varchar(30),direccion varchar(100),
+ fechaNacimiento datetime, situacion boolean, calificacionG int, FOREIGN KEY (calificacionG) REFERENCES calificacion(id));
+
+use escuela1;	
+insert into alumno values (14300002,"Hector","Sanchez","Sanchez","lejos","1999-01-04 04:00:00",1,"Sanchez2@gmail.com"),
+						  (14300003,"Margarito","Hernandez","Milan","lejos","1999-01-26 04:00:00",1,"mago@gmail.com"),
+						  (14300004,"Alicia","Contreras","Avalos","lejos","1999-04-30 04:00:00",1,"ali@gmail.com"),
+						  (14300005,"Fabiola","Garcia","Cuevas","lejos","1999-10-01 04:00:00",1,"fabi@gmail.com"),
+						  (14300006,"Ariadne","Calderon","Garcia","lejos","1999-02-04 04:00:00",1,"ari@gmail.com");
+
+use escuela2;
+insert into calificacion values(3,90),(4,80);
+insert into personal values(151,"Algien",445,"limpieza"),(555,"Persona",85,"Comida");
+insert into estudiante values (32555566,"Ricardo","Navarro","Algo","otro lugar","1999-09-18 04:00:00","true",3),
+	(85457885,"Abril","Medina","Landeros","otro lugar","1999-041-18 04:00:00","true",4);
+

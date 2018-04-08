@@ -24,13 +24,15 @@ echo "	<div id='opcompras'>
 	    $id = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->idProductos);
 	   //$foto = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->foto); 
 		echo "	
-			<div class='productos' onclick='informacionProducto(\"Compra\",$id)'>
+			<a href='infomracionCompra.php?id=$id'>
+			<div class='productos'>
 				<img src='b.jpg'>
 				<div class='info'>
 					<div class='titulo'><p>$titulo</p></div>
 					<div class='precio'><p>$$precio</p></div>
 				</div>
-			</div>";
+			</div>
+			</a>";
 	}
 echo "</div>";
 echo "</div>

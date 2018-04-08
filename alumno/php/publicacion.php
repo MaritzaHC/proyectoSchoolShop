@@ -64,7 +64,7 @@
 		<p>Precio </p>
 		<input type="text" name="precio" size="3"><br><br>
 		
-		<div class="Publicar" onclick="popup(1,'seguro')"><input type="submit" name="publilcar"></div>
+		<div class="Publicar" onclick="popup(1,'seguro')"><input type="submit" name="publicar"></div>
 	</div>
 	<div class="objeto">
 		<p>¿Donde lo dejo?</p>

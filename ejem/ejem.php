@@ -32,7 +32,7 @@ $parameters=array("pag"=>"1");
 
 $result=$client->productosConsultaprincipal($parameters);
 
-//var_dump($result)."</br>";
+var_dump($result)."</br>";
 
 print json_encode($result->productosConsultaprincipalResult->ProductosModelo[1]->descripcion);
 //*/

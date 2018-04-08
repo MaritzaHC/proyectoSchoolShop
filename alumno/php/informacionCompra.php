@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<title>SchollShop</title>
@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="..\..\javaScript\jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="..\..\javaScript\general.js"></script>
 	<script type="text/javascript" src="..\javaScript\funcionesEstudiante.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<meta charset="utf-8">
 </head>
 <body>

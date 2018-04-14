@@ -11,26 +11,15 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.html';
+	include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="listadoCategorias">
 		<p>Listado de lugares</p>
 		<div class="cuadro">
 			<div class="categoria">
 				<p>Nombre de los lugares</p>
-				<img src="../../imagenes/basura.png">
-			</div>
-		</div>
-		<div class="cuadro">
-			<div class="categoria">
-				<p>Nombre de los lugares</p>
-				<img src="imagenes/basura.png">
-			</div>
-		</div>
-		<div class="cuadro">
-			<div class="categoria">
-				<p>Nombre de los lugares</p>
-				<img src="imagenes/basura.png">
+				<img onclick="popup(1,'seguro',0)" src="../../imagenes/basura.png">
 			</div>
 		</div>
 	</div>

@@ -23,6 +23,16 @@
 	height: 350px;
 	border-radius: 175px;
 }
+.imagenPerfil .agregar input{
+	width: 94px;
+	height: 76px;
+	float: right;
+	cursor: pointer;
+	border:none;
+	opacity: 0; 
+	background: url(camara.png);
+	z-index: 2;
+}
 .imagenPerfil .agregar{
 	width: 94px;
 	height: 76px;

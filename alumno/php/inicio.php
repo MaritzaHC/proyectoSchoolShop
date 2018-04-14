@@ -20,8 +20,8 @@
 	  		elseif ($_REQUEST["i"]=="pedidos"){buscarPedidos();}
 	  		elseif ($_REQUEST["i"]=="objetos"){buscarObjetos();}
 	  }
-	  elseif ($_REQUEST["i"]=="compras"){mostrarProductos();}
-	  elseif ($_REQUEST["i"]=="pedidos"){mostrarPedidos();}
+	  elseif ($_REQUEST["i"]=="compras"){mostrarProductos(1,1);}
+	  elseif ($_REQUEST["i"]=="pedidos"){mostrarPedidos(2,1);}
 	  elseif ($_REQUEST["i"]=="objetos"){mostrarObjetos(); }
 ?>	
 </body>

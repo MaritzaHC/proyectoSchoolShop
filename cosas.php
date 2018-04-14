@@ -1,58 +1,5 @@
 <?php
-//Solo un estudiante
-//cuantos productos publicados
-global $mysqli;
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and id_alumno.calificacion_alumno = ALGO and calificacionComprador.calificacion_alumno = NULL and fecha.productos < algo and fecha.productos > algo";
 
-$cantidad = mysql_num_rows($sql);
-
-//cuantos productos comprados
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and id_alumno.calificacion_alumno = ALGO and calificacionVendedor.calificacion_alumno = NULL";
-
-$cantidad = mysql_num_rows($sql);
-
-//porcentaje con la calificacion de las publicaciones
-global $mysqli;
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and id_alumno.calificacion_alumno = ALGO and calificacionComprador.calificacion_alumno = NULL";
-
-$cantidad = mysql_num_rows($sql);
-
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and id_alumno.calificacion_alumno = ALGO and calificacionComprador.calificacion_alumno = NULL and calificacionVendedor.calificacion_alumno < 2";
-
-$malaC = mysql_num_rows($sql);
-
-$buenaC = $cantidad-$malaC; 
-
-//todos los estudiantes
-//cantidades de publicaciones
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and calificacionComprador.calificacion_alumno = NULL and fecha.productos < algo and fecha.productos > algo";
-
-$cantidad = mysql_num_rows($sql);
-//promedio
-$sql ="SELECT idAlumno FROM alumno"
-
-$promedio = $cantidad/mysql_num_rows($sql);
-//porcentaje con la calificacion de las publicaciones
-global $mysqli;
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and calificacionComprador.calificacion_alumno = NULL";
-
-$cantidad = mysql_num_rows($sql);
-
-$sql = "SELECT idProductos.productos FROM productos, calificacion_alumno WHERE tipo.productos = 1 and idProductos.productos = productos.calificacion_alumno and calificacionComprador.calificacion_alumno = NULL and calificacionVendedor.calificacion_alumno < 2";
-
-$malaC = mysql_num_rows($sql);
-
-$buenaC = $cantidad-$malaC; 
-?>
-<?php
-include('lib/nusoap.php');
-$client = new nusoap_client('',true);
-
-if(isset($_POST[])){
-	$param=array(
-		
-	)
-}
 
 INSERT INTO tabla (campo1, campo2)
 VALUES (NOW(), valor);
@@ -70,6 +17,7 @@ create trigger calificacion before update on calificacion_alumno for each row be
 
 if (calificacionVendedor < 2 || calificacionComprador < 2) insert into notificaciones (texto,titulo,usuario) values ("Cuenta bloqueada","...");
 end
+
 delimiter ;
 
 DO
@@ -83,7 +31,7 @@ DELIMITER |/*notificacion vender*/
 CREATE EVENT diass ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
 DO
 	BEGIN
-		INSERT INTO /*NOTIFICACIONES;*/
+		INSERT INTO /*NOTIFICACI ONES;*/
 	END |
 DELIMITER ;
 
@@ -104,7 +52,45 @@ delimiter;
 /*Conteo de calificacines*/
 
 
+/*Evento para que una semana despues del inicio del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
+CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 7 DAY
+DO
+	INSERT INTO notificaciones (usuario,titulo,texto)
+	SELECT usuario, "Es un buen momento para vender", "Es inicio de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del ultimo semestre" 
+	from login where usuario LIKE "1%";
+/*Evento para que al final del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
+CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
+DO
+	INSERT INTO notificaciones (usuario,titulo,texto)
+	SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
+	from login where usuario LIKE "1%";
 
-create table reportes (idReportes int primary key, 
-                             titulo smallint, alumno int, 
-                             FOREIGN KEY (alumno) REFERENCES alumno(idAlumno)); 
+delimiter //
+ CREATE TRIGGER reporte BEFORE INSERT ON reportes
+       BEGIN
+       //falta la calificacion
+       		INSERT INTO notificaciones (usuario,titulo,texto) 
+       		values (ALGO,"Nuevo reporte","Una publicacion se reporto" );
+       		INSERT INTO notificaciones (usuario,titulo,texto) 
+       		values (ALGO,"Nuevo reporte","Una publicacion se reporto" ) where variable!=4;//en ese reporte no llega la notificacion al admin
+       		update productos SET estadi=4 WHERE vendedor=ALGO;
+       END;//
+delimiter ;
+
+delimiter //
+ CREATE TRIGGER venta BEFORE UPDATE ON productos
+       FOR EACH ROW WHEN (new.estado = 2) BEGIN
+       		INSERT INTO notificaciones (usuario,titulo,texto) 
+       		values (old.vendedor,"Nuevo reporte","Una publicacion se reporto" );
+       		INSERT INTO notificaciones (usuario,titulo,texto) 
+       		values (4,"Nuevo reporte","Una publicacion se reporto" ) where variable!=4;//en ese reporte no llega la notificacion al admin
+       END;//
+delimiter ;
+
+delimiter //
+ CREATE TRIGGER calificacionA BEFORE UPDATE ON calificacion_alumno
+       FOR EACH ROW BEGIN
+       		INSERT INTO notificaciones (usuario,titulo,texto) 
+       		values (old.vendedor,"Nuevo reporte","Una publicacion se reporto" );
+       END;//
+delimiter ;

@@ -1,13 +1,14 @@
 /*cuantos productos publicados por estudiante*/
 select COUNT(*) from productos where estado=3 and
-tipo=1 and vendedor=ALGO and fecha BETWEEN ALGO AND ALGO;
+tipo=1 and vendedor=ALGO and (fecha BETWEEN ALGO AND ALGO);
 /*cuantos productos coomprados por estudiante*/
 select COUNT(*) from productos where 
-tipo=1 and comprador=ALGO and fecha BETWEEN ALGO AND ALGO;
+tipo=1 and comprador=ALGO and (fecha BETWEEN ALGO AND ALGO);
 /*cantidad de productos vendidos con calificacion mala por estudiante*/
 select COUNT(*) from productos, calificacion_alumno where productos.estado=3 and
-productos.tipo=1 and productos.vendedor=ALGO and calificacion_alumno.productos=productos.idProductos and calificacion_alumno.calificacionVendedor<2
-and productos.fecha BETWEEN ALGO AND ALGO;
+productos.tipo=1 and productos.vendedor=ALGO and calificacion_alumno.productos=productos.idProductos and 
+calificacion_alumno.calificacionVendedor<2
+and (productos.fecha BETWEEN ALGO AND ALGO);
 
 /*cantidad de productos publicados*/
 select COUNT(*) from productos where estado=3 and
@@ -26,22 +27,29 @@ AVG(calificacion_alumno.calificacionComprador)<2 GROUP BY alumno.idAlumno;
 
 
 /*Vistas*/
+/*ver a todos los vendedores*/
 select vendedor.idVendedor, vendedor.nombre, AVG(factura_vendedor.calificacionVendedor) as "promedio"
 from vendedor, factura_vendedor where vendedor.idVendedor=factura_vendedor.id_vendedor GROUP BY idVendedor;
-
+/*ver a todos los almacenistas*/
 select nombre from almacenista;
-
+/*ver a todos los alumnos*/
 select idAlumno, nombre from alumno;
-
+/*ver todas las restricciones*/
 select idRestricciones, estado from restricciones;
-
+/*ver todas las categoiras*/
 select *from categorias;
-
+/*ver todos los lugares -PENDIENTE-*/
 select *from lugar;
-
+/*Ver en especial al vendedor*/
 select vendedor.nombre, vendedor.telefono, login.password, vendedor.ubicacion 
 from vendedor, login 
 where vendedor.usuario=login.usuario and vendedor.idVendedor=ALGO;
+/*ver en especial al alumno*/
+select alumno.idAlumno, alumno.nombre, alumno.apellidoP, alumno.apellidoM,  
+AVG(calificacion_alumno.calificacionVendedor) as "promedioV",AVG(calificacion_alumno.calificacionComprador) as "promedioC"
+from alumno, calificacion_alumno
+where alumno.id_alumno=calificacion_alumno.id_alumno and alumno.idAlumno = ALGO 	
+
 
 /*Restricciones*/
 UPDATE restricciones
@@ -50,8 +58,9 @@ estado = ALGO
 WHERE idRestricciones=ALGO;
 
 SELECT estado from restricciones where idRestricciones=ALGO;
-/*Bases de las escuelas*/
 
+
+/*Bases de las escuelas*/
 use escuela1;
 
 create table calificacion (id int primary key, calificacionGeneral float);

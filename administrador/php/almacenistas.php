@@ -11,29 +11,24 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.html';
+	include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
 		<div class="boton" onclick="irPagina('agregarAlmacenista')">Agregar</div>
 		<div class="barraBuscar">
-			<input type="text" name="" size="40">
-			<img src="..\..\imagenes\buscar.png"><!--PENDIENTE PHP-->
+			<form method="get" action="comerciantes.php" name="gg">
+				<input type="text" name="buscar" class="buscar">
+				<img src="..\..\imagenes\buscar.png">
+				<input type="submit" name="i" class="botonbuscar" value="">
+			</form>
 		</div>
 	</div>
 	<div class="abajo">
-		<div class="resultado" onclick="irPagina('agregarAlmacenista')">
-			<p>Nombre</p>
-			<div class="imagen"><img src="..\..\imagenes/basura.png"></div>
-		</div>
 		<div class="resultado">
-			<p>Nombre</p>
-			<div class="imagen"><img src="imagenes/basura.png"></div>
+			<p onclick="irPagina('agregarAlmacenista')">Nombre</p>
+			<div class="imagen"  onclick="popup(1,'seguro',0)"><img src="..\..\imagenes/basura.png"></div>
 		</div>
-		<div class="resultado">
-			<p>Nombre</p>
-			<div class="imagen"><img src="imagenes/basura.png"></div>
-		</div>
-
 	</div>
 </div>
 <script type="text/javascript">

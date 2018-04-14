@@ -28,6 +28,11 @@ input, select{
 	border: 2px solid var(--bordes);
 	font-family: Trebuchet MS;
 }
+input.boton{
+	height: 30px;
+	font-size: 20px;
+	padding: 0px;
+}
 /*-------------------------------------------*/
 .calificacion{
 	display: inline-block;
@@ -74,22 +79,7 @@ input, select{
 	padding: 3px
 }
 /*-----------------------------------------------*/
-#popup {
-   display: none;
-   opacity: 0;
-   margin-top: -300px;
-}
-#popupNo {
-   display: none;
-   opacity: 0;
-   margin-top: -300px;
-}
-#seguro {
-   display: none;
-   opacity: 0;
-   margin-top: -300px;
-}
-#razones {
+#seguro, #segurof, #popupNo, #popup, #razones{
    display: none;
    opacity: 0;
    margin-top: -300px;
@@ -104,12 +94,13 @@ input, select{
    width:20%;
    font-size: 20px;
    font-family: Trebuchet MS;
+   border: solid 3px;
 }
 #razones .popup-contenedor {
 	width:30%;
 	padding:15px 20px 50px 20px;
 }
-#seguro .popup-contenedor{
+#seguro .popup-contenedor, #segurof .popup-contenedor{
 	padding:15px 20px 50px 20px;
 }
 .popup-cerrar {

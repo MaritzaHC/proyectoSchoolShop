@@ -8,13 +8,13 @@ function conexiones()
 	return $client;
 }
 
-function mostrarProductos(){
+function mostrarProductos($tipo,$pag){
 $client = conexiones();
-$parameters=array("pag"=>"1");
-$result=$client->productosConsultaprincipal($parameters);
+$result=$client->productosConsultaprincipal($pag,$tipo);
 $a = json_encode($result->productosConsultaprincipalResult->ProductosModelo,true);
 $x = json_decode($a, true);
 $control = count($x);
+var_dump($result);
 
 echo "	<div id='opcompras'>
 		<div class=\"categorias\"><p>Categorias<br></p></div>";
@@ -24,7 +24,7 @@ echo "	<div id='opcompras'>
 	    $id = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->idProductos);
 	   //$foto = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->foto); 
 		echo "	
-			<a href='infomracionCompra.php?id=$id'>
+			<a href='informacionCompra.php?id=$id'>
 			<div class='productos'>
 				<img src='b.jpg'>
 				<div class='info'>
@@ -40,20 +40,19 @@ echo "</div>
 		  vista(\"id\");
 		  </script>";
 }
-function mostrarPedidos(){
-	global $mysqli;
-	$sql = "SELECT idProductos, foto, precio, titulo FROM productos WHERE tipo = 2";
-
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar1.";
-	   exit;
-	}
+function mostrarPedidos($tipo,$pag){
+	$client = conexiones();
+	$result=$client->productosConsultaprincipal($pag,3);
+	$a = json_encode($result->productosConsultaprincipalResult->ProductosModelo,true);
+	$x = json_decode($a, true);
+	$control = count($x);
+var_dump($result);
 	echo "<div id='oppedidos'>";
-	while($resul = $resultado->fetch_assoc()){
-	    $titulo = $resul['titulo'];
-	    $precio = $resul['precio'];
-	    $id = $resul['idProductos'];
-	   //$foto = $resul['foto'];  
+	for ($i=0; $i<$control; $i++) { 
+	    $titulo = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->titulo);
+	    $precio = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->precio);
+	    $id = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->idProductos);
+	   //$foto = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->foto); 
 	echo"
 		<div class='productos' onclick='informacionProducto(\"Oferta\",$id)'>
 			<img src='na.jpg'>
@@ -63,18 +62,18 @@ function mostrarPedidos(){
 			</div>
 		</div>";
 	}
+/*----------------------------------------------------------------------------------------*/
+	$result=$client->productosConsultaprincipal($pag,3);
+	$a = json_encode($result->productosConsultaprincipalResult->ProductosModelo,true);
+	$x = json_decode($a, true);
+	$control = count($x);
 
-	$sql = "SELECT idProductos, foto, descripcion, titulo FROM productos WHERE tipo = 3";
+	for ($i=0; $i<$control; $i++) { 
+	    $titulo = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->titulo);
+	    $descripcion = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->descripcion);
+	    $id = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->idProductos);
+	   //$foto = json_encode($result->productosConsultaprincipalResult->ProductosModelo[$i]->foto);  
 
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar2.";
-	   exit;
-	}
-	while($resul = $resultado->fetch_assoc()){
-	    $titulo = $resul['titulo'];
-	    $descripcion = $resul['descripcion'];
-	    $id = $resul['idProductos'];
-	   //$foto = $resul['foto'];  
 	echo "<div class='productos' onclick='informacionProducto(\"Pedido\",$id)'>
 					<img src='ga.jpg'>
 					<div class='info'>
@@ -89,13 +88,12 @@ function mostrarPedidos(){
 		  </script>";
 }
 function mostrarObjetos(){
-	global $mysqli;
-	$sql = "SELECT idObjetoPerdido, foto, titulo FROM objetoperdido";
+	$client = conexiones();
+	$result=$client->productosConsultaprincipal($pag,3);
+	$a = json_encode($result->productosConsultaprincipalResult->ProductosModelo,true);
+	$x = json_decode($a, true);
+	$control = count($x);
 
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar en objetos.";
-	   exit;
-	}
 	echo "<div id='opobjetos'>";
 	while($resul = $resultado->fetch_assoc()){
 	    $titulo = $resul['titulo'];

@@ -20,21 +20,8 @@
 	<div class="categorias"><p>Categorias<br></p>
 				<!-- PENDIENTE PHP -->
 	</div>
-	<div class="imagen"><img src="b.jpg"></div>
-	<div class="datos">
-		<div class="titulo"><p>Pendiente PHP</p></div>
-		<div class="descripcion"><p>Mas pendientes para la base de datps</p></div>
-		<div class="precio"><p>0.00 $</p></div>
-		<div class="boton" onclick="popup(1,'seguro')">PHPcompra</div>
-		<div class="botonAzul">PHPchats</div><br><br><br>
-		<div class="calificacion"><p>Calificacion del vendedor</p>
-	   	 <div class="estrellas">
-	   	 	<img src="..\..\imagenes\estrellaL.png">
-	   	 	<img src="..\..\imagenes\estrellaL.png">
-	   		<img src="..\..\imagenes\estrellaL.png">
-	   		<img src="..\..\imagenes\estrellaL.png">
-			<img src="..\..\imagenes\estrellaB.png"></div></div>
-	</div>
+	<?php include'base/informacionCompra.php';?>
+	
 	<div class="reportar">
 		<div class="boton" onclick="popup(1,'razones');"><img src="..\..\imagenes\reportar.png"><p>Reportar</p></div>
 		

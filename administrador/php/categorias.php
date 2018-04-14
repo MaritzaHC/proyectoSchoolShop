@@ -11,29 +11,19 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.html'; 
+	include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="listadoCategorias">
 		<p>Listado de categorias</p>
 		<div class="cuadro">
 			<div class="categoria">
 				<p>Nombre de la categoria</p>
-				<img src="..\..\imagenes/basura.png">
-			</div>
-		</div>
-		<div class="cuadro">
-			<div class="categoria">
-				<p>Nombre de la categoria</p>
-				<img src="..\..\imagenes/basura.png">
-			</div>
-		</div>
-		<div class="cuadro">
-			<div class="categoria">
-				<p>Nombre de la categoria</p>
-				<img src="..\..\imagenes/basura.png">
+				<img onclick="popup(1,'seguro',0)" src="..\..\imagenes/basura.png">
 			</div>
 		</div>
 	</div>
+	<form name="publica" method="post" action="base/categorias.php">
 	<div class="agregarCategoria">
 		<p>Nombre de la categoria</p>
 		<input type="text" name="filtro">
@@ -41,6 +31,7 @@
 		<textarea  rows="4" cols="50"></textarea>
 		<div class="boton">Agregar</div>
 	</div>
+	</form>
 </div>
 <script type="text/javascript">
 	$(".categorias p").css({"background-color":"#fffade", "color":"#af5145"});	

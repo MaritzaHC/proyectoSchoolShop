@@ -1,3 +1,39 @@
+<?php
+
+    $titulo ="hola";
+    $Febrero=0;
+    $Febre=0;
+    $Marzo=0;
+    $Mar=0;
+    $Abril=0;
+    $Abr=0;
+    $Mayo=0;
+    $Ma=0;
+    $Junio=0;
+    $Jun=0;
+    $mes =date("m");
+    if ($mes > 2) {
+       $Febrero=5;
+       $Febre=6;
+    }
+    if ($mes > 3) {
+       $Marzo=9;
+       $Mar=9;
+    }
+    if ($mes > 4) {
+       $Abril=21;
+       $Abr=23;
+    }
+    if ($mes > 5) {
+       $Mayo=15;
+       $Ma=5;
+    }
+    if ($mes > 6) {
+       $Junio=4;
+       $Jun=6;
+    }
+?>
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
@@ -46,15 +82,16 @@
     },
     series: [{
         name: 'Publicaiones',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0]
+        <?php echo "data: [$Febrero, $Marzo, $Abril, $Mayo, $Junio]";?>
 
     },{
         name: 'Compras',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6]
+        <?php echo " data: [$Febre, $Mar, $Abr, $Ma, $Jun]";?>
 
     }]
 });  
 </script>
+
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>

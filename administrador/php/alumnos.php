@@ -11,13 +11,17 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.html'; 
+		include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
 		<div class="boton">Bloqueados</div>
 		<div class="barraBuscar">
-			<input type="text" name="" size="40">
-			<img src="..\..\imagenes\buscar.png"><!--PENDIENTE PHP-->
+			<form method="get" action="alumnos.php" name="gg">
+				<input type="text" name="buscar" class="buscar">
+				<img src="..\..\imagenes\buscar.png">
+				<input type="submit" name="i" class="botonbuscar" value="">
+			</form>
 		</div>
 	</div>
 	<div class="abajo">

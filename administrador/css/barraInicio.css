@@ -1,4 +1,4 @@
-body #inicio{
+body #inicio{ 
 	background-color: var(--barra);
 	padding: 0px;
 	margin: 0px;
@@ -38,9 +38,9 @@ p{margin: 0px;}
 	width: 110px;
 }
 #inicio .cuenta img{
-	height: 38px;
-	width: auto;
-	margin: 10px 5px 0px 0px;
+	height: 22px;
+	width: 17px;
+	margin: 16px 7px 0px 0px;
 	display: inline-block;
 	float: left;
 	margin-left: 3%;
@@ -53,9 +53,9 @@ p{margin: 0px;}
 	cursor:pointer;
 }
 #inicio .notificacion img{
-	height: 38px;
-	width: auto;
-	margin: 10px 0px 0px 10px;
+	height: 22px;
+	width: 17px;
+	margin: 18px 0px 0px 10px;
 	display: inline-block;
 	float: right;
 	margin-right: 3%;

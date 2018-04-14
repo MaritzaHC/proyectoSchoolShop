@@ -19,34 +19,26 @@ if($_POST['tipo'] == 1)
 	$parametro['tipo'] = 1;
 	$parametro['fecha'] = "1999-01-01";
 	$parametro['estado'] = 1;
+	
 	$parameters = array("x"=> $parametro);
 	json_encode($parameters);
 	$result=$client->insertarProducto($parameters);
+	header("Location: ../ventas.php");
 }  
 else{
-/*$sql="INSERT INTO objetoperdido (descripcion, titulo) VALUES 
-('".$_POST['descripcion']."','".$_POST['titulo'].")";
-  		$mysqli->query($sql);*/
+	$parametro = array();
+	$parametro['idObjetoPerdido']=0;
+	$parametro['foto']="algo/";
+	$parametro['descripcion']=$_POST['descripcion'];
+	$parametro['publicador']=14300191;
+	$parametro['id_lugar']=1;
+	$parametro['titulo']=$_POST['titulo'];
+	$parametro['fecha']="1999-01-01";
+	$parametro['estado']=1;
+	$parametro['lugarString']=$_POST['donde'];
+
+	$parameters = array("x"=> $parametro);
+	json_encode($parameters);
+	$result=$client->insertarObjetoPerdido($parameters);
 }
-/*
-ALTER TABLE `basess`.`calificacion_alumno` 
-ADD CONSTRAINT `calificacion_alumno_ibfk_1`
-  FOREIGN KEY ()
-  REFERENCES `basess`.`alumno` ();
-
-ALTER TABLE `basess`.`factura_vendedor` 
-ADD CONSTRAINT `factura_vendedor_ibfk_2`
-  FOREIGN KEY ()
-  REFERENCES `basess`.`alumno` ();
-
-ALTER TABLE `basess`.`objetoperdido_solicitante` 
-ADD CONSTRAINT `objetoperdido_solicitante_ibfk_2`
-  FOREIGN KEY ()
-  REFERENCES `basess`.`alumno` ();
-
-ALTER TABLE `basess`.`reportes` 
-ADD CONSTRAINT `reportes_ibfk_1`
-  FOREIGN KEY ()
-  REFERENCES `basess`.`alumno` ();
-*/
 ?>

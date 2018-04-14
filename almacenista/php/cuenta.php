@@ -15,9 +15,16 @@
 	<?php include '..\paginas\menu.html'; ?>
 	<div class="perfil">
 		<div class="imagenPerfil">
-			<img src="niche.jpg">
-			<div class="agregar"><img src="..\..\imagenes\camara.png"></div>
+			<output id="list"><img src="niche.jpg"></output>
+			<div class="imagen"><input type="file" id="files" name="files[]" value=" " /></div>	
 		</div>
+		 <script type="text/javascript">
+			function archivo(evt) {
+				var evento = evt;
+				ar(evento);
+			}
+	        document.getElementById('files').addEventListener('change', archivo, false);
+	      </script>
 		<div class="info">
 			<p>Nombre lugar</p>
 			<p>.xxxxx</p><br>

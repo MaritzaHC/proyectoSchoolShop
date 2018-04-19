@@ -3,10 +3,10 @@ function iniOtra(id){
 	window.location="inicio.php?i="+id;
 }
 function nuevasPaginas(id){
-	window.open(id+".php");// reemplazo notificaciones, menuMiCuenta, publicacion
+	window.location=id+".php";// reemplazo notificaciones, menuMiCuenta, publicacion
 }
 function informacionProducto(tipo,cual){
-	window.open("infomracion"+tipo+".php?id="+cual+"");
+	window.open("informacion"+tipo+".php?id="+cual+"");
 }
 function vista(id){
 	if (id!="pedidos" && id!="compras" && id!="objetos") {
@@ -61,4 +61,19 @@ function ar(evt) {
              
         reader.readAsDataURL(f);
     }
+}
+
+function paraMenu(id,cual){
+  if (cual==1) { //en curso, finalizado
+    window.location="informacionCompra.php?id="+id;
+  }
+  if (cual==2) { //publicado, bloqueado
+    window.location="";
+  }
+}
+
+function mostrarProductos() {
+  var select = document.getElementById("producto");
+  var options=document.getElementsByTagName("option");
+  document.getElementById("cambio").innerHTML = select.value;
 }

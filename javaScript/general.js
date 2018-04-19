@@ -25,7 +25,6 @@ function mostrar(id, cantidad){
 	}
 	$("#"+id+"c").css("display","block");
 	$("#"+id+"n").css({"background-color":"#f29657","color":"#af5145"});
-
 }
 function vista(id){
 	$("." + id + "p").css({"background-color":"white", "color":"#af5145"});	

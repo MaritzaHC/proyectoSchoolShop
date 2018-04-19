@@ -50,8 +50,7 @@ delimiter;
 
 /*Usar tabla notificacion como reporte o agregar un campo*/
 /*Conteo de calificacines*/
-
-
+-----------------------------------------------------------------
 /*Evento para que una semana despues del inicio del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
 CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 7 DAY
 DO
@@ -64,26 +63,56 @@ DO
 	INSERT INTO notificaciones (usuario,titulo,texto)
 	SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
 	from login where usuario LIKE "1%";
-
+/*despues de un mes se bloquea la posibilidad de publicar*/
+CREATE EVENT resTiempo ON SCHEDULE AT '2018-01-01' + INTERVAL 30 DAY
+DO
+  UPDATE restricciones set estado=false;
+/*al final te deja publicar*/
+CREATE EVENT resTiempo ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
+DO
+  UPDATE restricciones set estado=true;
+/*inicio del semestre*/
+CREATE EVENT resTiempo ON SCHEDULE STARTS '2018-01-01' 
+DO
+  UPDATE restricciones set estado=true;
+/*final del semestre*/
+CREATE EVENT resTiempo ON SCHEDULE STARTS '2018-01-01' 
+DO
+  UPDATE restricciones set estado=false;
+-----------------------------------------------------------------
 delimiter //
  CREATE TRIGGER reporte BEFORE INSERT ON reportes
-       BEGIN
+       FOR EACH ROW BEGIN
        //falta la calificacion
        		INSERT INTO notificaciones (usuario,titulo,texto) 
-       		values (ALGO,"Nuevo reporte","Una publicacion se reporto" );
+       		values (new.usuario,"Nuevo reporte","Una publicacion se reporto" );
        		INSERT INTO notificaciones (usuario,titulo,texto) 
-       		values (ALGO,"Nuevo reporte","Una publicacion se reporto" ) where variable!=4;//en ese reporte no llega la notificacion al admin
-       		update productos SET estadi=4 WHERE vendedor=ALGO;
+       		values (new.usuario,"Nuevo reporte","Una publicacion se reporto" ) where new.tipo!=4;//en ese reporte no llega la notificacion al admin
        END;//
 delimiter ;
+/*como esta en la base
+use basess;
+delimiter //
+ CREATE TRIGGER reporte BEFORE INSERT ON reportes
+       FOR EACH ROW BEGIN
+          INSERT INTO notificaciones (usuario,titulo,texto) 
+          values (new.usuario,"Nuevo reporte","Una publicacion se reporto" );
+          INSERT INTO notificaciones (usuario,titulo,texto) 
+          values (new.usuario,"Nuevo reporte","Una publicacion se reporto");
+       END;//
+delimiter ;
+
+*/
+
+
+
+//    update productos SET estado=4 WHERE vendedor;
 
 delimiter //
  CREATE TRIGGER venta BEFORE UPDATE ON productos
        FOR EACH ROW WHEN (new.estado = 2) BEGIN
        		INSERT INTO notificaciones (usuario,titulo,texto) 
-       		values (old.vendedor,"Nuevo reporte","Una publicacion se reporto" );
-       		INSERT INTO notificaciones (usuario,titulo,texto) 
-       		values (4,"Nuevo reporte","Una publicacion se reporto" ) where variable!=4;//en ese reporte no llega la notificacion al admin
+       		values (old.vendedor,"Un nuevo comprador","Tienes un nuevo comprador. Revisa tu historial" );
        END;//
 delimiter ;
 
@@ -92,5 +121,23 @@ delimiter //
        FOR EACH ROW BEGIN
        		INSERT INTO notificaciones (usuario,titulo,texto) 
        		values (old.vendedor,"Nuevo reporte","Una publicacion se reporto" );
+       END;//
+delimiter ;
+
+delimiter //
+ CREATE TRIGGER objetoperdido BEFORE UPDATE ON estado
+       FOR EACH ROW BEGIN
+          INSERT INTO notificaciones (usuario,titulo,texto) 
+          values (old.publicador,"Se solicito un objeto","Revisa tu historial de objetos perdidos" );
+       END;//
+delimiter ;
+
+delimiter //
+ CREATE TRIGGER calificacionf BEFORE UPDATE ON productos
+       FOR EACH ROW WHEN (new.estado = 3) BEGIN
+          INSERT INTO notificaciones (usuario,titulo,texto) 
+          values (old.vendedor,"Calificar","Ya puedes calificar" );
+           INSERT INTO notificaciones (usuario,titulo,texto) 
+          values (old.comprador,"Calificar","Ya puedes calificar" );
        END;//
 delimiter ;

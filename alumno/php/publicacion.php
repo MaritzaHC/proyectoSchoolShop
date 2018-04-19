@@ -48,30 +48,29 @@
 	<div class="venta">
 		<p>Tiempo disponible </p>
 		<select name="tiempoDisponible">
-				<option>algo</option>
-				<option>php</option>
-				<option>:(</option>
+				<option value=1>1 semana</option>
+				<option value=2>2 semanas</option>
 		</select><br>
 
 		<p>Categorias </p>
 		<select name="categorias">
-				<option>algo</option>
-				<option>php</option>
-				<option>:(</option>
+				<?php
+					require 'base/inicio.php';
+					categorias(2);
+				?>
 		</select><br>
-
 		<p>Precio </p>
-		<input type="number" name="precio" size="3" required="required"><br><br>	
-		<div class="boton" onclick="popup(1,'segurof',0)">Publicar</div>
+		<input type="number" name="precio" size="3"><br><br>	
+		<div class="boton" onclick="popup(1,'seguro',0)">Publicar</div>
 	</div>
 	<div class="objeto">
 		<p>¿Donde lo dejo?</p>
 		<textarea name="donde" rows="7" cols="60"></textarea><br><br>
-		<div class="boton" onclick="popup(1,'segurof',0)">Publicar</div>
+		<div class="boton" onclick="popup(1,'seguro',0)">Publicar</div>
 	</div>
 	</div>
 
-	<div id="segurof">
+	<div id="seguro">
 	   <div class="popup-contenedor">
 	      <p>¿Esta seguro de realizar esta publicación?</p>
 	      <input type="submit" value="Aceptar" class="boton">
@@ -85,6 +84,6 @@
 	$(".datosPublica .venta").css("display","none");
 	$(".datosPublica .objeto").css("display","none");
 	$(".imagenp .bloqueado").css("display","none");
-	function quitar(){$("#segurof").css({"display": "none"});}
+	function quitar(){$("#seguro").css({"display": "none"});}
 	</script>
 </html>

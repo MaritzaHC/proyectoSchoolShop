@@ -25,7 +25,7 @@ AVG(calificacion_alumno.calificacionVendedor)<2 GROUP BY alumno.idAlumno;
 select COUNT(*) from alumno, calificacion_alumno where alumno.idAlumno = calificacion_alumno.id_alumno and 
 AVG(calificacion_alumno.calificacionComprador)<2 GROUP BY alumno.idAlumno;
 
-
+ 
 /*Vistas*/
 /*ver a todos los vendedores*/
 select vendedor.idVendedor, vendedor.nombre, AVG(factura_vendedor.calificacionVendedor) as "promedio"

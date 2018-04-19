@@ -79,10 +79,13 @@ input.boton{
 	padding: 3px
 }
 /*-----------------------------------------------*/
-#seguro, #segurof, #popupNo, #popup, #razones{
+#seguro, #popupNo, #popup, #razones{
    display: none;
    opacity: 0;
    margin-top: -300px;
+}
+#seguro .popup-contenedor p{
+	margin-top: 0px;
 }
 .popup-contenedor {
    position: relative;
@@ -100,7 +103,7 @@ input.boton{
 	width:30%;
 	padding:15px 20px 50px 20px;
 }
-#seguro .popup-contenedor, #segurof .popup-contenedor{
+#seguro .popup-contenedor,{
 	padding:15px 20px 50px 20px;
 }
 .popup-cerrar {

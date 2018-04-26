@@ -1,0 +1,47 @@
+.datosPedido{
+	padding: 0px;
+	margin: 15px;
+	margin-left: 15px;
+	display: inline-block;
+	float: left;
+	width: 20%;
+}
+.imagenn{
+	margin-left: 9%;
+	display: inline-block;
+	float: left;
+}
+.datosPedido p{
+	margin: 0px 0px 5px 0px;
+	display: inline-block;	
+}
+.datosPedido .titulo{
+	margin: 25px 0px 15px 0px;
+	display: inline-block;
+}
+.datosPedido .titulo p{
+	font-size: 28px;
+}
+.datosPedido .producto , .datosPedido .precio , .datosPedido .dia, .datosPedido .cantidad, .datosPedido .descripcion{
+	margin-bottom: 15px;
+}
+.datosPedido .cantidad , .datosPedido .precio{
+	display: inline-block;
+	margin-right: 10px;
+}
+.datosPedido .contactar{
+	margin-right: 0px;
+	margin-left: 10px;
+}
+
+.datosLocal{
+	width: 100%;
+}
+.imagenn img{
+	padding: 0px;
+	margin: 15px;
+	width: 430px;
+	height: 500px;
+	display: inline-block;
+	float: left;
+}

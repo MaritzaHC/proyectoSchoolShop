@@ -1,6 +1,10 @@
 <?php 
 require 'conexion.php';
 
+if (condition) {
+	# code...
+}
+
 function titulos()
 {
 	global $mysqli;

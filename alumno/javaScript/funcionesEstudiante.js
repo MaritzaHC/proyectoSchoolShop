@@ -70,6 +70,15 @@ function paraMenu(id,cual){
   if (cual==2) { //publicado, bloqueado
     window.location="";
   }
+  if (cual==3) { //en curso
+    window.location="informacionObjeto.php?id="+id;
+  }
+  if (cual==4) { //en curso
+    window.location="informacionOferta.php?id="+id;
+  }
+  if (cual==5) { //en curso
+    window.location="informacionPedido.php?id="+id;
+  }
 }
 
 function mostrarProductos() {

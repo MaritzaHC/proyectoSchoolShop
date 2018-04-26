@@ -46,11 +46,11 @@
 	   <div class="popup-contenedor">
 	      <div class="popup-cerrar" onclick="popup(2,'razones',0)">X</div>
 	      <p>Seleccione la razon</p>
-	         <input type="checkbox" name="razon" value="1">Lenguaje inapropiado <br><br>
-	         <input type="checkbox" name="razon" value="2">La foto no coincide con la descripcion <br><br>
-	         <input type="checkbox" name="razon" value="3">La descripcion no coincide con la foto <br><br>
-	         <input type="checkbox" name="razon" value="5">No corresponden las categorias <br><br>
-	         <input type="checkbox" name="razon" value="6">El precio no es razonable <br><br>
+	         <input type="checkbox" name="razon" value="1,Lenguaje inapropiado">Lenguaje inapropiado <br><br>
+	         <input type="checkbox" name="razon" value="2,La foto no coincide con la descripcion">La foto no coincide con la descripcion <br><br>
+	         <input type="checkbox" name="razon" value="3,La descripcion no coincide con la foto">La descripcion no coincide con la foto <br><br>
+	         <input type="checkbox" name="razon" value="4,No corresponden las categorias">No corresponden las categorias <br><br>
+	         <input type="checkbox" name="razon" value="5,El precio no es razonable">El precio no es razonable <br><br>
 
 			<input type="submit" value="Enviar" class="boton">
 	      	<input type="" name="id" style="display: none;">

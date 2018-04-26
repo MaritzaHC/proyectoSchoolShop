@@ -14,45 +14,11 @@
 <body>
 	<?php include '..\paginas\primeraBarra.html';
 	  include '..\paginas\segundaBarra.html'; 
-	  include '..\..\paginas\emergentes.html';?>
+	  include '..\..\paginas\emergentes.html';
 
-	<div class="imagenn"><img src="na.jpg"></div>
-	<div class="datosPedido" style="width: 40%">
-	<div class="titulo"><p>Titulo del local</p></div>
-		<div class="descripcion">
-			<p>Descripcion</p>
-			<div class="texto">El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.  
-El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro.</div>
-		</div>
-		<div class="cantidad">
-			<p>Cantidad</p>
-			<input type="text" name="" size="3">
-		</div>
-		<div class="precio">
-			<p>Precio</p>
-			<p id="precio">auto %</p>
-		</div>
-		<div class="dia">
-			<p>Fecha</p>
-			<input type="text" name="dia" placeholder="Dia" size="1">
-			<input type="text" name="mes" placeholder="Mes" size="1">
-			<input type="text" name="hor" placeholder="Hora" size="1">
-			<input type="text" name="min" placeholder="Min" size="1">
-		</div>
-		<div class="boton" onclick="popup(1,'seguro')">Enviar</div>
-		<div class="botonAzul">Contactar</div>
-		<div class="datosLocal">
-			<div style="height: 50px"></div>
-			<div class="ubicacion"><p>ubicacion</p></div>
-			<div class="telefono"><p>Telefono</p></div>
-			<div class="calificacion"><p>Calificacion del vendedor</p>
-	   	 		<div class="estrellas">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-				<img src="..\..\imagenes\estrellaB.png"></div></div>
-		</div>
+	  include 'base/informacionOferta';?>
+
+	
 		
 	</div>
 

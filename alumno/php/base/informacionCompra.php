@@ -1,24 +1,9 @@
 <?php
-require 'conexion.php';
-/*ws
-require_once '../../nusoap/lib/nusoap.php';
-$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
-$client=new soapclient($wsdl);
-
-$result=$client->productosConsultaDetalle(3);
-$a = json_encode($result->productosConsultaDetalleResult,true);
-$x = json_decode($a, true);
-
-var_dump($result);*/
-global $mysqli;
+include 'consultasProductos.php';
+$resul = array();
 $laid = $_GET["id"];
-settype($laid,'integer');
-$sql = "Select * from productos where idProductos = ".$laid.";";//en reconsideracion, agregar tipo
-if(!$resultado = $mysqli->query($sql)){
-   echo "Error al consultar0.";
-   exit;
-}
-$resul = $resultado->fetch_assoc();
+$resul = productosDeta($laid);
+
 	    $titulo = $resul['titulo'];
 	    $precio = $resul['precio'];
 	    $id = $resul['idProductos'];

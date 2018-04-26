@@ -17,10 +17,7 @@
 	<div class="Ventas">
 		<div class="Titulo"><p>Ventas</p></div>	
 
-				<?php ventas();
-				publicado();
-				bloqueado();
-				finalizado();?>
+				<?php ventas();?>
 
 		</div>
 	</div>

@@ -20,12 +20,21 @@
 		<div class="titulo"><p>Notificaciones</p></div>
 		<div class="lasNotificaciones"><!--php-->
 			<?php titulos(); ?>
-		</div>
+		</div> 
 	</div>
 
 	<form name="publica" method="get" action="base/notificaciones.php">
 			<?php contenido(); ?>
-				
+			<div class="popup-contenedor">
+		      <p>¿Esta seguro que desea eliminar la notificación?</p>
+		      <input type="submit" value="Aceptar" class="boton">
+		      <input type="" name="este" style="display: none;">
+		      <script type="text/javascript">
+						var x = variable("id");
+				 		document.este.este.value = x;
+			   </script>
+		     <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
+	   </div>
 	</form>
 </div>
 	

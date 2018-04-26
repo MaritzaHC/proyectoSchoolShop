@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (@$_SESSION['loggedin'] == true) { 
+        header("Location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" type="text/css" href="css\general.css">
@@ -13,9 +19,9 @@
 	<br>
 	<form name="ingreso" method="post" action="Consultas/ingreso.php">
 	<div id="datos">
-		<div class="nombre"><input type="text" name="nombre" size="20"></div>
-		<div class="contrasena"><input type="password" name="contrasena" size="20"></div>
-		<div class="boton">Ingresar</div>
+		<div class="nombre"><input type="text" name="nombre" size="20" required="required" placeholder="Nombre de Usuario"></div>
+		<div class="contrasena"><input type="password" name="contrasena" size="20" placeholder="Contraseña" required="required"></div>
+		<input class="boton" type="submit" name="publicar" value="Ingresar">
 		<div class="olvidar"><p>Recuperar contraseña</p></div>
 		<div class="ej" onclick="window.location='alumno/php/inicio.php?i=compras'">alumno</div>
 		<div class="ej" onclick="window.location='almacenista/php/notificaciones.php'">almacenista</div>

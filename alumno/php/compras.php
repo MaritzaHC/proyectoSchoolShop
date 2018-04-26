@@ -18,7 +18,7 @@
 		<div class="Titulo"><p>Compras</p></div>
 
 			<?php compras();
-				finalizado();?>	
+				?>	
 				
 		</div>
 	</div>

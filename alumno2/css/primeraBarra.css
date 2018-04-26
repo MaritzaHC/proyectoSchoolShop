@@ -1,0 +1,123 @@
+body #inicio{
+	background-color: var(--barra);
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: 60px;
+	display: inline-block;
+	float: left;
+}
+#inicio .logo img{
+	width: 75px;
+	height: auto;
+	margin: 2px 2px 0px 2px;
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+	margin-left: 3%;
+}
+#inicio .logo p{
+	margin: 0px;
+	margin-left: 5px;
+	padding-top: 0px;
+	width: 170px;
+	height: auto;
+    display: inline-block;
+	float: left;
+	color: white;
+	font-family: Brush Script MT; 
+	font-size:48px;
+	cursor:pointer;
+}
+
+
+#inicio .barraBuscar{
+	float: right;
+	display: inline-block;
+	width: 19%;
+	margin-right: 2%;
+}
+#inicio .barraBuscar input.buscar{
+	border-radius: 8px 0px 0px 8px;
+	border: 2px solid #ffffff;
+	display: inline-block;
+	float: left;
+	height: 23px;
+	margin-left: 1%;
+	margin-top: 15px;
+	width: 76%;
+}
+#inicio .barraBuscar img{
+	border-radius: 0px 8px 8px 0px;
+    background-color: var(--boton);
+ 	display: inline-block;
+	float: left;
+	height: 22.6667px;
+	width: auto;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+	z-index: 1;
+}
+#inicio .barraBuscar input.botonbuscar{
+ 	display: inline-block;
+	float: left;
+	height: 26.6667px;
+	width: 25px;
+	padding: 3px;
+	margin-top: 15px;
+	cursor:pointer;
+	z-index: 2;
+	margin-left: -27px;
+	opacity: 0;
+}
+
+
+#inicio .publicar{
+	display: inline-block;
+	float: right;
+	margin-right: 2%;
+	margin-top: 15px;
+}
+#inicio .publicar p{
+	margin: 0px;
+	width: 70px;
+	height: auto;
+	padding: 5px;
+	background-color: var(--boton);
+	color: white;
+	letter-spacing:1px;
+	text-align: center;
+	 border-radius: 8px;
+	 cursor:pointer;
+}
+#inicio .cuenta{
+	display: inline-block;
+	float: right;
+	width: 110px;
+}
+#inicio .cuenta img{
+	height: 22px;
+	width: 17px;
+	margin: 16px 7px 0px 0px;
+	display: inline-block;
+	float: left;
+	margin-left: 3%;
+	cursor:pointer;
+}
+#inicio .cuenta p{
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	color: white;
+	cursor:pointer;
+}
+#inicio .notificacion img{
+	height: 26px;
+	width: 22px;
+	margin: 16px 0px 0px 10px;
+	display: inline-block;
+	float: right;
+	margin-right: 3%;
+	cursor:pointer;
+}

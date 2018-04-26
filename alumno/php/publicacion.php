@@ -56,7 +56,7 @@
 		<select name="categorias">
 				<?php
 					require 'base/inicio.php';
-					categorias(2);
+					categoria();
 				?>
 		</select><br>
 		<p>Precio </p>

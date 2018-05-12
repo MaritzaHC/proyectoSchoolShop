@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html'; ?>
+	<?php include '..\paginas\primeraBarra.php'; ?>
 <div class="contenido">
 	<?php include '..\paginas\menui.html'; ?>
 	<div class="cuadros">

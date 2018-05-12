@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html'; 
+	<?php include '..\paginas\primeraBarra.php'; 
 	 ?>
 
 	<form name="publica" method="post" action="base/publicacion.php">
@@ -28,8 +28,7 @@
 		}
         document.getElementById('files').addEventListener('change', archivo, false);
       </script>
-
-      
+  
 	<div class="datosPublica" style="width: 40%">
 
 	<div class="titulo"><input type="text" name="titulo"  placeholder="Titulo de la publicacion" required="required"></div>
@@ -65,7 +64,11 @@
 	</div>
 	<div class="objeto">
 		<p>¿Donde lo dejo?</p>
-		<textarea name="donde" rows="7" cols="60"></textarea><br><br>
+		<select name="donde">
+				<?php
+					lugares();
+				?>
+		</select><br><br>
 		<div class="boton" onclick="popup(1,'seguro',0)">Publicar</div>
 	</div>
 	</div>

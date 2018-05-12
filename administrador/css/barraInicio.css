@@ -8,6 +8,18 @@ body #inicio{
 	float: left;
 }
 p{margin: 0px;}
+
+#inicio .cerrar{
+	float: right;
+	display: inline-block;
+	width: 60px;
+	margin-left: 20px;
+	padding-top: 17px;
+}
+#inicio .cerrar a{
+	margin: 0px;
+	color: white;
+}
 #inicio .logo img{
 	width: 75px;
 	height: auto;
@@ -55,10 +67,9 @@ p{margin: 0px;}
 #inicio .notificacion img{
 	height: 22px;
 	width: 17px;
-	margin: 18px 0px 0px 10px;
+	margin: 18px 0px 0px 10px;	
 	display: inline-block;
 	float: right;
-	margin-right: 3%;
 	cursor:pointer;
 }
 #barraMenu .comerciantes p, #barraMenu .almacenistas p, #barraMenu .restricciones p, #barraMenu .estadisticas p, #barraMenu .categorias p{

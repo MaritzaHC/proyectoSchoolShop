@@ -10,8 +10,8 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html'; 
-	require 'base\compras.php'; ?>
+	<?php include '..\paginas\primeraBarra.php'; 
+	require 'base\historial.php'; ?>
 <div class="contenido">
 	<?php include '..\paginas\menui.html'; ?>
 	<div class="Ventas">
@@ -25,3 +25,4 @@
 	
 </div>
 </body>
+  

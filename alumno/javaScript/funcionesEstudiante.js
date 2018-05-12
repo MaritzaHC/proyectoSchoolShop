@@ -6,7 +6,7 @@ function nuevasPaginas(id){
 	window.location=id+".php";// reemplazo notificaciones, menuMiCuenta, publicacion
 }
 function informacionProducto(tipo,cual){
-	window.open("informacion"+tipo+".php?id="+cual+"");
+	window.location="informacion"+tipo+".php?id="+cual+"";
 }
 function vista(id){
 	if (id!="pedidos" && id!="compras" && id!="objetos") {
@@ -17,7 +17,6 @@ function vista(id){
 	if(id != "objetos"){vistaNo("objetos");}
 	$("." + id + " p").css({"background-color":"#fffade", "color":"#af5145"});	
 	$("#op"+id).css("display","block");
-	//return id;
 }
 function vistaNo(id){
 	$("." + id + " p").css({"background-color":"#f29657", "color":"#FFFFFF"}); 	
@@ -44,39 +43,37 @@ function variable(variable) {
 }
 function ar(evt) {
     var files = evt.target.files; // FileList object
-             
       // Obtenemos la imagen del campo "file".
       for (var i = 0, f; f = files[i]; i++) {
         //Solo admitimos imágenes.
         if (!f.type.match('image.*')) {continue;}
-            
         var reader = new FileReader();
-             
         reader.onload = (function(theFile) {
             return function(e) { // Insertamos la imagen
              document.getElementById("list").innerHTML = 
              ['<img src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
             };
         })(f);
-             
         reader.readAsDataURL(f);
     }
 }
-
 function paraMenu(id,cual){
   if (cual==1) { //en curso, finalizado
     window.location="informacionCompra.php?id="+id;
   }
   if (cual==2) { //publicado, bloqueado
-    window.location="";
+    window.location="publicacionModificacion.php?id="+id;
   }
-  if (cual==3) { //en curso
+  if (cual==3){//en proceso, finalizado
     window.location="informacionObjeto.php?id="+id;
   }
-  if (cual==4) { //en curso
+  if (cual==4){//publicado
+    window.location="ObjetoModificacion.php?id="+id;
+  }
+  if (cual==5){//en curso, finalizado
     window.location="informacionOferta.php?id="+id;
   }
-  if (cual==5) { //en curso
+  if (cual==6){//en curso, finalizado
     window.location="informacionPedido.php?id="+id;
   }
 }
@@ -85,4 +82,8 @@ function mostrarProductos() {
   var select = document.getElementById("producto");
   var options=document.getElementsByTagName("option");
   document.getElementById("cambio").innerHTML = select.value;
+}
+
+function salir(){
+  
 }

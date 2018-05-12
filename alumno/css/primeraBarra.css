@@ -35,8 +35,19 @@ body #inicio{
 #inicio .barraBuscar{
 	float: right;
 	display: inline-block;
-	width: 19%;
+	width: auto;
 	margin-right: 2%;
+}
+#inicio .cerrar{
+	float: right;
+	display: inline-block;
+	width: 60px;
+	margin-left: 20px;
+	padding-top: 17px;
+}
+#inicio .cerrar a{
+	margin: 0px;
+	color: white;
 }
 #inicio .barraBuscar input.buscar{
 	border-radius: 8px 0px 0px 8px;
@@ -92,32 +103,23 @@ body #inicio{
 	 border-radius: 8px;
 	 cursor:pointer;
 }
-#inicio .cuenta{
+#inicio .cuenta img{
+	height: 25px;
+	width: 17px;
+	margin: 16px 17px 0px 0px;
 	display: inline-block;
 	float: right;
-	width: 110px;
-}
-#inicio .cuenta img{
-	height: 22px;
-	width: 17px;
-	margin: 16px 7px 0px 0px;
-	display: inline-block;
-	float: left;
-	margin-left: 3%;
-	cursor:pointer;
-}
-#inicio .cuenta p{
-	margin: 0px;
-	padding: 19px 0px 0px 0px;
-	color: white;
 	cursor:pointer;
 }
 #inicio .notificacion img{
 	height: 26px;
 	width: 22px;
-	margin: 16px 0px 0px 10px;
+	margin: 16px 0px 0px 0px;
 	display: inline-block;
 	float: right;
-	margin-right: 3%;
 	cursor:pointer;
+}
+.cerrar{
+	display: inline-block;
+	float: right;
 }

@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html';
+	<?php include '..\paginas\primeraBarra.php';
 	  include '..\paginas\segundaBarra.html'; 
 	  include '..\..\paginas\emergentes.html';?>
 
@@ -21,10 +21,17 @@
 	<div class="titulo"><p>Titulo del local</p></div>
 		<div class="producto">
 			<p>Productos</p>
-			<select name="producto">
-				<option>algo</option>
-				<option>php</option>
-				<option>:(</option>
+			<select id="producto" onChange="imprimirValor()">
+				<?php 
+				require_once 'base/consultasProductos.php';
+				$c = array();
+				$c = productos();
+				foreach ($c as $are) {
+				    $idCategorias = $are['idCategorias'];
+					$nombre = $are['nombre'];
+					echo "<option value=\"$precio\">$tiutlo</option>";
+				}
+				?>
 			</select>
 		</div>
 		<div class="cantidad">
@@ -37,10 +44,10 @@
 		</div>
 		<div class="dia">
 			<p>Fecha</p>
-			<input type="text" name="dia" placeholder="Dia" size="1">
-			<input type="text" name="mes" placeholder="Mes" size="1">
-			<input type="text" name="hor" placeholder="Hora" size="1">
-			<input type="text" name="min" placeholder="Min" size="1">
+			<input type="text" name="dia" placeholder="Dia" size="1" required="required">
+			<input type="text" name="mes" placeholder="Mes" size="1" required="required">
+			<input type="text" name="hor" placeholder="Hora" size="1" required="required">
+			<input type="text" name="min" placeholder="Min" size="1" required="required">
 		</div>
 		<div class="boton" onclick="popup(1,'seguro')">Enviar</div>
 		<div class="botonAzul">Contactar</div>
@@ -60,7 +67,12 @@
 	</div>
 
 	<script type="text/javascript">
-			vista("pedidos");			
+			vista("pedidos");	
+			function imprimirValor(){
+			  var select = document.getElementById("producto");
+			  var options=document.getElementsByTagName("option");
+			  document.getElementById("precio").innerHTML = select.value;
+			}		
 	</script>
 </body>
 </html>

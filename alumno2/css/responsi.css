@@ -1,8 +1,0 @@
-@media screen and (max-width: 777px){
-    #inicio .barraBuscar{
-    	display: none;
-    }
-    body {
-        width: 770px;
-    }
-}

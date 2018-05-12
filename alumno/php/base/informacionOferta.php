@@ -9,17 +9,9 @@ $resul = productosDeta($laid);
 	    $descripcion = $resul['descripcion'];
 	    $vendedor = $resul['vendedor'];
 
-$res = array();//vendedor
-$res = productosDeta($vendedor);
-	    $titulo = $resul['titulo'];
-	    $precio = $resul['precio'];
-	    $id = $resul['idProductos'];
-	    $descripcion = $resul['descripcion'];
-
-
 echo "<div class=\"imagenn\"><img src=\"na.jpg\"></div>
 	<div class=\"datosPedido\" style=\"width: 40%\">
-	<div class=\"titulo\"><p>Titulo del local</p></div>
+	<div class=\"titulo\"><p>$vendedor</p></div>
 		<div class=\"descripcion\">
 			<p>Descripcion</p>
 			<div class=\"texto\">$descripcion</div>

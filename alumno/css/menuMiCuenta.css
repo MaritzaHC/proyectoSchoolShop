@@ -14,7 +14,6 @@
 	border-color: var(--bordes);
 	margin-bottom: 26%;
 	background-color: white;
-	/*box-shadow: 5px 5px 3px -2px rgba(45,26,18,0.49);*/
 }
 .contenido .arriba{
 	display: inline-block;

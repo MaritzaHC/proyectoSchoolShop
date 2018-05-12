@@ -1,8 +1,8 @@
-@media screen and (max-width: 759px){
-    body {
-        width: 759px;
-    }
-    .barraBuscar{
+@media screen and (max-width: 777px){
+    #inicio .barraBuscar{
     	display: none;
+    }
+    body {
+        width: 770px;
     }
 }

@@ -1,6 +1,6 @@
 <?php
-include 'consultasProductos.php';
-$resul = array();
+include_once 'consultasProductos.php';
+$resul = array(); 
 $laid = $_GET["id"];
 $resul = productosDeta($laid);
 
@@ -8,6 +8,7 @@ $resul = productosDeta($laid);
 	    $precio = $resul['precio'];
 	    $id = $resul['idProductos'];
 	    $descripcion = $resul['descripcion'];
+	    $vendedor = $resul['vendedor'];
 
 echo "<div class=\"imagen\"><img src=\"b.jpg\"></div>
 	<div class=\"datos\">
@@ -25,4 +26,8 @@ echo "<div class=\"imagen\"><img src=\"b.jpg\"></div>
 	   		<img src=\"..\..\imagenes\estrellaL.png\">
 	   		<img src=\"..\..\imagenes\estrellaL.png\">
 			<img src=\"..\..\imagenes\estrellaB.png\"></div></div>
-	</div>";
+	</div>
+	<input type=\"\" name=\"vendedor\" value=$vendedor style=\"display: none;\">
+	<input type=\"\" name=\"titulo\" value=$titulo style=\"display: none;\">
+	";
+?>

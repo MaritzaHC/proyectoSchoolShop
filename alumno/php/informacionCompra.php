@@ -13,15 +13,15 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html';
+	<?php include '..\paginas\primeraBarra.php';
 	  include '..\paginas\segundaBarra.html'; 
 	  include '..\..\paginas\emergentes.html';
 	  ?>
  
-	<div class="categorias"><h3>Categorias<h3></div>
+		<?php include 'categoriasMenu.php';?>
 
-	<form method="get" action="base/informacionCompra2.php" name="este">
-		<?php include_once 'base/informacionCompra.php';?>	
+	<form method="get" action="base/informacionCompraF.php" name="este">
+		<?php include 'base/informacionCompra.php';?>
 		
 	<div id="seguro">
 	   <div class="popup-contenedor">
@@ -37,7 +37,7 @@
 	</div>
 	</form>	
 
-	<form method="get" action="base/informacionCompra3.php" name="id">
+	<form method="get" action="base/informacionCompraF.php" name="id">
 	<div class="reportar">
 		<div class="boton" onclick="popup(1,'razones');"><img src="..\..\imagenes\reportar.png"><p>Reportar</p></div>
 	</div>

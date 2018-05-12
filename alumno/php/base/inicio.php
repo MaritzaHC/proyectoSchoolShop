@@ -1,19 +1,14 @@
 <?php
-include 'consultasProductos.php';
+include_once 'consultasProductos.php';
 function mostrarProductos($tipo,$pag){
 $x = array();
 $x = productos(1,1);
 $c = array();
 $c = categorias();
 
-echo "	<div id='opcompras'>
-		<div class=\"categorias\"><h3>Categorias<br></h3>";
-			foreach ($c as $are) {
-			    $idCategorias = $are['idCategorias'];
-			    $nombre = $are['nombre'];
-				echo "<p onclick=\"buscar($idCategorias)\">$nombre</p>";
-			}
-		echo "</div>";
+echo "	<div id='opcompras'>";
+		include 'categoriasMenu.php';
+
 	foreach ($x as $are) {
 	    $titulo = $are['titulo'];
 	    $precio = $are['precio'];
@@ -97,6 +92,26 @@ function mostrarObjetos(){
 			<script type=\"text/javascript\">
 				vista(\"id\");
 				</script>";
+}
+function categoria()
+{
+		$c = array();
+		$c = categorias();
+		foreach ($c as $are) {
+		    $idCategorias = $are['idCategorias'];
+			$nombre = $are['nombre'];
+			echo "<option value=$idCategorias>$nombre</option>";
+		}
+}
+function lugares()
+{
+	$u = array();
+	$u = lugaresConsulta();
+	foreach ($u as $are) {
+		$idLugar = $are['idLugar'];
+		$nombre = $are['nombre'];
+		echo "<option value=$idLugar>$nombre</option>";
+	}
 }
 
 ?>

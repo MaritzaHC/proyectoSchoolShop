@@ -12,23 +12,31 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.html';
+	<?php include '..\paginas\primeraBarra.php';
 	  include '..\paginas\segundaBarra.html'; 
 	  include '..\..\paginas\emergentes.html';?>
 
-	<div class="imagenn"><img src="aa.jpg"></div>
-	<div class="datosObjeto" style="width: 40%">
-	<div class="titulo"><p>Titulo del objeto</p></div>
-		<div class="descripcion">
-			<p>Descripcion</p>
-			<div class="texto">El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.  
-			El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro.</div>
-		</div>
+	<form method="get" action="base/informacionObjetoF.php" name="este">
+	<?php include 'base/informacionObjeto.php' ?>
+
 		<div class="botonAzul">Contactar</div>
-		
+
+	<div id="seguro">
+	   <div class="popup-contenedor">
+	      <p>¿Esta seguro de realizar esta peticion?</p>
+	      <input type="submit" value="Aceptar" class="boton">
+	      <input type="" name="este" style="display: none;">
+	      <script type="text/javascript">
+					var x = variable("id");
+			 		document.este.este.value = x;
+		   </script>
+	      <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
+	   </div>
+	</div>
+	</form>	
 	</div>
 
-	<script type="text/javascript">
+	<script type="text/javascript"> 
 			vista("objetos");			
 	</script>
 </body>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>	
 <html>
 <head>
 	<title>SchoolShop</title>
@@ -10,7 +10,7 @@
 	<meta charset="utf-8">
 </head>	
 <body>
-<?php include '..\paginas\primeraBarra.html';
+<?php include '..\paginas\primeraBarra.php';
 	  include '..\paginas\segundaBarra.html';
 	  require 'base/inicio.php';
 	  require 'base/buscar.php'; 

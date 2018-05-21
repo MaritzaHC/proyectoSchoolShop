@@ -2,9 +2,19 @@
 include_once 'consultasProductos.php';
 function mostrarProductos($tipo,$pag){
 $x = array();
-$x = productos(1,1);
+$x = productos(1,$pag);
 $c = array();
 $c = categorias();
+
+$xx = productos(1,($pag+1));
+var_dump($xx);
+if ($xx==0) {
+	echo "
+	<script type=\"text/javascript\">
+			var siguiente = 1;
+	</script>
+	";
+}
 
 echo "	<div id='opcompras'>";
 		include 'categoriasMenu.php';
@@ -34,32 +44,82 @@ echo "</div>
 }
 function mostrarPedidos($tipo,$pag){
 	$w = array();
-	$w = productos(2,1);
+	$w = productos(3,6);
+
+$xx = productos(3,($pag+1));
+if ($xx==0) {
+	echo "
+	<script type=\"text/javascript\">
+			var siguiente = 1;
+	</script>
+	";
+}
+?>
+	<!--echo "--><div class='barraofertas'><!--";
 	foreach ($w as $are) {
 	    $titulo = $are['titulo'];
 	    $precio = $are['precio'];
 	    $id = $are['idProductos'];
-	echo"
-		<div class='productos' onclick='informacionProducto(\"Oferta\",$id)'>
+	    $vendedor = $are['vendedor'];
+	echo"-->
+		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
 			<img src='na.jpg'>
 			<div class='info'>
 				<div class='titulo'><p>$titulo</p></div>
 				<div class='precio'><p>$$precio</p></div>					
 			</div>
-		</div>";
-	}
+		</div>
+		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
+			<img src='na.jpg'>
+			<div class='info'>
+				<div class='titulo'><p>$titulo</p></div>
+				<div class='precio'><p>$$precio</p></div>					
+			</div>
+		</div>
+		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
+			<img src='na.jpg'>
+			<div class='info'>
+				<div class='titulo'><p>$titulo</p></div>
+				<div class='precio'><p>$$precio</p></div>					
+			</div>
+		</div>
+		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
+			<img src='na.jpg'>
+			<div class='info'>
+				<div class='titulo'><p>$titulo</p></div>
+				<div class='precio'><p>$$precio</p></div>					
+			</div>
+		</div>
+		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
+			<img src='na.jpg'>
+			<div class='info'>
+				<div class='titulo'><p>$titulo</p></div>
+				<div class='precio'><p>$$precio</p></div>					
+			</div>
+		</div><!--"; -->
+	<!--}
+	echo "-->
+	<div class='productos' onclick='informacionProducto("Oferta","$id")'>
+			<img src='mas.jpg'>
+			<div class='info'>
+				<div class='titulo'><p>$titulo</p></div>
+				<div class='precio'><p>$$precio</p></div>					
+			</div>
+	</div>
+</div><!--";-->
+<?php
 /*----------------------------------------------------------------------------------------*/
 	$y = array();
-	$y = productos(3,1);
+	$y =consultaGeneralVendedor($pag);
 	foreach ($y as $are) {
-	    $titulo = $are['titulo'];
+	    $nombre = $are['nombre'];
 	    $descripcion = $are['descripcion'];
-	    $id = $are['idProductos'];
-	echo "<div class='productos' onclick='informacionProducto(\"Pedido\",$id)'>
+	    $idVendedor = $are['idVendedor'];
+	echo "<div class='productos' onclick='informacionProducto(\"Pedido\",$idVendedor)'>
 					<img src='ga.jpg'>
 					<div class='info'>
-						<div class='titulo'><p>$titulo</p></div>	
-						<div class='descripcion'><p>$descripcion</p></div>
+						<div class='titulo'><p>$nombre</p></div>	
+						<!--<div class='descripcion'><p>$descripcion</p></div>-->
 					</div>
 		  </div>";
 	}
@@ -68,9 +128,17 @@ function mostrarPedidos($tipo,$pag){
 		  vista(\"id\");
 		  </script>";
 }
-function mostrarObjetos(){
+function mostrarObjetos($pag){
 	$z = array();
-	$z = ObjetoPerdido(1,1);
+	$z = ObjetoPerdido(1,$pag);
+	$xx = ObjetoPerdido(1,($pag+1));
+	if ($xx==0) {
+		echo "
+		<script type=\"text/javascript\">
+				var siguiente = 1;
+		</script>
+		";
+	}
 
 	echo "<div id='opobjetos'>";
 		foreach ($z as $are) {

@@ -18,8 +18,9 @@
 	margin-top: 45px;
 	display: inline-block;
 	float: left;
+	margin-right: 50px;
 }
-.estadisticasAlumno img{
+#containerx{
 	width: 500px;
 	height: auto;
 	margin-bottom: 10px;
@@ -38,3 +39,4 @@
 .informacionAlumnos p{
 	margin: 5px 0px 5px 0px;
 }
+

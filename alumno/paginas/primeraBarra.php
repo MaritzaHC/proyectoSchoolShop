@@ -3,17 +3,17 @@
 <?php include '..\php\base\verificacionLogin.php'; ?>
 <div id="inicio">
 		<div class="logo">
-			<img src="..\..\imagenes\logo.png" onclick="iniOtra('compras')">
-			<p onclick="iniOtra('compras')">SchoolShop</p>
+			<img src="..\..\imagenes\logo.png" onclick="window.location='inicio.php?i=compras&pag=1'">
+			<p onclick="window.location='inicio.php?i=compras&pag=1'">SchoolShop</p>
 		</div>
 		<div class="cerrar" onclick="salir()"><a href="../php/base/salir.php">Salir</a></div>
 		<div class="notificacion">
-			<img src="..\..\imagenes\campana.png" onclick="nuevasPaginas('notificaciones')">
+			<img src="..\..\imagenes\campana.png" onclick="window.location='notificaciones.php'">
 		</div>
-		<div class="cuenta" onclick="nuevasPaginas('menuMiCuenta')">
+		<div class="cuenta" onclick="window.location='menuMiCuenta.php'">
 			<img src="..\..\imagenes\cuenta.png">
 		</div>
-		<div class="publicar" onclick="nuevasPaginas('publicacion')"><p>Publicar</p></div>
+		<div class="publicar" onclick="window.location='publicacion.php'"><p>Publicar</p></div>
 		<div class="barraBuscar">
 			<form method="get" action="inicio.php" name="gg">
 				<script type="text/javascript">

@@ -65,7 +65,6 @@
 
 	<script type="text/javascript">
 			vista("compras");
-			$(".razones").css("display","none");
 	</script>
 </body>
 </html>

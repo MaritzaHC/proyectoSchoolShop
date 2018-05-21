@@ -11,13 +11,21 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.php'; 
+	include 'base/consultasUsuarios.php';
+	require 'base/grafi.php';; 
+	  $x = array();
+	  $id = $_GET['i'];
+	  settype($id,'integer');
+	  $x = alumnosDeta($id);
+	  $nombre =$x['nombre']." ".$x['apellidoP']." ".$x['apellidoM'];
+?>
 <div class="contenido">
 	<div class="informacionAlumnos">
 		<p>Nombre</p>
-		<p><b>El nombre</b></p>
+		<p><b><?php echo $nombre; ?></b></p>
 		<p>Registro</p>
-		<p><b>El registro</b></p>
+		<p><b><?php echo $id; ?></b></p>
 		<p>Calificacion</p>
 		<div class="calificacion">
 			<div class="comprador">
@@ -42,9 +50,10 @@
 		<div class="boton">Bloquear</div>
 	</div>
 	<div class="estadisticasAlumno">
-		<img src="algo.jpg">
-		<img src="algo.jpg">
-		<img src="algo.jpg"></div>
+		<?php grafiAlumno($id,2); 
+		grafiAlumno($id,2); 
+		grafiAlumno($id,2);?>
+		</div>
 </div>
 <script type="text/javascript">
 	$(".alumnos p").css({"background-color":"#fffade", "color":"#af5145"});	

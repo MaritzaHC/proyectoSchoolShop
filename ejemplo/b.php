@@ -1,18 +1,15 @@
 <?php
-require '../nusoap/lib/nusoap.php';
-/*Esta funcion retorna un arreglo que contien los productos que estan en la base de datos
-Se solicita el tipo (1-alumno)(2-vendedor)(3-ofertas) y la pagina*/
-$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
+require 'nusoap/lib/nusoap.php';
 
+$pag=1; $tipo=1;
 
+	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
 	$client=new SoapClient($wsdl);
-	$parametro = array('pag' => 1,'tipo' => 1);
+	$parametro = array('pag' => $pag,'tipo' => $tipo);
 	$result=$client->productosConsultaprincipal($parametro)->productosConsultaprincipalResult;
 
-	var_dump($result);
-
 	$losproductos = array();
-	$cuantos = count($result->ProductosModelo, COUNT_RECURSIVE);
+	$cuantos = count($result->productosConsultaprincipalctosModelo, COUNT_RECURSIVE);
 	if($cuantos == 1){
 		$losproductos[0] = array(
 			'idProductos'=>$result->ProductosModelo->idProductos,

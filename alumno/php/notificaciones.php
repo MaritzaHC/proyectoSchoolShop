@@ -14,16 +14,16 @@
 	include '..\..\paginas\emergentes.html';?>
 <div class="contenido">
 	<?php include '..\paginas\menui.html';
-		  require 'base\notificaciones.php'; ?>
+		  require_once 'base\notificaciones.php'; ?>
 
 	<div class="notificacionesTitulo">
 		<div class="titulo"><p>Notificaciones</p></div>
-		<div class="lasNotificaciones"><!--php-->
+		<div class="lasNotificaciones">
 			<?php titulos(); ?>
 		</div> 
 	</div>
 
-	<form name="publica" method="get" action="base/notificacionesF.php">
+	<form name="publica" method="POST" action="base/notificacionesF.php">
 			<?php contenido(); ?>
 		<div id="seguro">
 			<div class="popup-contenedor">

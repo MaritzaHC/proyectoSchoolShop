@@ -1,18 +1,20 @@
 <?php
-	require_once '../../../nusoap/lib/nusoap.php';
-	include 'verificacionLogin.php';
-	$wsdl="http://localhost:5316/ServiceSS.asmx?WSDL";
-	$client=new soapclient($wsdl);
+	require '../../../nusoap/lib/nusoap.php';
+	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
+	include_once 'verificacionLogin.php';
+	$client=new soapclient($wsdl,true);
 	$uu = @$_SESSION['username'];
 	settype($uu,'integer');
+	$tipo=$_POST['tipo'];
+	settype($tipo,'integer');
 
-if($_POST['tipo'] == 1)
+if($tipo == 1)
 {
 	$parametro = array();
 	$parametro['idProductos'] = 0;
 	$parametro['descripcion'] = $_POST['descripcion'];
 	$parametro['foto'] = "prue";
-	$parametro['categoria'] = $_POST['categorias'];;
+	$parametro['categoria'] = $_POST['categorias'];
 	$parametro['tiempo'] = $_POST['tiempoDisponible'];
 	$parametro['precio'] = $_POST['precio'];
 	$parametro['titulo'] = $_POST['titulo'];
@@ -23,12 +25,10 @@ if($_POST['tipo'] == 1)
 	$parametro['estado'] = 1;
 	
 	$parameters = array("x"=> $parametro);
-	json_encode($parameters);
-	$result=$client->insertarProducto($parameters);
+	$result=$client->call("insertarProducto",$parameters);
 	header("Location: ../ventas.php");
 }  
 else{
-	echo "aqui";
 	settype($_POST['donde'],'integer');
 	$parametro = array();
 	$parametro['idObjetoPerdido']=0;
@@ -40,14 +40,9 @@ else{
 	$parametro['fecha']="1999-01-01";
 	$parametro['estado']=1;
 	$parametro['lugarString']="dj";
-	var_dump($parametro);
+	
 	$parameters = array("x"=> $parametro);
-	json_encode($parameters);
-	$result=$client->insertarObjetoPerdido($parameters);
-	if ($result) {
-		echo "si";
-	}
-	echo "final";
-	//header("Location: ../objetos.php");
+	$result=$client->call("insertarObjetoPerdido",$parameters);
+	header("Location: ../objetos.php");
 }
 ?>

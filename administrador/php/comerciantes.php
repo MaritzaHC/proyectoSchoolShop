@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-<?php include '..\paginas\barraInicio.html';
+<?php include '..\paginas\barraInicio.php';
 include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
@@ -25,8 +25,16 @@ include '..\..\paginas\emergentes.html'; ?>
 		</div>
 	</div>
 	<div class="abajo">
+		<?php include 'base/consultasUsuarios.php';
+			$x = array();
+			$x = consultaGeneralVendedor();
+			foreach ($x as $are) {
+				$nombre = $are['nombre'];
+				$foto = $are['foto'];
+				$idVendedor = $are['idVendedor'];
+		?>
 		<div class="resultado">
-			<p onclick="irPagina('agregarComerciante')">Nombre</p>
+			<p onclick="window.location='detalleComerciante.php?i='+<?php echo $idVendedor; ?>"><?php echo $nombre;?></p>
 			<div class="imagen" onclick="popup(1,'seguro',0)"><img src="..\..\imagenes/basura.png"></div>
 			<div class="calificacion">
 				<div class="estrellas">
@@ -37,6 +45,7 @@ include '..\..\paginas\emergentes.html'; ?>
 				<img src="../../imagenes/estrellaB.png"></div>
 			</div>
 		</div>
+		<?php }?>
 	</div>
 </div>
 <script type="text/javascript">

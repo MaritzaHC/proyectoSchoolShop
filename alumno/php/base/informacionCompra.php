@@ -28,6 +28,6 @@ echo "<div class=\"imagen\"><img src=\"b.jpg\"></div>
 			<img src=\"..\..\imagenes\estrellaB.png\"></div></div>
 	</div>
 	<input type=\"\" name=\"vendedor\" value=$vendedor style=\"display: none;\">
-	<input type=\"\" name=\"titulo\" value=$titulo style=\"display: none;\">
+	<input type=\"\" name=\"titulo\" value=\"$titulo\" style=\"display: none;\">
 	";
 ?>

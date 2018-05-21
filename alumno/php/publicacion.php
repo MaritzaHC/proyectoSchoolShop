@@ -40,8 +40,8 @@
 
 	<div class="tipos">
 		<p>Tipos</p><br>
-		<input type="radio" name="tipo" value="1" onclick="vistaTipos('venta')">Venta
-		<input type="radio" name="tipo" value="2" onclick="vistaTipos('objeto')">Objeto Perdido
+		<input type="radio" name="tipo" value=1 onclick="vistaTipos('venta')">Venta
+		<input type="radio" name="tipo" value=2 onclick="vistaTipos('objeto')">Objeto Perdido
 		<br>
 	</div>
 	<div class="venta">
@@ -80,7 +80,6 @@
 	      <div class="botonAzul" onclick="quitar()">Cancelar</div>
 	   </div>
 	</div>
-
 	</form>
 </body>
 <script type="text/javascript">

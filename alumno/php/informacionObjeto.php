@@ -17,7 +17,7 @@
 	  include '..\..\paginas\emergentes.html';?>
 
 	<form method="get" action="base/informacionObjetoF.php" name="este">
-	<?php include 'base/informacionObjeto.php' ?>
+	<?php include 'base/informacionObjeto.php'; ?>
 
 		<div class="botonAzul">Contactar</div>
 

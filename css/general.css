@@ -90,20 +90,17 @@ input.boton{
 .popup-contenedor {
    position: relative;
    margin:7% auto;
-   padding:30px 50px;
+   padding:40px 50px 50px 50px;
    background-color: white;
    color:var(--color-letra-bases);
    border-radius: 3px;
-   width:20%;
+   width:250px;
    font-size: 20px;
    font-family: Trebuchet MS;
    border: solid 3px;
 }
 #razones .popup-contenedor {
 	width:30%;
-	padding:15px 20px 50px 20px;
-}
-#seguro .popup-contenedor,{
 	padding:15px 20px 50px 20px;
 }
 .popup-cerrar {
@@ -117,4 +114,24 @@ input.boton{
    line-height: 1;
    color:white;
    cursor: pointer;
+}
+.center {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination .flechas {
+    color: white;
+    float: left;
+    padding: 8px 16px	;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 4px;
+    cursor: pointer;
+    background-color: var(--boton-azul);
 }

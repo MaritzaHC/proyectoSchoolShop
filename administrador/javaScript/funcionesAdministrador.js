@@ -8,3 +8,10 @@ function vistaSelec(id){
 		$('#ur').css("display","inline-block");
 	}
 }
+function pagina(cual,tipo){
+  var id = variable("pag");
+
+      if (cual==1){id++;window.location=tipo+'.php?'+'pag='+id;}
+      if (cual==0){id--;;window.location=tipo+'.php?'+'pag='+id;}
+
+}

@@ -29,7 +29,7 @@
 	        document.getElementById('files').addEventListener('change', archivo, false);
 	      </script>
 
-			<?php include "base/cuenta.php" ?>
+			<?php include "base/cuenta.php"; ?>
 			<p style="margin-top: 15px">Antigua contraseña</p>
 			<input type="password" name="Acontrasena" size="15">
 			<p style="margin-top: 15px">Nueva contraseña</p>

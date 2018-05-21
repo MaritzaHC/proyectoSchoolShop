@@ -14,7 +14,7 @@ function titulos()
 	foreach ($x as $are) {
 		$titulo = $are['titulo'];
 	    $a=$i."n";
-		echo "<div class=\"notificacion\" id=$a onclick=\"mostrar($i,$con);\"><p>$titulo</p></div>";
+		echo "<div class=\"notificacion\" id=$a onclick=\"mostrar($i,$con)\"><p>$titulo</p></div>";
 		$i++;
 	}
 }
@@ -28,13 +28,14 @@ function contenido()
 	    $texto = $are['texto'];
 	    $idNotificaciones = $are['idNotificaciones'];
 	    $a=$i."c";
-	echo "<div class=\"contenidoNoti\" id=$a>
-		<div class=\"titulo\"><p>$titulo</p></div>
-		<div class=\"contenido\"><p>$texto</p></div>
-		<div class=\"boton\" onclick=\"popup(1,'seguro',0)\">Eliminar</div>
-		<input type=\"number\" name=\"idNotificaciones\" value=$idNotificaciones style=\"display: none;\">
-	</div>";
-	$i++;
+		echo "<div class=\"contenidoNoti\" id=$a>
+			<div class=\"titulo\"><p>$titulo</p></div>
+			<div class=\"contenido\"><p>$texto</p></div>
+			<div class=\"boton\" onclick=\"popup(1,'seguro',0)\">Eliminar</div>
+			<input type=\"number\" name=\"idNotificaciones\" value=$idNotificaciones style=\"display: none;\">
+		</div>";
+		$i++;
 	}
 }
 ?>
+

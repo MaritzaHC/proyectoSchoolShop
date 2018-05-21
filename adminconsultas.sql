@@ -1,5 +1,8 @@
 /*cuantos productos publicados por estudiante*/
-select COUNT(*) as cantidad from productos where estado=3 and
+select COUNT(*) as cantidad from productos where
+tipo=1 and vendedor=ALGO and (fecha BETWEEN ALGO AND ALGO);
+/*cuantos productos vendidos por estudiante*/
+select COUNT(*) as cantidad from productos where estado=5 and
 tipo=1 and vendedor=ALGO and (fecha BETWEEN ALGO AND ALGO);
 /*cuantos productos coomprados por estudiante*/
 select COUNT(*) as cantidad from productos where 

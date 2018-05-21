@@ -56,13 +56,13 @@ CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 7 DAY
 DO
 	INSERT INTO notificaciones (usuario,titulo,texto)
 	SELECT usuario, "Es un buen momento para vender", "Es inicio de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del ultimo semestre" 
-	from login where usuario LIKE "1%";
+	from login where tipoCuenta = 1;
 /*Evento para que al final del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
 CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
 DO
 	INSERT INTO notificaciones (usuario,titulo,texto)
 	SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
-	from login where usuario LIKE "1%";
+	from login where tipoCuenta = 1;
 /*despues de un mes se bloquea la posibilidad de publicar*/
 CREATE EVENT resTiempo ON SCHEDULE AT '2018-01-01' + INTERVAL 30 DAY
 DO

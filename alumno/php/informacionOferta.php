@@ -17,8 +17,6 @@
 	  include '..\..\paginas\emergentes.html';
 
 	  include 'base/informacionOferta';?>
-	  
-	</div>
 
 	<script type="text/javascript">
 			vista("pedidos");			

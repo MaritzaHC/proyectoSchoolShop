@@ -4,12 +4,12 @@ include 'consultasAdmin.php';
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 $x = array();
-$x = notificaciones(123456);	
+$x = notificaciones($uu);	
 
 function titulosImportantes()
 {
 	global $x;
-	$i=1;
+	$i=2;
 	$con=count($x);
 	foreach ($x as $are) {
 		if ($are['importancia']==2) {
@@ -24,7 +24,7 @@ function titulosImportantes()
 function contenidoImportantes()
 {
 	global $x;
-	$i=1;
+	$i=2;
 	foreach ($x as $are) {
 	    $titulo = $are['titulo'];
 	    $texto = $are['texto'];

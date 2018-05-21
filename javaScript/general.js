@@ -29,8 +29,16 @@ function mostrar(id, cantidad){
 function vista(id){
 	$("." + id + "p").css({"background-color":"white", "color":"#af5145"});	
 }
-function irPagina(pagina){
-	window.location = pagina+".php";
+function variable(variable) {
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0; i < vars.length; i++) {
+       var pair = vars[i].split("=");
+       if(pair[0] == variable) {
+           return pair[1];
+       }
+   }
+   return false;
 }
 /*
 if (tipo==1) {document.publica.submit();}//si es un formulario

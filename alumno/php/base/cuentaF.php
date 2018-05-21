@@ -2,37 +2,37 @@
 require_once '../../../nusoap/lib/nusoap.php';
 include 'verificacionLogin.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
-$client=new soapclient($wsdl);
+$client=new soapclient($wsdl,true);
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 
 if ($_POST['Acontrasena']!=null and $_POST['Ncontrasena']!=null and $_POST['Ccontrasena']!=null) {
 	if ($_POST['Ncontrasena']==$_POST['Ccontrasena']) {
-		if (validar) {
 			$parametro = array();
 			$parametro['idAlumno'] = $uu;
-			$parametro['contrasena'] = 0;
-			$parametro['correo'] = 0;
-			$parametro['foto'] = 0;
+			$parametro['contrasena'] = $_POST['Ccontrasena'];
+			$parametro['Acontrasena'] = $_POST['Acontrasena'];
+			$parametro['correo'] = $_POST['correo'];
+			$parametro['tipo'] = 1;
+			//$parametro['foto'] = $_POST['foto'];
 
 			$parameters = array("x"=> $parametro);
-			json_encode($parameters);
-			$result=$client->modiicaradatosalumno($parameters);
+			$result=$client->call("modificaradatosalumno",$parameters);
 			header("Location: ../cuenta.php");
-		}
-		else{}
 	}
+	else header("Location: ../cuenta.php");
 
 }
 else {
 	$parametro = array();
 	$parametro['idAlumno'] = $uu;
-	$parametro['contrasena'] = 0;
-	$parametro['correo'] = 0;
-	$parametro['foto'] = 0;
+	$parametro['contrasena'] = 1;
+	$parametro['Acontrasena'] = 1;
+	$parametro['tipo'] = 2;
+	$parametro['correo'] = $_POST['correo'];
+	//$parametro['foto'] = $_POST['foto'];
 
 	$parameters = array("x"=> $parametro);
-	json_encode($parameters);
-	$result=$client->modiicaradatosalumno($parameters);
+	$result=$client->call("modificaradatosalumno",$parameters);
 	header("Location: ../cuenta.php");
 }

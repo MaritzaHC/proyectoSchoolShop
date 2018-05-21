@@ -1,34 +1,41 @@
 <?php
 require_once '../../../nusoap/lib/nusoap.php';
+include 'verificacionLogin.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
 
 if (@$_GET['este']) {//comprar
-	 $id = $_GET['este'];settype($id,'integer');
-	 
-	 $comprador = @$_SESSION['username'];settype($comprador,'integer');
+	 $id = $_GET['este'];
+	 settype($id,'integer');
+	 $vendedor = $_GET['vendedor'];
+	 settype($vendedor,'integer');
+	 $comprador = @$_SESSION['username'];
+	 settype($comprador,'integer');
 	
 	if($comprador!=$vendedor){
-		$client=new soapclient($wsdl);
+		$client=new soapclient($wsdl,true);
 		$parametro = array();
-		$parametro['id'] = $id;
-		$parametro['vendedor'] = $vendedor;
-		$parametro['comprador'] = $comprador;
+		$parametro['idProducto'] = $id;
+		$parametro['idVendedor'] = $vendedor;
+		$parametro['idComprador'] = $comprador;
 		$parametro['titulo'] = $_GET['titulo'];
-		
-		$parameters = array("x"=> $parametro);
-		json_encode($parameters);
-		$result=$client->insertarComprador($parameters);
+		$result=$client->call("ComprarProducto", $parametro);
+		if ($result) header("Location: ../compras.php");
+		else header("Location: ../informacionCompra.php?id=$id&no=no");
 	}
-	//header("Location: ../compras.php");
+	else {
+		header("Location: ../informacionCompra.php?id=$id&no=no");
+	}
 	exit;
 }
 
-if (@$_GET["id"]) {//reportar
-	include 'consultasProductos.php';
-	$laid = $_GET["id"];
+if (@$_GET['id']) {//reportar
+	require_once 'consultasProductos.php';
+	echo "aquixc";
+	$laid = $_GET['id'];
 	settype($laid,'integer');
+	var_dump($laid);
 
-	$razon = $_GET["razon"];
+	$razon = $_GET['razon'];
 	var_dump($razon);
 	$razones = explode(",", $razon);
 	settype($razones[0],'integer');
@@ -46,8 +53,9 @@ if (@$_GET["id"]) {//reportar
 	$parametro['titulo'] = $razones[1];
 	
 	json_encode($parametro);
-	$result=$client->reportarProducto($parametro);
+	$result=$client->reportarproducto($parametro);
 
 	header("Location: ../inicio.php?=compras");
 	exit;
 }
+?>

@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; 
+	<?php include '..\paginas\barraInicio.php'; 
 		include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
@@ -25,22 +25,48 @@
 		</div>
 	</div>
 	<div class="abajo">
-		<div class="resultado" onclick="irPagina('informacionAlumno')">
-			<p>Nombre</p>
-			<p>Registro</p>
-		</div>
+		<?php include 'base/consultasUsuarios.php';
+			$x = array();
+			$pag = $_GET['pag'];
+			$x = alumnosGeneral($pag);
+			$xx = alumnosGeneral(($pag+1));
+			if ($xx==0) {
+			echo "
+			<script type=\"text/javascript\">
+					var siguiente = 1;
+			</script>
+			";
+			}
+			foreach ($x as $are) {
+				$nombre = $are['nombre']." ".$are['apellidoP']." ".$are['apelldioM'];
+				$foto = $are['foto'];
+				$id = $are['id'];
+		?>
 		<div class="resultado">
-			<p>Nombre</p>
-			<p>Registro</p>
+			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $nombre;?></p>
+			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $id;?></p>
+			<div class="imagen" onclick="popup(1,'seguro',0)"><img src="..\..\imagenes/basura.png"></div>
+			<div class="calificacion">
+				<div class="estrellas">
+		   	 	<img src="../../imagenes/estrellaL.png">
+		   	 	<img src="../../imagenes/estrellaL.png">
+		   		<img src="../../imagenes/estrellaL.png">
+		   		<img src="../../imagenes/estrellaL.png">
+				<img src="../../imagenes/estrellaB.png"></div>
+			</div>
 		</div>
-		<div class="resultado">
-			<p>Nombre</p>
-			<p>Registro</p>
-		</div>
-
+		<?php }?>
 	</div>
 </div>
+<div class="center">
+	  <div class="pagination">
+	    <div onclick="pagina(0,'alumnos')" class="flechas" id="f1">Anterior</div>
+	    <div onclick="pagina(1,'alumnos')" class="flechas" id="f2">Siguiente</div>
+	  </div>
+	</div>
 <script type="text/javascript">
 	$(".alumnos p").css({"background-color":"#fffade", "color":"#af5145"});	
+	if (variable("pag")==1) $("#f1").css("display","none");
+	if (siguiente==1) $("#f2").css("display","none");
 </script>
 </body>

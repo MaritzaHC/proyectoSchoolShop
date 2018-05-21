@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; 
+	<?php include '..\paginas\barraInicio.php'; 
 		  require 'base\notificaciones.php';?>
 
 <div class="contenido">
@@ -19,7 +19,7 @@
 		<div class="titulo"><p>Notificaciones</p><br></div>
 		<div class="tipos">
 			<input type="radio" name="tipos" value="1" onclick="vistaSelec(1)" checked>Urgentes
-			<input type="radio" name="tipo" value="2" onclick="vistaSelec(2)">Normales
+			<input type="radio" name="tipos" value="2" onclick="vistaSelec(2)">Normales
 			<br>
 		</div>
 
@@ -27,7 +27,7 @@
 			<?php titulosImportantes(); ?>
 		</div>
 
-		<div class="lasNotificaciones" id="no"><!--php-->
+		<div class="lasNotificaciones" id="no">
 			<?php titulos(); ?>
 		</div>
 

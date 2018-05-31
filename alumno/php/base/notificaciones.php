@@ -4,13 +4,17 @@ include 'consultasAlumno.php';
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 $x = array();
-$x = notificaciones($uu);	
+$x = @notificaciones($uu);	
 
 function titulos()
 {
 	global $x;
 	$i=1;
 	$con=count($x);
+	if ($x[0]['titulo']==null) {
+		echo "No hay notificaciones";
+		exit;
+	}	
 	foreach ($x as $are) {
 		$titulo = $are['titulo'];
 	    $a=$i."n";

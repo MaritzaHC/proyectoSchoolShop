@@ -53,7 +53,7 @@ function objetosPerdidos()
 				<div class=\"resumen\">
 					<p style=\"margin-top: 10px\">$titulo</p>
 				</div>
-				<div class=\"detalles\" onclick=\"paraMenu($id,3)\">Ver detalles</div>
+				<div class=\"detalles\" onclick=\"paraMenu($id,4)\">Ver detalles</div>
 				<div class=\"boton\" id=\"publicado\">Publicado</div>
 			</div>";
 		}
@@ -63,7 +63,7 @@ function objetosPerdidos()
 				<div class=\"resumen\">
 					<p style=\"margin-top: 10px\">$titulo</p>
 				</div>
-				<div class=\"detalles\" onclick=\"paraMenu($id,4)\">Ver detalles</div>
+				<div class=\"detalles\" onclick=\"paraMenu($id,3)\">Ver detalles</div>
 				<div class=\"boton\" id=\"curso\">En curso</div>
 			</div>";
 		}
@@ -97,7 +97,7 @@ function ventas()
 				<div class=\"resumen\">
 					<p style=\"margin-top: 10px\">$titulo</p>
 				</div>
-				<div class=\"detalles\" onclick=\"paraMenu($id,3)\">Ver detalles</div>
+				<div class=\"detalles\" onclick=\"paraMenu($id,2)\">Ver detalles</div>
 				<div class=\"boton\" id=\"publicado\">Publicado</div>
 			</div>";
 		}
@@ -107,7 +107,7 @@ function ventas()
 				<div class=\"resumen\">
 					<p style=\"margin-top: 10px\">$titulo</p>
 				</div>
-				<div class=\"detalles\" onclick=\"paraMenu($id,4)\">Ver detalles</div>
+				<div class=\"detalles\" onclick=\"paraMenu($id,1)\">Ver detalles</div>
 				<div class=\"boton\" id=\"curso\">En curso</div>
 			</div>";
 		}
@@ -117,7 +117,7 @@ function ventas()
 				<div class=\"resumen\">
 					<p style=\"margin-top: 10px\">$titulo</p>
 				</div>
-				<div class=\"detalles\" onclick=\"paraMenu($id,4)\">Ver detalles</div>
+				<div class=\"detalles\" onclick=\"paraMenu($id,1)\">Ver detalles</div>
 				<div class=\"boton\" id=\"finalizado\">Finalizado</div>
 			</div>";
 		}

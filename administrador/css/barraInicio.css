@@ -72,7 +72,7 @@ p{margin: 0px;}
 	float: right;
 	cursor:pointer;
 }
-#barraMenu .comerciantes p, #barraMenu .almacenistas p, #barraMenu .restricciones p, #barraMenu .estadisticas p, #barraMenu .categorias p{
+#barraMenu .comerciantes p, #barraMenu .almacenistas p, #barraMenu .restricciones p, #barraMenu .estadisticas p, #barraMenu .categorias p, #barraMenu .configuracion p{
 	text-align: center;
 	height: auto;
 	border-radius: 10px 10px 0px 0px;
@@ -82,14 +82,14 @@ p{margin: 0px;}
 	margin: 5px 0px 0px 0px;
 	padding-bottom: 5px;
 }
-#barraMenu .comerciantes, #barraMenu .almacenistas, #barraMenu .restricciones, #barraMenu .estadisticas, #barraMenu .categorias{
-	width: 16%;
+#barraMenu .comerciantes, #barraMenu .almacenistas, #barraMenu .restricciones, #barraMenu .estadisticas, #barraMenu .categorias,#barraMenu .configuracion{
+	width: 13%;
 	display: inline-block;	
 	float: left;
 	background-color: var(--barra);
 }
 #barraMenu .alumnos, #barraMenu .lugares{
-	width: 10%;
+	width: 11%;
 	display: inline-block;	
 	float: left;
 	background-color: var(--barra);	
@@ -129,6 +129,10 @@ p{margin: 0px;}
 	color: var(--color-letra-base);
 }
 #barraMenu .lugares p:hover{
+	background-color: var(--fondo);
+	color: var(--color-letra-base);
+}
+#barraMenu .configuracion p:hover{
 	background-color: var(--fondo);
 	color: var(--color-letra-base);
 }

@@ -17,13 +17,13 @@
 		<div class="barraBuscar">
 			<form method="get" action="inicio.php" name="gg">
 				<script type="text/javascript">
-					var x = variable("i");
-			 		if(x==false) x="compras";
+					var bus = variable("i");
+			 		if(bus==false) bus="compras";
 			 	</script>
 				<input type="text" name="buscar" class="buscar">
 				<img src="..\..\imagenes\buscar.png">
 				<input type="submit" name="i" class="botonbuscar">
-				<script>document.gg.i.value = x;</script>
+				<script>document.gg.i.value = bus;</script>
 			</form>
 		</div>
 	</div>

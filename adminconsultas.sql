@@ -56,6 +56,10 @@ from alumno, calificacion_alumno
 where alumno.id_alumno=calificacion_alumno.id_alumno and alumno.idAlumno = ALGO 	
 
 
+UPDATE productos SET categoria=null WHERE categoria = id;
+UPDATE categorias SET estado = 0 WHERE idcategoria = id;
+
+
 /*Restricciones*/
 UPDATE restricciones
 SET
@@ -97,3 +101,5 @@ insert into personal values(151,"Algien",445,"limpieza"),(555,"Persona",85,"Comi
 insert into estudiante values (32555566,"Ricardo","Navarro","Algo","otro lugar","1999-09-18 04:00:00","true",3),
 	(85457885,"Abril","Medina","Landeros","otro lugar","1999-041-18 04:00:00","true",4);
 
+create table conversacion (id int primary key, fecha date, usuarioU int, usuarioD int, FOREIGN KEY (usuarioU) REFERENCES (),FOREIGN KEY (usuarioD) REFERENCES ());
+create table mensaje (id int primary key, conversacion int, FOREIGN KEY (conversacion) REFERENCES conversacion(id), texto text);

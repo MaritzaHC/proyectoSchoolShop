@@ -27,6 +27,7 @@
 
 	<form name="publica" method="post" action="base/publicacionModificacion.php">
 
+	<input type="" name="id" style="display: none;" value="<?php echo $laid; ?>">
 	<div class="imagenp" style="background-color: green;">
 		<output id="list"><img src="pay.jpg"<?php $foto; ?>></output>
 		<div class="imagen"><input type="file" id="files" name="files[]" value=" " required="required"/></div>

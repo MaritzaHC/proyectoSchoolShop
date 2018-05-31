@@ -23,11 +23,13 @@
 
 <div class="contenido">
 	<div class="informacionComerciantes">
-		<h2>Nombre</h2>
-		<h3><?php echo $nombre;?></h3>
-		<h2>Ubicacion</h2>
-		<h3><?php echo $ubica;?></h3>
-		<div class="boton">Bloquear</div>
+		<form action="base/modiAlmacenista.php" method="POST">
+			<h2>Nombre</h2>
+			<input type="text" style="font-size: 23px;" name="nombre" value=<?php echo $nombre;?>>
+			<h2>Ubicacion</h2>
+			<input type="text" style="font-size: 23px;" name="ubicacion" value=<?php echo $ubica;?>><br>
+			<input type="submit" value="Modificar" class="boton">
+		</form>
 	</div>
 	<div class="imagenCuenta"><img src="caja.png"></div>
 </div>

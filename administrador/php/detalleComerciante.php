@@ -30,11 +30,40 @@
 		<h3><?php echo $tele;?></h3>
 		<h2>Ubicacion</h2>
 		<h3><?php echo $ubica;?></h3>
-		<div class="boton">Bloquear</div>
-	</div>
+		<form action="base/bloquear.php" method="POST">
+		<input type="" id="id" name="id" style="display: none;" value=<?php echo $id; ?>>
+		<?php if($x['estado']==1){
+			echo "<input type=\"submit\" value=\"Bloquear\" class=\"boton\">";
+			echo "<input name=\"estado\" id=\"estado\" style=\"display: none;\" value=0>";
+		}else{
+			echo "<input name=\"estado\" id=\"estado\" style=\"display: none;\" value=1>";
+			echo "<input type=\"submit\" value=\"Desbloquear\" class=\"boton\"  style=\"width: 150px\">";
+		}?>
+	</div></form>
 	<div class="imagenCuenta"><img src="caja.png"></div>
 </div>
 <script type="text/javascript">
-	$(".comerciantes p").css({"background-color":"#fffade", "color":"#af5145"});	
+	$(".comerciantes p").css({"background-color":"#fffade", "color":"#af5145"});
+	$("form").submit(function(e){
+		e.preventDefault();
+		var mid = document.getElementById("id").value;
+		var mestado =  document.getElementById("estado").value;
+		$.post(
+			"base/bloquear.php",
+			{
+				id: mid,
+				estado: mestado
+			}).
+			done(function(data){
+				if(mestado == 0){
+				 document.getElementById("estado").value = 1;
+				 $(".boton").attr("value", "Desbloquear");	
+				}
+				else if(mestado == 1){
+				 document.getElementById("estado").value = 0;
+				 $(".boton	").attr("value", "Bloquear");	
+				}
+			});
+	});
 </script>
 </body>

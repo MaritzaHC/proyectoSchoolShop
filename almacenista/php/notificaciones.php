@@ -8,37 +8,35 @@
 	<script type="text/javascript" src="..\..\javaScript\general.js"></script>
 	<script type="text/javascript" src="..\javaScript\funcionesAlmacenista.js"></script>
 	<meta charset="utf-8">
+	
 </head>
 <body>
 	<?php include '..\paginas\barraInicio.html'; ?>
 
 <div class="contenido">
-	<?php include '..\paginas\menu.html'; ?>
+	<?php include '..\paginas\menu.html'; 
+	include '..\..\paginas\emergentes.html';
+	require_once 'consultas.php';?>
 
 	<div class="notificacionesTitulo">
 		<div class="titulo"><p>Notificaciones</p></div>
 		<div class="lasNotificaciones"><!--php-->
-			<div class="notificacion" id="1n" onclick="mostrar(1,3);"><p>Titulo de la notificacion</p></div>
-			<div class="notificacion" id="2n" onclick="mostrar(2,3);"><p>Titulo de la notificacion</p></div>
-			<div class="notificacion" id="3n" onclick="mostrar(3,3);"><p>Titulo de la notificacion</p></div>
+			<?php titulos(); ?>
 		</div>
 	</div>
-	<div class="contenidoNoti" id="1c">
-		<div class="titulo"><p>Titulo1</p></div>
-		<div class="contenidon"><p>El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.  
-El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro. Fuente: sans-serif para los numeros</p></div><br>
-		<div class="boton">Eliminar</div><!--volver a cargar la pagina-->
-	</div>
-	<div class="contenidoNoti" id="2c">
-		<div class="titulo"><p>Titulo2</p></div>
-		<div class="contenidon"></div><br>
-		<div class="boton">Eliminar</div>
-	</div>
-	<div class="contenidoNoti" id="3c">
-		<div class="titulo"><p>Titulo3</p></div>
-		<div class="contenidon"></div><br>
-		<div class="boton">Eliminar</div>
-	</div>
+
+	<form name="publica" method="POST" action="base/notificacionesF.php">
+			<?php contenido(); ?>
+		<div id="seguro">
+			<div class="popup-contenedor">
+			      <p>¿Esta seguro de eliminar esta notificación?</p>
+			      <br>
+			      <input type="submit" value="Aceptar" class="boton">
+			     <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
+			     <br>
+		   </div>
+		</div>
+	</form>
 </div>
 <script type="text/javascript">
 	$(".contenidoNoti").css("display","none");

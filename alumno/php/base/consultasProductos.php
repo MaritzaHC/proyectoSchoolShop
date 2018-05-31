@@ -246,7 +246,7 @@ function buscarProductosenCategoria($id,$pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('busqueda' => 'busqueda','categoria' => $id, 'pag' => $pag, 'cantidad' => 10);
+	$parametro = array('categoria' => $id, 'pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("buscarProductosenCategoria", $parametro)["buscarProductosenCategoriaResult"];
 
 	$losproductos = array();

@@ -46,14 +46,15 @@ function mostrarPedidos($tipo,$pag){
 	$w = array();
 	$w = productos(3,6);
 
-$xx = productos(3,($pag+1));
-if ($xx==0) {
+$xx = @buscarenProductoEstudiante($cadena,($pag+1));
+	if ($xx==0||$x[0]['idProductos']=="") {
 	echo "
 	<script type=\"text/javascript\">
-			var siguiente = 1;
+			var siguiente = 1; 
 	</script>
 	";
-}
+	$x = null;
+	}
 ?>
 	<!--echo "--><div class='barraofertas'><!--";
 	foreach ($w as $are) {
@@ -132,12 +133,14 @@ function mostrarObjetos($pag){
 	$z = array();
 	$z = ObjetoPerdido(1,$pag);
 	$xx = ObjetoPerdido(1,($pag+1));
-	if ($xx==0) {
-		echo "
-		<script type=\"text/javascript\">
-				var siguiente = 1;
-		</script>
-		";
+
+	if ($xx[0]['idObjetoPerdido']==NULL) {
+	echo "
+	<script type=\"text/javascript\">
+			var siguiente = 1; 
+	</script>
+	";
+	$x = null;
 	}
 
 	echo "<div id='opobjetos'>";

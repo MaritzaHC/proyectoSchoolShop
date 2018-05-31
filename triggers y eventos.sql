@@ -23,31 +23,74 @@ CREATE TRIGGER reporte AFTER INSERT ON reportarproducto
        	    END IF;
 END//	
 
+CREATE TRIGGER calificacion AFTER UPDATE ON calificacion_alumno
+       FOR EACH ROW BEGIN
+          IF UPDATE (calificacionComprador) THEN
+          UPDATE alumno SET calificacionC = (new.calificacionComprador+(select calificacionC from alumno where idAlumno=new.id_alumnoC))/2 WHERE idAlumno=new.id_alumnoC;
+          END IF;
+          IF UPDATE (calificacionVendedor) THEN
+          UPDATE alumno SET calificacionV = (new.calificacionVendedor+(select calificacionV from alumno where idAlumno=new.id_alumnoV))/2 WHERE idAlumno=new.id_alumnoV;
+          END IF;
+END// 
+
+
+
 /*Evento para que una semana despues del inicio del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
-CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 7 DAY
+CREATE EVENT ventaInicio ON SCHEDULE AT '2019-01-01' + INTERVAL 7 DAY
 DO
-	INSERT INTO notificaciones (usuario,titulo,texto)
-	SELECT usuario, "Es un buen momento para vender", "Es inicio de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del ultimo semestre" 
-	from login where tipoCuenta = 1;
+  INSERT INTO notificaciones (usuario,titulo,texto)
+  SELECT usuario, "Es un buen momento para vender", "Es inicio de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del ultimo semestre" 
+  from login where tipoCuenta = 1;
 /*Evento para que al final del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
-CREATE EVENT ventaInicio ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
+CREATE EVENT ventaFin ON SCHEDULE AT '2019-01-01' + INTERVAL 91 DAY
 DO
-	INSERT INTO notificaciones (usuario,titulo,texto)
-	SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
-	from login where tipoCuenta = 1;
+  INSERT INTO notificaciones (usuario,titulo,texto)
+  SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
+  from login where tipoCuenta = 1;
 /*despues de un mes se bloquea la posibilidad de publicar*/
-CREATE EVENT resTiempo ON SCHEDULE AT '2018-01-01' + INTERVAL 30 DAY
+CREATE EVENT mesBlo ON SCHEDULE AT '2019-01-01' + INTERVAL 30 DAY
 DO
   UPDATE restricciones set estado=false;
 /*al final te deja publicar*/ 
-CREATE EVENT resTiempo ON SCHEDULE AT '2018-01-01' + INTERVAL 91 DAY
+CREATE EVENT seBlo ON SCHEDULE AT '2019-01-01' + INTERVAL 91 DAY  
 DO
   UPDATE restricciones set estado=true;
 /*inicio del semestre*/
-CREATE EVENT resTiempo ON SCHEDULE STARTS '2018-01-01' 
+CREATE EVENT iniBlo ON SCHEDULE AT '2019-01-01' 
 DO
   UPDATE restricciones set estado=true;
 /*final del semestre*/
-CREATE EVENT resTiempo ON SCHEDULE STARTS '2018-01-01' 
+CREATE EVENT finBlo ON SCHEDULE AT '2019-02-01' 
 DO
   UPDATE restricciones set estado=false;
+
+
+DELIMITER $$
+CREATE PROCEDURE `fechas`(IN _iniSe date)
+BEGIN
+  Alter EVENT ventaInicio ON schedule AT _iniSe + INTERVAL 7 DAY ;
+  Alter EVENT ventaFin ON schedule AT _iniSe + INTERVAL 91 DAY;
+END$$
+
+CREATE PROCEDURE `restriccionA`(IN _iniSe date, IN _finSe date)
+BEGIN
+  Alter EVENT mesBlo ON SCHEDULE AT _iniSe + INTERVAL 30 DAY;
+  Alter EVENT seBlo ON SCHEDULE AT _iniSe + INTERVAL 91 DAY;
+  Alter EVENT iniBlo ON SCHEDULE AT _iniSe;
+  Alter EVENT finBlo ON SCHEDULE AT _finSe;
+END$$
+
+CREATE PROCEDURE `restriccionD`()
+BEGIN
+  Alter EVENT mesBlo ON SCHEDULE AT '2000-01-01' + INTERVAL 30 DAY;
+  Alter EVENT seBlo ON SCHEDULE AT '2000-01-01' + INTERVAL 91 DAY;
+  Alter EVENT iniBlo ON SCHEDULE AT '2000-01-01';
+  Alter EVENT finBlo ON SCHEDULE AT '2000-02-01';
+END$$
+DELIMITER ;
+
+DROP PROCEDURE myProcedure;
+DROP PROCEDURE pro;
+DROP PROCEDURE procediento;
+
+if(!$mysqli->query("call restriccionA('$iniSe','$finSe')")){echo "no";} 

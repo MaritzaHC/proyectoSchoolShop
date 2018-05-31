@@ -3,22 +3,24 @@ include_once 'consultasProductos.php';
 function buscarProductos($cadena,$pag)
 {
 	$x = array();
-	$x = buscarenProductoEstudiante($cadena,$pag);
+	$x = @buscarenProductoEstudiante($cadena,$pag);
 	$c = array();
 	$c = categorias();
 	$si=0;
-	$xx = buscarenProductoEstudiante($cadena,($pag+1));
-	if ($xx==0) {
+	var_dump($x);
+	$xx = @buscarenProductoEstudiante($cadena,($pag+1));
+	if ($xx==0||$x[0]['idProductos']=="") {
 	echo "
 	<script type=\"text/javascript\">
-			var siguiente = 1;
+			var siguiente = 1; 
 	</script>
 	";
+	$x = null;
 	}
 
 	echo "<div id='opcompras'>";
 			include 'categoriasMenu.php';
-
+if($x)
 		foreach ($x as $are) {
 		    $titulo = $are['titulo'];
 		    $precio = $are['precio'];
@@ -48,9 +50,9 @@ function buscarProductos($cadena,$pag)
 function buscarPedidos($cadena,$pag)
 {
 	$w = array();
-	$w = buscarenProductosComerciante($cadena,$pag);
+	$w = @buscarenProductosComerciante($cadena,$pag);
 	$si=0;
-	$xx = buscarenProductosComerciante($cadena,($pag+1));
+	$xx = @buscarenProductosComerciante($cadena,($pag+1));
 	if ($xx==0) {
 	echo "
 	<script type=\"text/javascript\">
@@ -98,9 +100,9 @@ function buscarPedidos($cadena,$pag)
 function buscarObjetos($cadena,$pag)
 {
 	$z = array();
-	$z = buscarObjetoPerdido($cadena,$pag);
+	$z = @buscarObjetoPerdido($cadena,$pag);
 	$si=0;
-	$xx =buscarObjetoPerdido($cadena,($pag+1));
+	$xx =@buscarObjetoPerdido($cadena,($pag+1));
 	if ($xx==0) {
 	echo "
 	<script type=\"text/javascript\">
@@ -136,12 +138,12 @@ function buscarObjetos($cadena,$pag)
 function buscarCategoria($id,$pag){
 settype($id,'integer');
 $x = array();
-$x = buscarProductosenCategoria($id,$pag);
+$x = @buscarProductosenCategoria($id,$pag);
 $c = array();
 $c = categorias();
 $si=0;
-$xx =buscarProductosenCategoria($id,($pag+1));
-	if ($xx==0) {
+$xx = @buscarProductosenCategoria($id,($pag+1));
+	if ($xx[0]['idProductos']=="") {
 	echo "
 	<script type=\"text/javascript\">
 			var siguiente = 1;

@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <div class="categorias"><h3>Categorias</h3>
 	<?php 
 		require_once 'base/consultasProductos.php';

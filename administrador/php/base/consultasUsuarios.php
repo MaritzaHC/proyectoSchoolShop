@@ -50,6 +50,7 @@ function alumnosDeta($id)
 							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
 							  'Foto'=>$result["AlumnoModelo"]["Foto"],
 							  'usuario'=>$result["AlumnoModelo"]["usuario"],
+							  'estado'=>$result["AlumnoModelo"]["estado"],
 							  'correo'=>$result["AlumnoModelo"]["correo"]);
 		//falta estado 
 	return $losproductos;
@@ -64,8 +65,7 @@ function almacenistaDeta($id)
 		$losproductos = array(
 							  'idAlmacenista'=>$result["AlmacenistaModelo"]["idAlmacenista"],
 							  'nombre'=>$result["AlmacenistaModelo"]["nombre"],
-							  'foto'=>$result["AlmacenistaModelo"]["foto"],
-							  'usuario'=>$result["AlmacenistaModelo"]["usuario"],
+							  'foto'=>$result["AlmacenistaModelo"]["Foto"],
 							  'ubicacion'=>$result["AlmacenistaModelo"]["ubicacion"]);
 	return $losproductos;
 }
@@ -83,7 +83,6 @@ function almacenistaGeneral($pag)
 							  'idAlmacenista'=>$result["AlmacenistaModelo"]["idAlmacenista"],
 							  'nombre'=>$result["AlmacenistaModelo"]["nombre"],
 							  'foto'=>$result["AlmacenistaModelo"]["foto"],
-							  'usuario'=>$result["AlmacenistaModelo"]["usuario"],
 							  'ubicacion'=>$result["AlmacenistaModelo"]["ubicacion"]);
 	}else{
 		for ($i=0; $i < $cuantos; $i++) { 
@@ -91,7 +90,6 @@ function almacenistaGeneral($pag)
 								  'idAlmacenista'=>$result["AlmacenistaModelo"][$i]["idAlmacenista"],
 								  'nombre'=>$result["AlmacenistaModelo"][$i]["nombre"],
 								  'foto'=>$result["AlmacenistaModelo"][$i]["foto"],
-								  'usuario'=>$result["AlmacenistaModelo"][$i]["usuario"],
 								  'ubicacion'=>$result["AlmacenistaModelo"][$i]["ubicacion"]);
 		}
 	}
@@ -113,7 +111,6 @@ function consultaGeneralVendedor($pag)
 			'foto'=>$result["VendedorModelo"]["foto"],
 			'telefono'=>$result["VendedorModelo"]["telefono"],
 			'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
-			'usuario'=>$result["VendedorModelo"]["usuario"],
 			'estado'=>$result["VendedorModelo"]["estado"]);
 	}else {
 	for ($i=0; $i < $cuantos; $i++) { 
@@ -123,7 +120,6 @@ function consultaGeneralVendedor($pag)
 								  'foto'=>$result["VendedorModelo"][$i]["foto"],
 								  'telefono'=>$result["VendedorModelo"][$i]["telefono"],
 								  'ubicacion'=>$result["VendedorModelo"][$i]["ubicacion"],
-								  'usuario'=>$result["VendedorModelo"][$i]["usuario"],
 								  'estado'=>$result["VendedorModelo"][$i]["estado"]);
 	}
 	}
@@ -142,8 +138,37 @@ function consultaDetalleVendedor($id)
 							  'telefono'=>$result["VendedorModelo"]["telefono"],
 							  'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
 							  //'foto'=>$result["VendedorModelo"]["foto"],
-							  'usuario'=>$result["VendedorModelo"]["usuario"],
 							  'estado'=>$result["VendedorModelo"]["estado"]);
 		//falta estado 
+	return $losproductos;
+}
+function buscarVendedor($busqueda,$pag)
+{
+	global $wsdl;
+	$client=new SoapClient($wsdl, true);
+	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 10);
+	$result=$client->call("buscarVendedor",$parametro)["buscarVendedorResult"];
+
+	$losproductos = array();
+	$cuantos = count($result);
+	if($cuantos == 1){
+		$losproductos[0] = array(
+			'idVendedor'=>$result["VendedorModelo"]["idVendedor"],
+			'nombre'=>$result["VendedorModelo"]["nombre"],
+			'foto'=>$result["VendedorModelo"]["foto"],
+			'telefono'=>$result["VendedorModelo"]["telefono"],
+			'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
+			'estado'=>$result["VendedorModelo"]["estado"]);
+	}else {
+	for ($i=0; $i < $cuantos; $i++) { 
+		$losproductos[$i] = array(
+								  'idVendedor'=>$result["VendedorModelo"][$i]["idVendedor"],
+								  'nombre'=>$result["VendedorModelo"][$i]["nombre"],
+								  'foto'=>$result["VendedorModelo"][$i]["foto"],
+								  'telefono'=>$result["VendedorModelo"][$i]["telefono"],
+								  'ubicacion'=>$result["VendedorModelo"][$i]["ubicacion"],
+								  'estado'=>$result["VendedorModelo"][$i]["estado"]);
+	}
+	}
 	return $losproductos;
 }

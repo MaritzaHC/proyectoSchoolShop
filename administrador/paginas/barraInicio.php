@@ -18,8 +18,9 @@
 		<div class="comerciantes" onclick="window.location='comerciantes.php?pag=1'"><p>Comerciantes</p></div>
 		<div class="almacenistas" onclick="window.location='almacenistas.php?pag=1'"><p>Almacenistas</p></div>
 		<div class="alumnos" onclick="window.location='alumnos.php?pag=1'"><p>Alumnos</p></div>
-		<div class="restricciones" onclick="window.location='restricciones.php?pag=1'"><p>Restricciones</p></div>
+		<div class="restricciones" onclick="window.location='restricciones.php'"><p>Restricciones</p></div>
 		<div class="estadisticas" onclick="window.location='estadisticas.php?pag=1'"><p>Estadisticas</p></div>
 		<div class="categorias" onclick="window.location='categorias.php?pag=1'"><p>Categorias</p></div>
 		<div class="lugares" onclick="window.location='lugares.php?pag=1'"><p>Lugares</p></div>
+		<div class="configuracion" onclick="window.location='configuracion.php'"><p>Configuraciones</p></div>
 	</div>

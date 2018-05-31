@@ -13,7 +13,6 @@ foreach ($com as $key) {
 	}
 }
 $ve = historialMisVentas($uu);
-var_dump($ve);
 foreach ($ve as $key) {
 	if ($key['estado']==2) {
 		$ven++;
@@ -43,7 +42,7 @@ echo "<div class=\"arriba\">
 			</div>
 			<div class=\"pedidos\" onclick=\"window.location='pedidos.php'\">
 				<div class=\"titulo\"><p>Pedidos</p> </div>
-				<div class=\"cuenta\"><p>$ob</p> </div>
+				<div class=\"cuenta\"><p>(0)</p> </div>
 			</div>	
 		</div>	";
 ?>

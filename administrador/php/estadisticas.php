@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.php'; ?>
 <div class="contenido">
 	<div class="eComerciantes">
 		<p>Comerciantes</p>

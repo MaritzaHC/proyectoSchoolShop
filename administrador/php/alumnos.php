@@ -28,8 +28,8 @@
 		<?php include 'base/consultasUsuarios.php';
 			$x = array();
 			$pag = $_GET['pag'];
-			$x = alumnosGeneral($pag);
-			$xx = alumnosGeneral(($pag+1));
+			$x = @alumnosGeneral($pag);
+			$xx = @alumnosGeneral(($pag+1));
 			if ($xx==0) {
 			echo "
 			<script type=\"text/javascript\">
@@ -39,13 +39,11 @@
 			}
 			foreach ($x as $are) {
 				$nombre = $are['nombre']." ".$are['apellidoP']." ".$are['apelldioM'];
-				$foto = $are['foto'];
 				$id = $are['id'];
 		?>
 		<div class="resultado">
 			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $nombre;?></p>
 			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $id;?></p>
-			<div class="imagen" onclick="popup(1,'seguro',0)"><img src="..\..\imagenes/basura.png"></div>
 			<div class="calificacion">
 				<div class="estrellas">
 		   	 	<img src="../../imagenes/estrellaL.png">

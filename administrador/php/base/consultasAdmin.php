@@ -48,3 +48,46 @@ function notificaciones($id){
 	}
 	return $losproductos;
 }
+function categorias()
+{
+	global $wsdl;
+	$client=new SoapClient($wsdl, true);
+	$result=$client->call("categoriaConsultaGerneral")["categoriaConsultaGerneralResult"];
+
+	$losproductos = array();
+	$cuantos = count($result["CategoriasModelo"]);
+	if($cuantos == 1){
+		$losproductos[0] = array(
+			'idCategorias'=>$result["CategoriasModelo"]["idCategorias"],
+			'nombre'=>$result["CategoriasModelo"]["nombre"]);
+	}else{
+		for ($i=0; $i < $cuantos; $i++) { 
+			$losproductos[$i] = array(
+								  'idCategorias'=>$result["CategoriasModelo"][$i]["idCategorias"],
+								  'nombre'=>$result["CategoriasModelo"][$i]["nombre"]);
+		}
+	}
+	return $losproductos;
+}
+function lugaresConsulta()
+{
+	global $wsdl;
+	$client=new SoapClient($wsdl, true);
+	$result=$client->call("consultaLugares")["consultaLugaresResult"];
+
+	$losproductos = array();
+	$cuantos = count($result["LugarModelo"]);
+
+	if($cuantos == 1){
+		$losproductos[0] = array(
+			'idLugar'=>$result["LugarModelo"]["idLugar"],
+			'nombre'=>$result["LugarModelo"]["nombre"]);
+	}else{
+		for ($i=0; $i < $cuantos; $i++) { 
+			$losproductos[$i] = array(
+								  'idLugar'=>$result["LugarModelo"][$i]["idLugar"],
+								  'nombre'=>$result["LugarModelo"][$i]["nombre"]);
+		}
+	}
+	return $losproductos;
+}

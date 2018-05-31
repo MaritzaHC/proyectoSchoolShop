@@ -1,0 +1,11 @@
+.semestre, .base{
+	width: 45%;
+	display: inline-flex;
+	padding: 0px 2% 2% 2%;
+}
+p, input, h1{
+	display: block;
+}
+input{
+	margin-bottom: 8px;
+}

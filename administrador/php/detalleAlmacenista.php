@@ -24,6 +24,7 @@
 <div class="contenido">
 	<div class="informacionComerciantes">
 		<form action="base/modiAlmacenista.php" method="POST">
+			<input type="" name="id" style="display: none;" value=<?php echo $id; ?>>
 			<h2>Nombre</h2>
 			<input type="text" style="font-size: 23px;" name="nombre" value=<?php echo $nombre;?>>
 			<h2>Ubicacion</h2>

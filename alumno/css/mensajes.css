@@ -1,0 +1,62 @@
+.tues{
+	float: right;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: var(--boton-azul);
+	color: white;	
+}
+.tuno{
+	float: left;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #f4e9e4;	
+}
+.lasNotificaciones, .contenidoNoti{
+	height: 450px;
+}
+.text{
+	display: inline-block;
+	float: left;
+	font-size: 40px;
+}
+.boton1{
+	width: 65px;
+	height: auto;
+	background-color: var(--boton);
+	display: inline-block;
+	float: right;
+	margin: none;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	cursor:pointer;
+	height: 22px;
+	padding: 3px;
+}
+.enviar{
+	width: 32px;
+	height: 35px;
+	display: inline-block;
+	margin: none;
+	color: white;
+	text-align: center;
+	cursor:pointer;
+	padding: 3px;
+	border: none;
+	background-color: white;
+	background-image: url(../../imagenes/enviar.png);	
+}
+.tb{
+	width: 70%;
+	height: 30px;
+	margin: 0px 15px 10px 0px;
+	font-size: 20px;
+}
+@media screen and (max-width: 777px){
+    .contenido .menu{
+    	margin-left: 5px;
+    }
+    .contenidoNoti{
+    	width: 300px;
+    }
+}

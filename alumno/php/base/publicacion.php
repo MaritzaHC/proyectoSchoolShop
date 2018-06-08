@@ -8,40 +8,29 @@
 	$tipo=$_POST['tipo'];
 	settype($tipo,'integer');
 
+	$byte_array = file_get_contents($_FILES["files"]["tmp_name"]);
+	$image = base64_encode($byte_array);
+
 if($tipo == 1)
-{
-	$parametro = array();
-	$parametro['idProductos'] = 0;
-	$parametro['descripcion'] = $_POST['descripcion'];
-	$parametro['foto'] = "prue";
-	$parametro['categoria'] = $_POST['categorias'];
-	$parametro['tiempo'] = $_POST['tiempoDisponible'];
-	$parametro['precio'] = $_POST['precio'];
-	$parametro['titulo'] = $_POST['titulo'];
-	$parametro['vendedor'] = $uu;
-	$parametro['comprador'] = 0;
-	$parametro['tipo'] = 1;
-	$parametro['fecha'] = "1999-01-01";
-	$parametro['estado'] = 1;
-	
-	$parameters = array("x"=> $parametro);
+{	
+	$parameters = array("titulo"=> $_POST['titulo'], 
+						"descripcion"=>$_POST['descripcion'],
+						"categoria"=>$_POST['categorias'],
+						"precio"=>$_POST['precio'],
+						"tiempo"=>$_POST['tiempoDisponible'],
+						"tipo"=>1,
+						"foto"=>$image,
+						"vendedor"=>$uu);
 	$result=$client->call("insertarProducto",$parameters);
 	header("Location: ../ventas.php");
 }  
 else{
 	settype($_POST['donde'],'integer');
-	$parametro = array();
-	$parametro['idObjetoPerdido']=0;
-	$parametro['foto']="algo";
-	$parametro['descripcion']=$_POST['descripcion'];
-	$parametro['publicador']=$uu;
-	$parametro['id_lugar']=$_POST['donde'];
-	$parametro['titulo']=$_POST['titulo'];
-	$parametro['fecha']="1999-01-01";
-	$parametro['estado']=1;
-	$parametro['lugarString']="dj";
 	
-	$parameters = array("x"=> $parametro);
+	$parameters = array("titulo"=>$_POST['titulo'],
+						"descripcion"=>$_POST['descripcion'],
+						"lugar"=>$_POST['donde'],
+						"publicador"=>$uu);
 	$result=$client->call("insertarObjetoPerdido",$parameters);
 	header("Location: ../objetos.php");
 }

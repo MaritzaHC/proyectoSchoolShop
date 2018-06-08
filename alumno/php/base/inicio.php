@@ -1,53 +1,52 @@
 <?php
 include_once 'consultasProductos.php';
 function mostrarProductos($tipo,$pag){
-$x = array();
-$x = productos(1,$pag);
-$c = array();
-$c = categorias();
+	$x = array();
+	$x = productos(1,$pag);
+	$c = array();
+	$c = categorias();
 
-$xx = productos(1,($pag+1));
-var_dump($xx);
-if ($xx==0) {
-	echo "
-	<script type=\"text/javascript\">
-			var siguiente = 1;
-	</script>
-	";
-}
-
-echo "	<div id='opcompras'>";
-		include 'categoriasMenu.php';
-
-	foreach ($x as $are) {
-	    $titulo = $are['titulo'];
-	    $precio = $are['precio'];
-	    $id = $are['idProductos'];
-
-		echo "	
-			<a href='informacionCompra.php?id=$id'>
-			<div class='productos'>
-				<img src='b.jpg'>
-				<div class='info'>
-					<div class='titulo'><p>$titulo</p></div>
-					<div class='precio'><p>$$precio</p></div>
-				</div>
-			</div>
-			</a>";
+	$xx = productos(1,($pag+1));
+	if ($xx[0]["idProductos"]==null) {
+		echo "
+		<script type=\"text/javascript\">
+				var siguiente = 1;
+		</script>
+		";
 	}
-echo "</div>";
-echo "</div>
-		  <script type=\"text/javascript\">
-		  vista(\"id\");
-		  </script>";
 
+	echo "	<div id='opcompras'>";
+			include 'categoriasMenu.php';
+
+		foreach ($x as $are) {
+		    $titulo = $are['titulo'];
+		    $precio = $are['precio'];
+		    $id = $are['idProductos'];
+		    $imagen = $are['foto'];
+		    $foto = "img/".$imagen;
+
+			echo "	
+				<a href='informacionCompra.php?id=$id'>
+				<div class='productos'>
+					<img src=$foto>
+					<div class='info'>
+						<div class='titulo'><p>$titulo</p></div>
+						<div class='precio'><p>$$precio</p></div>
+					</div>
+				</div>
+				</a>";
+		}
+	echo "</div>";
+	echo "</div>
+			  <script type=\"text/javascript\">
+			  vista(\"id\");
+			  </script>";
 }
 function mostrarPedidos($tipo,$pag){
 	$w = array();
-	$w = productos(3,6);
-
-$xx = @buscarenProductoEstudiante($cadena,($pag+1));
-	if ($xx==0||$x[0]['idProductos']=="") {
+	$w = productos(3,$pag);
+$xx = @buscarenProductosComerciante($cadena,($pag+1));
+	if ($xx[0]['idProductos']==null||$xx[0]['idProductos']=="") {
 	echo "
 	<script type=\"text/javascript\">
 			var siguiente = 1; 
@@ -55,60 +54,32 @@ $xx = @buscarenProductoEstudiante($cadena,($pag+1));
 	";
 	$x = null;
 	}
-?>
-	<!--echo "--><div class='barraofertas'><!--";
-	foreach ($w as $are) {
-	    $titulo = $are['titulo'];
-	    $precio = $are['precio'];
-	    $id = $are['idProductos'];
-	    $vendedor = $are['vendedor'];
-	echo"-->
-		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='na.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
+	if ($w[0]['idProductos']=!0||$w[0]['idProductos']=!"") {
+		echo "<div class='barraofertas'>";
+		foreach ($w as $are) {
+		    $titulo = $are['titulo'];
+		    $precio = $are['precio'];
+		    $id = $are['idProductos'];
+		    $vendedor = $are['vendedor'];
+			echo"
+				<div class='productos' onclick='informacionProducto(\"Oferta\",\"$id\")'>
+					<img src='na.jpg'>
+					<div class='info'>
+						<div class='titulo'><p>$titulo</p></div>
+						<div class='precio'><p>$$precio</p></div>					
+					</div>
+				</div>";
+			}
+			echo "
+			<div class='productos' onclick='informacionProducto(\"Oferta\",\"$id\")'>
+					<img src='mas.jpg'>
+					<div class='info'>
+						<div class='titulo'><p>$titulo</p></div>
+						<div class='precio'><p>$$precio</p></div>					
+					</div>
 			</div>
-		</div>
-		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='na.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
-			</div>
-		</div>
-		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='na.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
-			</div>
-		</div>
-		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='na.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
-			</div>
-		</div>
-		<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='na.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
-			</div>
-		</div><!--"; -->
-	<!--}
-	echo "-->
-	<div class='productos' onclick='informacionProducto("Oferta","$id")'>
-			<img src='mas.jpg'>
-			<div class='info'>
-				<div class='titulo'><p>$titulo</p></div>
-				<div class='precio'><p>$$precio</p></div>					
-			</div>
-	</div>
-</div><!--";-->
-<?php
+		</div>";
+	}
 /*----------------------------------------------------------------------------------------*/
 	$y = array();
 	$y =consultaGeneralVendedor($pag);

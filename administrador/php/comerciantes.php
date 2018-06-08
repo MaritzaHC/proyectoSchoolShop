@@ -81,8 +81,8 @@ include '..\..\paginas\emergentes.html'; ?>
 </div>
 <div class="center">
 	  <div class="pagination">
-	    <div onclick="pagina(0,variable('i'))" class="flechas" id="f1">Anterior</div>
-	    <div onclick="pagina(1,variable('i'))" class="flechas" id="f2">Siguiente</div>
+	    <div onclick="pagina(0,'comerciantes')" class="flechas" id="f1">Anterior</div>
+	    <div onclick="pagina(1,'comerciantes')" class="flechas" id="f2">Siguiente</div>
 	  </div>
 	</div>
 <script type="text/javascript">

@@ -5,21 +5,18 @@
 	$client=new soapclient($wsdl,true);
 	$uu = @$_SESSION['username'];
 	settype($uu,'integer');
-	$id = $_POST['id'];
-	$parametro = array();
-	$parametro['idProductos'] = $_POST['id'];
-	$parametro['descripcion'] = $_POST['descripcion'];
-	$parametro['foto'] = "prue";
-	$parametro['categoria'] = $_POST['categorias'];
-	$parametro['tiempo'] = $_POST['tiempoDisponible'];
-	$parametro['precio'] = $_POST['precio'];
-	$parametro['titulo'] = $_POST['titulo'];
-	$parametro['vendedor'] = $uu;
-	$parametro['comprador'] = 0;
-	$parametro['tipo'] = 1;
-	$parametro['fecha'] = "1999-01-01";
-	$parametro['estado'] = 1;
-	
-	$parameters = array("x"=> $parametro);
+
+	$byte_array = file_get_contents($_FILES["files"]["tmp_name"]);
+	$image = base64_encode($byte_array);
+	$id =$_POST['id'];
+	$parameters = array("titulo"=> $_POST['titulo'],
+						"descripcion"=>$_POST['descripcion'],
+						"categoria"=>$_POST['categorias'],
+						"precio"=>$_POST['precio'],
+						"tiempo"=>$_POST['tiempoDisponible'],
+						"tipo"=>1,
+						"foto"=>$image,
+						"vendedor"=>$uu,
+						"idProducto"=>$_POST['id']);
 	$result=$client->call("modificarProducto",$parameters);
 	header("Location: ../informacionCompra.php?id=$id");

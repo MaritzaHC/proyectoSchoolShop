@@ -4,15 +4,11 @@ $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
 
 $client=new SoapClient($wsdl,true);
 
-$parametro = array();
-	$parametro['usuariopk'] = $_POST['nombre'];
-	$parametro['password'] = $_POST['contrasena'];
-	$parametro['tipodeCuenta'] = 0;
-	$parametro['fecha'] = "1999-01-01";
-	
-	$parameters = array("x"=> $parametro);
+	$parameters = array("usuario"=> $_POST['nombre'], "contrasena" => $_POST['contrasena']);
 	json_encode($parameters);
 	$result=$client->call("validar", $parameters)["validarResult"];
+
+	var_dump($parameters);
 
 	var_dump($result);
 

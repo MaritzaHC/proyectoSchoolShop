@@ -46,7 +46,7 @@
 
 		<div class="descripcion">
 			<p>Descripcion</p><br>
-			<textarea name="descripcion" rows="7" cols="60" required="required" placeholder="<?php echo $descripcion; ?>" value ="<?php echo $descripcion; ?>"></textarea>
+			<textarea name="descripcion" rows="7" cols="60" required="required" placeholder="<?php echo $descripcion; ?>" ><?php echo $descripcion; ?></textarea>
 		</div>
 
 	<div class="venta">

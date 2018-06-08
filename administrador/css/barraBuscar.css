@@ -52,7 +52,7 @@
 	height: auto;
 }
 .resultado:hover{
-	background-color: #f4e9e4;
+	background-color: var(--bordes);
 }
 .resultado{
 	width: 100%;

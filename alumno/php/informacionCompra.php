@@ -61,6 +61,9 @@
 
 	   </div>
 	</div>
+	<?php 
+	include 'base/informacionCompra2.php';
+	?>
 	</form>
 
 	<script type="text/javascript">

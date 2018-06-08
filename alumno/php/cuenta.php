@@ -19,7 +19,7 @@
 		<div class="primero">
 			<div class="imagenPerfil">
 				<div class="imagen"><output id="list"><img src="niche.jpg"></output></div>
-				<div class="agregar"><input type="file" id="files" name="files[]" value=" " /></div>
+				<div class="agregar"><input type="file" id="files" name="files" value=" " /></div>
 			</div>
 			<script type="text/javascript">
 			function archivo(evt) {
@@ -46,7 +46,7 @@
 		      <div class="botonAzul" onclick="popup(0,'seguro',0)">Cancelar</div><br>
 		   </div>
 		</div>
-		</form>
+	</form>
 		
 	</div>
 </div>

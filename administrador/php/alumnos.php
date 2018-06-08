@@ -15,7 +15,7 @@
 		include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
-		<div class="boton">Bloqueados</div>
+		<div class="boton" onclick="window.location='alumnos.php/'">Bloqueados</div>
 		<div class="barraBuscar">
 			<form method="get" action="alumnos.php" name="gg">
 				<input type="text" name="buscar" class="buscar">
@@ -26,11 +26,17 @@
 	</div>
 	<div class="abajo">
 		<?php include 'base/consultasUsuarios.php';
-			$x = array();
+			if (!empty($_GET['bloqueados'])) {
+				$pag = $_GET['pag'];
+				$x = array();
+				$x = @buscarBloqueado($pag);
+				$xx = @buscarBloqueado(($pag+1));
+			}
+
 			$pag = $_GET['pag'];
 			$x = @alumnosGeneral($pag);
 			$xx = @alumnosGeneral(($pag+1));
-			if ($xx==0) {
+			if ($xx[0]["id"]=="") {
 			echo "
 			<script type=\"text/javascript\">
 					var siguiente = 1;

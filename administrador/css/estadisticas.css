@@ -8,8 +8,8 @@
 .eComerciantes p, .eEstudiantes p{
 	font-size: 28px;
 }
-.eComerciantes .estadistica img, .eEstudiantes .estadistica img{
-	width: 550px;
+.eComerciantes .estadistica, .eEstudiantes .estadistica{
+	width: 88%;
 	height: auto;
 	display: inline-block;
 	float: left;

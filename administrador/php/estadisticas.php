@@ -11,23 +11,19 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.php'; ?>
+	<?php include '..\paginas\barraInicio.php'; 
+		  include '../../ejem/grafi.php';?>
 <div class="contenido">
 	<div class="eComerciantes">
 		<p>Comerciantes</p>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
+		<?php $mes =date("m");
+		if($mes<=6){$periodo=2;}else {$periodo=8;}?>
+		<div class="estadistica"><?php grafiVendedores($periodo,1); ?></div>
 	</div>
 	<div class="eEstudiantes">
 		<p>Estudiantes</p>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
-		<div class="estadistica"><img src="ne.jpg"></div>
+		<div class="estadistica"><?php grafiAlumno($periodo,2); ?></div>
+		<div class="estadistica"><?php grafiAlumnoMala(3);?></div>
 	</div>
 </div>
 <script type="text/javascript">

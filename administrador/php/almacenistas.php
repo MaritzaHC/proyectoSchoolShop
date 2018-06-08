@@ -29,15 +29,15 @@ include '..\..\paginas\emergentes.html'; ?>
 		if (!empty($_GET['buscar'])) {
 			$pag = $_GET['pag'];
 			$x = array();
-			$x = @buscarVendedor($_GET['buscar'],$pag);
-			$xx = @buscarVendedor($_GET['buscar'],($pag+1));
+			$x = @buscarAlmacenistaNombre($_GET['buscar'],$pag);
+			$xx = @buscarAlmacenistaNombre($_GET['buscar'],($pag+1));	
 		}
 		elseif (empty($_GET["pag"])){ $pag=1;}
 	    else {
 	    	$pag = $_GET['pag'];
 			$x = array();
 			$x = @almacenistaGeneral($pag);
-			$xx = @almacenistaGeneral($pag+1);
+			$xx = @almacenistaGeneral(($pag+1));
 		}
 				if ($xx[0]['idAlmacenista']=="") {
 					echo "
@@ -80,8 +80,8 @@ include '..\..\paginas\emergentes.html'; ?>
 </div>
 <div class="center">
 	  <div class="pagination">
-	    <div onclick="pagina(0,variable('i'))" class="flechas" id="f1">Anterior</div>
-	    <div onclick="pagina(1,variable('i'))" class="flechas" id="f2">Siguiente</div>
+	    <div onclick="pagina(0,'almacenistas')" class="flechas" id="f1">Anterior</div>
+	    <div onclick="pagina(1,'almacenistas')" class="flechas" id="f2">Siguiente</div>
 	  </div>
 	</div>
 <script type="text/javascript">

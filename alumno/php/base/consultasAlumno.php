@@ -1,5 +1,6 @@
  <?php 
-require '../../nusoap/lib/nusoap.php';
+@include_once '../../nusoap/lib/nusoap.php';
+
 function alumnosDeta($id)
 {
 	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
@@ -14,6 +15,7 @@ function alumnosDeta($id)
 							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
 							  //'foto'=>$result["AlumnoModelo"]["foto"],
 							  'usuario'=>$result["AlumnoModelo"]["usuario"],
+							  'usuario'=>$result["AlumnoModelo"]["usuario"],	
 							  'correo'=>$result["AlumnoModelo"]["correo"]);
 		//falta estado 
 	return $losproductos;

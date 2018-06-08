@@ -2,12 +2,9 @@
 require '../../../nusoap/lib/nusoap.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
 $client=new soapclient($wsdl,true);
-$parametro = array();
-	$parametro['idAlmacenista'] = 0;
-	$parametro['nombre'] = $_POST['nombre'];
-	$parametro['foto'] = "prue";
-	$parametro['ubicacion'] = $_POST['ubicacion'];
-		
-$parameters = array("x"=> $parametro);
-$result=$client->call("insertarVendedor",$parameters);
-header("Location: ../comerciantes.php?pag=1");
+$id = $_POST['id'];
+settype($id, "integer");	
+$parameters = array("nombre"=> $_POST['nombre'], "foto"=> 2,"ubicacion"=> $_POST['ubicacion'],"id"=> $id);
+var_dump($parameters);
+$result=$client->call("modificarAlmacenista",$parameters)["modificarAlmacenistaResult"];
+header("Location: ../almacenistas.php?pag=1");

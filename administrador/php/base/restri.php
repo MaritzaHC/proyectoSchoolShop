@@ -69,6 +69,6 @@ function modifi($id,$estado)
 	settype($id, 'integer');
 	settype($estado, 'integer');
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('idRestricciones' => $id, 'estado' => $estado);
-	$result=$client->call("modificarRestricciones", $parametro)["modificarRestriccionesResult"];
+	$parametro = array('estado' => $estado, 'id' => $id);
+	$result=$client->call("modificarRestricciones", $parametro)['modificarRestriccionesResult'];
 }

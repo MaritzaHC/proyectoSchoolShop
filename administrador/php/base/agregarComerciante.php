@@ -12,4 +12,4 @@ $parametro = array();
 		
 $parameters = array("x"=> $parametro, "contrasena" => $_POST['contrasena']);
 $result=$client->call("insertarVendedor",$parameters);
-header("Location: ../comerciantes.php?pag=1");
+header("Location: ../detalleComerciante.php?i=".$result);

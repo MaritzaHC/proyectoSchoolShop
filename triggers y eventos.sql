@@ -1,10 +1,13 @@
-
+DELIMITER //
+DROP TRIGGER comprarproducto//
 CREATE TRIGGER compraProducto AFTER INSERT ON comprarproducto FOR EACH ROW BEGIN
 INSERT into notificaciones (texto,titulo,usuario) values (
 CONCAT("El usuario ",NEW.comprador," quiere comprar ",new.titulo,". Revisa tu historial"),"Posible venta",new.vendedor);
 UPDATE productos SET estado=2, comprador=new.comprador WHERE idProductos=new.idProducto;  
+INSERT into calificacion_alumno (id_alumnoVC,productos,id_alumnoV) values (new.comprador,new.idProducto,new.vendedor);
 END//
 
+DROP TRIGGER solicitarobjeto//
 CREATE TRIGGER solicitarObjeto AFTER INSERT ON solicitarobjeto FOR EACH ROW BEGIN
 INSERT into notificaciones (texto,titulo,usuario) values (
 CONCAT("El usuario ",NEW.solicitante," solicita el objeto ",new.titulo,". Revisa tu historial"),"Posible dueño",new.publicador);
@@ -12,54 +15,122 @@ UPDATE objetoperdido SET estado=2 WHERE idObjetoPerdido = new.idObjeto;
 INSERT INTO objetoperdido_solicitante (solicitante,objeto_perdido) VALUES (new.solicitante,new.idObjeto);
 END//
 
+DROP TRIGGER comprarVendedor//
+CREATE TRIGGER comprarVendedor AFTER INSERT ON comprarVendedor FOR EACH ROW BEGIN
+INSERT INTO notificaciones (texto,titulo,usuario) values(
+CONCAT("El alumno ",new.nomAlum," quiere comprar ",new.nomProdu," para el: ",new.fecha),CONCAT("Venta-",new.fecha),new.idven);
+INSERT INTO factura_vendedor (id_vendedor,id_alumno,id_producto,precio,cantidad) values(new.idven,new.idcom,new.idprodu,new.precio,new.cantidad);
+END//
+/*
+  nomAlum
+  nomProdu
+  fecha
+  idven
+  idcom
+  idprodu
+*/
+/*cantidad*/
+DROP TRIGGER reporte//
 CREATE TRIGGER reporte AFTER INSERT ON reportarproducto
        FOR EACH ROW BEGIN
        		UPDATE productos set estado=4 WHERE idProducto=new.idProducto;
        		INSERT INTO notificaciones (usuario,titulo,texto) 
        		values (new.vendedor,"Nuevo reporte",CONCAT("La publicacion ",new.titulo," se reporto, por la razon de:  ",NEW.nombre," .Se solcita que se elimine o modifique"));
        	    IF new.tipo <> 4 THEN
-       	    INSERT INTO notificaciones (usuario,titulo,texto)
-       	    values (123456,"Reporte a una publicacion",CONCAT('La publicacion ',new.titulo,' del estudiante: ',new.vendedor,' se reporto por la razon de ',new.nombre));
-       	    END IF;
+       	  INSERT INTO notificaciones (usuario,titulo,texto)
+       	  values (123456,"Reporte a una publicacion",CONCAT('La publicacion ',new.titulo,' del estudiante: ',new.vendedor,' se reporto por la razon de ',new.nombre));
+       	  UPDATE login set fecha = curdate() WHERE usuario=new.vendedor;
+            END IF;
 END//	
 
+DROP TRIGGER calificacion//
 CREATE TRIGGER calificacion AFTER UPDATE ON calificacion_alumno
        FOR EACH ROW BEGIN
-          IF UPDATE (calificacionComprador) THEN
-          UPDATE alumno SET calificacionC = (new.calificacionComprador+(select calificacionC from alumno where idAlumno=new.id_alumnoC))/2 WHERE idAlumno=new.id_alumnoC;
+          IF (calificacionComprador!=new.calificacionComprador) THEN
+          UPDATE alumno SET calificacionC = 
+          new.calificacionComprador+(select calificacionC from alumno where idAlumno=new.id_alumnoC)/2 WHERE idAlumno=new.id_alumnoC;
           END IF;
-          IF UPDATE (calificacionVendedor) THEN
-          UPDATE alumno SET calificacionV = (new.calificacionVendedor+(select calificacionV from alumno where idAlumno=new.id_alumnoV))/2 WHERE idAlumno=new.id_alumnoV;
+          IF (calificacionVendedor!=new.calificacionVendedor) THEN
+          UPDATE alumno SET calificacionV = 
+          (new.calificacionVendedor+(select calificacionV from alumno where idAlumno=new.id_alumnoV))/2 WHERE idAlumno=new.id_alumnoV;
           END IF;
+END//  
+
+DROP TRIGGER calaificacionA//
+CREATE TRIGGER calaificacionA AFTER UPDATE ON alumno
+       FOR EACH ROW BEGIN
+       IF(calificacionC!=new.calificacionC) THEN
+        IF new.calificacionC<2 THEN
+          UPDATE login set estado=3 WHERE usuario=new.usuario;
+        end IF;
+      END IF;
+      IF(calificacionC!=new.calificacionV) THEN
+        IF new.calificacionV<2 THEN
+          UPDATE login set estado=3 WHERE usuario=new.usuario;
+        end IF;
+      END IF;
 END// 
 
+DROP TRIGGER calificacionVend//
+CREATE TRIGGER calificacionVend AFTER UPDATE ON factura_vendedor
+       FOR EACH ROW BEGIN
+          IF (calificacionVendedor!=new.calificacionVendedor) THEN
+          UPDATE vendedor SET calificacion = 
+          (new.calificacionVendedor+(select calificacion from vendedor where idVendedor=new.id_vendedor))/2 WHERE idVendedor=new.id_vendedor;
+          UPDATE productos set estado=5 WHERE idProductos=id_producto;
+          END IF;
+END//  
 
+DROP TRIGGER calificacionV//
+CREATE TRIGGER calaificacionV AFTER UPDATE ON vendedor
+       FOR EACH ROW BEGIN
+       IF(calificacion!=new.calificacion) THEN
+        IF new.calificacion<2 THEN
+          UPDATE login set estado=3 WHERE usuario=new.usuario;
+        end IF;
+      END IF;
+END// 
+  
+DROP EVENT tiemposCalificar//
+CREATE EVENT tiemposCalificar ON SCHEDULE EVERY 1 DAY STARTS '2012-10-04'
+DO
+  call tresdias();
+  call findia();
+  call exactodia();
+  call findia2();
+end//
 
 /*Evento para que una semana despues del inicio del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
+DROP EVENT ventaInicio//
 CREATE EVENT ventaInicio ON SCHEDULE AT '2019-01-01' + INTERVAL 7 DAY
 DO
   INSERT INTO notificaciones (usuario,titulo,texto)
   SELECT usuario, "Es un buen momento para vender", "Es inicio de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del ultimo semestre" 
   from login where tipoCuenta = 1;
 /*Evento para que al final del semestre se mande una notificacion a todos los estudiantes para sugerir vender */
+DROP EVENT ventaFin//
 CREATE EVENT ventaFin ON SCHEDULE AT '2019-01-01' + INTERVAL 91 DAY
 DO
   INSERT INTO notificaciones (usuario,titulo,texto)
   SELECT usuario, "Es un buen momento para vender", "Es fin de semestre, en este periodo puedes vender tus utiles escolares que te sosbraron del este semestre" 
   from login where tipoCuenta = 1;
 /*despues de un mes se bloquea la posibilidad de publicar*/
+DROP EVENT mesBlo//
 CREATE EVENT mesBlo ON SCHEDULE AT '2019-01-01' + INTERVAL 30 DAY
 DO
   UPDATE restricciones set estado=false;
 /*al final te deja publicar*/ 
+DROP EVENT seBlo//
 CREATE EVENT seBlo ON SCHEDULE AT '2019-01-01' + INTERVAL 91 DAY  
 DO
   UPDATE restricciones set estado=true;
 /*inicio del semestre*/
+DROP EVENT iniBlo//
 CREATE EVENT iniBlo ON SCHEDULE AT '2019-01-01' 
 DO
   UPDATE restricciones set estado=true;
 /*final del semestre*/
+DROP EVENT finBlo//
 CREATE EVENT finBlo ON SCHEDULE AT '2019-02-01' 
 DO
   UPDATE restricciones set estado=false;
@@ -87,10 +158,107 @@ BEGIN
   Alter EVENT iniBlo ON SCHEDULE AT '2000-01-01';
   Alter EVENT finBlo ON SCHEDULE AT '2000-02-01';
 END$$
-DELIMITER ;
 
-DROP PROCEDURE myProcedure;
-DROP PROCEDURE pro;
-DROP PROCEDURE procediento;
+  CREATE PROCEDURE tresdias() BEGIN
+      declare vid int;
+      DECLARE done int default false;
+      
+      DECLARE micursor CURSOR
+    FOR
+      SELECT idProductos FROM productos WHERE estado=2 and datediff(NOW(), fecha)=3 and tipo=1;
+      
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN micursor;
+      
+    buscar: LOOP 
+      FETCH micursor INTO vid;
+      IF done THEN
+        LEAVE buscar;
+      END IF;
+          
+          update productos set estado=3 where idProductos=vid;
+          
+    END LOOP;
+      
+      CLOSE micursor;
 
-if(!$mysqli->query("call restriccionA('$iniSe','$finSe')")){echo "no";} 
+  END$$
+
+  CREATE PROCEDURE exactodia() BEGIN
+      declare vid int;
+      DECLARE done int default false;
+      
+      DECLARE micursor CURSOR
+    FOR
+      SELECT idProductos FROM productos WHERE estado=2 and datediff(NOW(), fecha)=0 and (tipo=2 or tipo=3);
+      
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN micursor;
+      
+    buscar: LOOP 
+      FETCH micursor INTO vid;
+      IF done THEN
+        LEAVE buscar;
+      END IF;
+          
+          update productos set estado=3 where idProductos=vid;
+          
+    END LOOP;
+      
+      CLOSE micursor;
+
+  END$$
+
+  CREATE PROCEDURE findia() BEGIN
+      declare vid int;
+      DECLARE done int default false;
+      
+      DECLARE micursor CURSOR
+    FOR
+      SELECT idProductos FROM productos WHERE estado=3 and datediff(NOW(), fecha)=4 and tipo=1;
+      
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN micursor;
+      
+    buscar: LOOP 
+      FETCH micursor INTO vid;
+      IF done THEN
+        LEAVE buscar;
+      END IF;
+          
+          update productos set estado=5 where idProductos=vid;
+          
+    END LOOP;
+      
+      CLOSE micursor;
+
+  END$$
+  CREATE PROCEDURE findia2() BEGIN
+      declare vid int;
+      DECLARE done int default false;
+      
+      DECLARE micursor CURSOR
+    FOR
+      SELECT idProductos FROM productos WHERE estado=3 and datediff(NOW(), fecha)=1 and (tipo=2 or tipo=3);
+      
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN micursor;
+      
+    buscar: LOOP 
+      FETCH micursor INTO vid;
+      IF done THEN
+        LEAVE buscar;
+      END IF;
+          
+          update productos set estado=5 where idProductos=vid;
+          
+    END LOOP;
+      
+      CLOSE micursor;
+
+  END$$
+  DELIMITER ;
+
+
+
+

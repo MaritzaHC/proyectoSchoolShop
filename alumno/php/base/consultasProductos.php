@@ -1,13 +1,12 @@
 <?php
-require '../../nusoap/lib/nusoap.php';
+require_once '../../nusoap/lib/nusoap.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
 /*Esta funcion retorna un arreglo que contien los productos que estan en la base de datos
 Se solicita el tipo (1-alumno)(2-vendedor)(3-ofertas) y la pagina*/
-function productos($tipo,$pag)
-{
+function productos($tipo,$pag){
 	global $wsdl;	
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag,'tipo' => $tipo, 'cuantos' => 3);
+	$parametro = array('pag' => $pag,'tipo' => $tipo, 'cuantos' => 13);
 	$result=$client->call("productosConsultaprincipal", $parametro)["productosConsultaprincipalResult"];
 	if ($result=="") {return 0;}
 	$losproductos = array();
@@ -41,8 +40,7 @@ function productos($tipo,$pag)
 	return $losproductos;
 }
 /*Muestra un producto en detalle*/
-function productosDeta($id)
-{
+function productosDeta($id){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('id' => $id);
@@ -61,11 +59,10 @@ function productosDeta($id)
 	return $losproductos;
 }
 /*Muestra todos los objetos perdidos que no han sido reclamados*/
-function ObjetoPerdido($estado,$pag)
-{
+function ObjetoPerdido($estado,$pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag, 'cantidad' => 2, 'estado' => $estado);
+	$parametro = array('pag' => $pag, 'cantidad' => 12, 'estado' => $estado);
 	$result=$client->call("consultaGeneralObjetoPerdido", $parametro)["consultaGeneralObjetoPerdidoResult"];
 
 	$losproductos = array();
@@ -98,8 +95,7 @@ function ObjetoPerdido($estado,$pag)
 	return $losproductos;
 }
 /*Muestra en detalle un objeto perdido*/
-function objetosDeta($id)
-{
+function objetosDeta($id){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('id' => $id);
@@ -118,8 +114,7 @@ function objetosDeta($id)
 							  
 	return $losproductos;
 }
-function categorias()
-{
+function categorias(){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$result=$client->call("categoriaConsultaGerneral")["categoriaConsultaGerneralResult"];
@@ -139,8 +134,7 @@ function categorias()
 	}
 	return $losproductos;
 }
-function lugaresConsulta()
-{
+function lugaresConsulta(){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$result=$client->call("consultaLugares")["consultaLugaresResult"];
@@ -161,8 +155,7 @@ function lugaresConsulta()
 	}
 	return $losproductos;
 }
-function historialMisVentas($idUsuario)
-{
+function historialMisVentas($idUsuario){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idUsuario' => $idUsuario);
@@ -188,8 +181,7 @@ function historialMisVentas($idUsuario)
 	}
 	return $losproductos;
 }
-function historialMisCompras($idUsuario,$tipo)
-{
+function historialMisCompras($idUsuario,$tipo){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idUsuario' => $idUsuario, 'tipo'=> $tipo, 'pag' => 1, 'cantidad' => 10);
@@ -216,8 +208,7 @@ function historialMisCompras($idUsuario,$tipo)
 	}
 	return $losproductos;
 }
-function historialObjetosPerdidos($idUsuario)
-{
+function historialObjetosPerdidos($idUsuario){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idUsuario' => $idUsuario,'pag' => 1, 'cantidad' => 10);
@@ -242,8 +233,7 @@ function historialObjetosPerdidos($idUsuario)
 	}
 	return $losproductos;
 }
-function buscarProductosenCategoria($id,$pag)
-{
+function buscarProductosenCategoria($id,$pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('categoria' => $id, 'pag' => $pag, 'cantidad' => 10);
@@ -279,8 +269,7 @@ function buscarProductosenCategoria($id,$pag)
 	}
 	return $losproductos;
 }
-function buscarenProductoEstudiante($id,$pag)
-{
+function buscarenProductoEstudiante($id,$pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('busqueda' => $id, 'pag' => $pag, 'cantidad' => 10);
@@ -316,8 +305,7 @@ function buscarenProductoEstudiante($id,$pag)
 	}
 	return $losproductos;
 }
-function buscarenProductosComerciante($id,$pag)
-{
+function buscarenProductosComerciante($id,$pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('busqueda' => $id, 'pag' => $pag, 'cantidad' => 10);
@@ -355,8 +343,7 @@ function buscarenProductosComerciante($id,$pag)
 	}
 	return $losproductos;
 }
-function buscarObjetoPerdido($busqueda, $pag)
-{
+function buscarObjetoPerdido($busqueda, $pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 10);
@@ -391,8 +378,7 @@ function buscarObjetoPerdido($busqueda, $pag)
 	}
 	return $losproductos;
 }
-function consultaGeneralVendedor($pag)
-{
+function consultaGeneralVendedor($pag){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('pag' => $pag, 'cantidad' => 10);
@@ -422,8 +408,7 @@ function consultaGeneralVendedor($pag)
 	}
 	return $losproductos;
 }
-function consultaDetalleVendedor($id)
-{
+function consultaDetalleVendedor($id){
 	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idVendedor' => $id);

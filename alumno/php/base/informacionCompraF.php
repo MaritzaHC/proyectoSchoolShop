@@ -1,24 +1,28 @@
 <?php
-require_once '../../../nusoap/lib/nusoap.php';
-include 'verificacionLogin.php';
-$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
+	require_once '../../../nusoap/lib/nusoap.php';
+	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
+	include_once 'verificacionLogin.php';
+
+	 $client=new soapclient($wsdl,true);
 
 if (@$_GET['este']) {//comprar
 	 $id = $_GET['este'];
 	 settype($id,'integer');
-	 $vendedor = $_GET['vendedor'];
+ 	 $vendedor = $_GET['vendedor'];
 	 settype($vendedor,'integer');
 	 $comprador = @$_SESSION['username'];
 	 settype($comprador,'integer');
 	
 	if($comprador!=$vendedor){
-		$client=new soapclient($wsdl,true);
+		
 		$parametro = array();
 		$parametro['idProducto'] = $id;
 		$parametro['idVendedor'] = $vendedor;
 		$parametro['idComprador'] = $comprador;
 		$parametro['titulo'] = $_GET['titulo'];
+
 		$result=$client->call("ComprarProducto", $parametro);
+
 		if ($result) header("Location: ../compras.php");
 		else header("Location: ../informacionCompra.php?id=$id&no=no");
 	}
@@ -29,33 +33,27 @@ if (@$_GET['este']) {//comprar
 }
 
 if (@$_GET['id']) {//reportar
-	require_once 'consultasProductos.php';
-	echo "aquixc";
+	
 	$laid = $_GET['id'];
 	settype($laid,'integer');
-	var_dump($laid);
 
+ 	$vendedor = $_GET['vendedor'];
+	settype($vendedor,'integer');
 	$razon = $_GET['razon'];
-	var_dump($razon);
 	$razones = explode(",", $razon);
 	settype($razones[0],'integer');
 
-	$resul = productosDeta($laid);
-	$titulo = $resul['titulo'];
-	$vendedor = $resul['vendedor'];
-
-	$client=new soapclient($wsdl);
 	$parametro = array();
 	$parametro['idProducto'] = $laid;
 	$parametro['vendedor'] = $vendedor;
-	$parametro['nombre'] = $titulo;
+	$parametro['nombre'] = $_GET['titulo'];
 	$parametro['tipo'] = $razones[0];
 	$parametro['titulo'] = $razones[1];
 	
-	json_encode($parametro);
-	$result=$client->reportarproducto($parametro);
+	$result=$client->call("reportarproducto", $parametro);
 
-	header("Location: ../inicio.php?=compras");
+	var_dump($parametro);	
+	//header("Location: ../inicio.php?=compras?pag=1");
 	exit;
 }
 ?>

@@ -2,12 +2,18 @@
 require_once '../../../nusoap/lib/nusoap.php';
 include 'verificacionLogin.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
-
-$id = $_POST['idNotificaciones'];
-
 $client=new soapclient($wsdl,true);
-$parametro = array('idNotificaciones'=>$id);
-$result=$client->call("eliminarNotificacion", $parametro);
-if ($result) header("Location: ../notificaciones.php");
-else header("Location: ../notificaciones.php?no=no");
+@session_start();
+$uu = @$_SESSION['username'];
+settype($uu,'integer');
+$id = $_POST['id'];
+settype($id, 'integer');
 
+if ($_POST['modo']==1){
+$parametro = array('idConversacion'=>$id);
+$result=$client->call("eliminarConversacion", $parametro);
+}
+else {
+	$parametro = array('conversacion'=>$id, 'texto'=>$_POST['text'], 'usuarioE'=>$uu);
+	$result=$client->call("insertarMensaje", $parametro);
+}

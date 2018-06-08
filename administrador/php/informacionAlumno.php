@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="..\..\css\general.css">
 	<link rel="stylesheet" type="text/css" href="..\css\barraInicio.css">
 	<link rel="stylesheet" type="text/css" href="..\css\informacionAlumno.css">
+	<link rel="stylesheet" type="text/css" href="..\css\estadisticas.css">
 	<script type="text/javascript" src="..\..\javaScript\general.js"></script>
 	<script type="text/javascript" src="..\javaScript\jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="..\javaScript\funcionesAdministrador.js"></script>
@@ -13,7 +14,7 @@
 <body>
 	<?php include '..\paginas\barraInicio.php'; 
 	include 'base/consultasUsuarios.php';
-	//require 'base/grafi.php';; 
+	include '../../ejem/grafi.php';
 	  $x = array();
 	  $id = $_GET['i'];
 	  settype($id,'integer');
@@ -59,9 +60,10 @@
 		}?>
 	</div></form>
 	<div class="estadisticasAlumno">
-		<?php/* grafiAlumno($id,2); 
-		grafiAlumno($id,2); 
-		grafiAlumno($id,2);*/?>
+		<?php $mes =date("m");
+		if($mes<=6){$periodo=2;}else {$periodo=8;}?>
+		<div class="estadistica"><?php grafixAlumno($id,$periodo,1); ?></div>
+		<div class="estadistica"><?php grafixAlumnoMala($id,$periodo,1); ?></div>
 	</div>
 </div>
 <script type="text/javascript">

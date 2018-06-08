@@ -1,10 +1,14 @@
-<?php 
-	echo $_GET['este'];
-	require 'conexion.php';
-	global $mysqli;
-	$sql = "update productos set estado = 2, comprador = 14300191 where idProductos =".$_GET['este'].";";
-	if(!$resultado = $mysqli->query($sql)){
-	   echo "Error al consultar0.";
-	   exit;
-	}
-	header("Location: ../compras.php");
+<?php
+include_once 'consultasProductos.php';
+$resul = array(); 
+$laid = $_GET["id"];
+$resul = productosDeta($laid);
+
+	    $titulo = $resul['titulo'];
+	    $vendedor = $resul['vendedor'];
+
+echo "
+	<input type=\"\" name=\"vendedor\" value=$vendedor style=\"display: none;\">
+	<input type=\"\" name=\"titulo\" value=\"$titulo\" style=\"display: none;\">
+	";
+?>

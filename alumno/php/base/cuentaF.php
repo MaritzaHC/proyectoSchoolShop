@@ -1,39 +1,39 @@
 <?php
-require_once '../../../nusoap/lib/nusoap.php';
-include 'verificacionLogin.php';
-
-$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
+require '../../../nusoap/lib/nusoap.php';
+$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
+include_once 'verificacionLogin.php';
 $client=new soapclient($wsdl,true);
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 
+//$byte_array = file_get_contents($_FILES["files"]["tmp_name"]);
+//$image = base64_encode($byte_array);
+
 if ($_POST['Acontrasena']!=null and $_POST['Ncontrasena']!=null and $_POST['Ccontrasena']!=null) {
 	if ($_POST['Ncontrasena']==$_POST['Ccontrasena']) {
-			$parametro = array();
-			$parametro['idAlumno'] = $uu;
-			$parametro['contrasena'] = $_POST['Ccontrasena'];
-			$parametro['Acontrasena'] = $_POST['Acontrasena'];
-			$parametro['correo'] = $_POST['correo'];
-			$parametro['tipo'] = 1;
 			//$parametro['foto'] = $_POST['foto'];
 
-			$parameters = array("x"=> $parametro);
+			$parameters = array("tipo"=> 1,
+								"antiguaContrasena"=> $_POST['Acontrasena'],
+								"nuevaContrasena"=>$_POST['Ncontrasena'],
+								"correo"=>$_POST['correo'],
+								"foto"=>"e",//$image,
+								"id"=>$uu);
 			$result=$client->call("modificarAlumno",$parameters);
-			header("Location: ../cuenta.php");
+			var_dump($parameters);
+			//header("Location: ../cuenta.php");
 	}
-	else header("Location: ../cuenta.php");
+	//else header("Location: ../cuenta.php");
 
 }
 else {
-	$parametro = array();
-	$parametro['idAlumno'] = $uu;
-	$parametro['contrasena'] = 1;
-	$parametro['Acontrasena'] = 1;
-	$parametro['tipo'] = 2;
-	$parametro['correo'] = $_POST['correo'];
-	//$parametro['foto'] = $_POST['foto'];
-
-	$parameters = array("x"=> $parametro);
+$parameters = array("tipo"=> 2,
+					"antiguaContrasena"=> $_POST['Acontrasena'],
+					"nuevaContrasena"=>$_POST['Ncontrasena'],
+					"correo"=>$_POST['correo'],
+					"foto"=>"e",//$image,
+					"id"=>$uu);
 	$result=$client->call("modificarAlumno",$parameters);
-	header("Location: ../cuenta.php");
+	var_dump($parameters);
+	//header("Location: ../cuenta.php");
 }

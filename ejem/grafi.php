@@ -15,7 +15,27 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <?php
-
+function publicaVendedor($ini,$fin){
+    global $mysqli;
+    $sql = "select COUNT(*) as cantidad from productos where (tipo=2 or tipo=3) and (fecha BETWEEN '".$ini."' AND '".$fin."');";
+    if(!$resultado = $mysqli->query($sql)){
+       echo "Error al consultar";
+       exit;
+    }
+    $res = $resultado->fetch_array();
+    return $res['cantidad'];
+} 
+function comprasVendedor($ini,$fin){
+    global $mysqli;
+    $sql = "select COUNT(*) as cantidad from factura_vendedor where estado=5 and (fecha BETWEEN '".$ini."' AND '".$fin."');";
+    if(!$resultado = $mysqli->query($sql)){
+       echo "Error al consultar";
+       exit;
+    }
+    $res = $resultado->fetch_array();
+    return $res['cantidad'];
+}                                          
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function publicacionesxalum($id,$ini,$fin){
     global $mysqli;
     $sql = "select COUNT(*) as cantidad from productos where tipo=1 and vendedor=".$id." and (fecha BETWEEN '".$ini."' AND '".$fin."');";
@@ -110,7 +130,7 @@ function ventasMalAlum($ini,$fin){
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function canAlumnos(){
     global $mysqli;
-    $sql = "SELECT COUNT(*) as cantidad FROM alumno;";
+    $sql = "SELECT COUNT(*) as cantidad FROM alumno where calificacionV>2 and calificacionC>2;";
     if(!$resultado = $mysqli->query($sql)){
        echo "Error al consultar";
        exit;
@@ -177,12 +197,13 @@ function cantidadGeneralAlum($can,$tipo){
     settype($lsjfl, "integer");
     return $lsjfl;
 }
-/*general con las malas caclificaciones*/
-function cantidadGeneralAlumnMal($tipo){
-        if($tipo=="ventas")
-        $lsjfl =canAlumnosMalVendedor();
-        if($tipo=="compras")
-        $lsjfl = canAlumnosMalComprador();
+function cantidadVendedores($can,$tipo){
+        $u = date("Y-m-d", mktime(0, 0, 0, $can+1, 1, date("Y")));
+        $e = date("Y-m-d", mktime(0, 0, 0, $can, 1, date("Y")));
+        if($tipo=="publica")
+        $lsjfl = publicaVendedor($e,$u);
+        if($tipo=="vende")
+        $lsjfl = comprasVendedor($e,$u);
     settype($lsjfl, "integer");
     return $lsjfl;
 }
@@ -451,8 +472,135 @@ function grafiAlumno($periodo,$num){
     });  
     </script>
 <?php }  
-function grafiAlumnoMala($num){}  
-grafixAlumno(14300192,2,1);
-grafixAlumnoMala(14300191,2,2);
-grafiAlumno(2,3);
+function grafiAlumnoMala($num){
+    $num2 = canAlumnosMalVendedor();
+    $num3 = canAlumnosMalComprador();
+    $num2=5;
+    $num3=6;
+     ?>
+    <div id=<?php echo "containerx".$num;?> style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <script type="text/javascript">
+        Highcharts.chart(<?php echo "containerx".$num;?>, {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Alumnos con baja calificacion como vendedor y comprador'
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}: {point.y:.0f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b> alumnos<br/>'
+        },
+
+        "series": [
+            {
+                "name": "Browsers",
+                "colorByPoint": true,
+                "data": [
+                    {
+                        "name": "Mala calificacion como comprador",
+                        "y": <?php echo $num3; ?>,
+                        "drilldown": "Mala calificacion como comprador"
+                    },
+                    {
+                        "name": "Mala calificacion como vendedor",
+                        "y": <?php echo $num2; ?>,
+                        "drilldown": "Mala calificacion como vendedor"
+                    }
+                   
+                ]
+            }
+        ]
+    });
+    </script> <?php 
+}
+function grafiVendedores($periodo,$num){
+    $unoc = array(0,0);
+    $dos = array(0,0);
+    $tres = array(0,0);
+    $cuatro = array(0,0);
+    $cinco = array(0,0);
+    $mes =date("m");
+    if ($mes >= ($periodo)) {
+       $uno[0]=cantidadVendedores($periodo,"vende");
+       $uno[1]=cantidadVendedores($periodo,"publica");
+    }
+    if ($mes >= ($periodo+1)) {
+       $dos[0]=cantidadVendedores(($periodo+1),"vende");
+       $dos[1]=cantidadVendedores(($periodo+1),"publica");
+    }
+    if ($mes >= ($periodo+2)) {
+       $tres[0]=cantidadVendedores(($periodo+2),"vende");
+       $tres[1]=cantidadVendedores(($periodo+2),"publica");
+    }
+    if ($mes >= ($periodo+3)) {
+       $cuatro[0]=cantidadVendedores(($periodo+3),"vende");
+       $cuatro[1]=cantidadVendedores(($periodo+3),"publica");
+    }
+    if ($mes >= ($periodo+4)) {
+       $cinco[0]=cantidadVendedores(($periodo+4),"vende");
+       $cinco[1]=cantidadVendedores(($periodo+4),"publica");
+    }
+    ?>
+    <div id=<?php echo "containerx".$num;?> style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <script type="text/javascript">
+        Highcharts.chart(<?php echo "containerx".$num;?>, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Cantidad de publicaciones y ventas de todos los vendedores externos por mes'
+        },
+        subtitle: {
+            text: 'No se incluyen objetos perdidos'
+        },
+        xAxis: {
+            categories: [
+            <?php if ($periodo==2){ echo "'Febrero', 'Marzo','Abril','Mayo','Junio'";} else {echo "'Agosto', 'Septiembre','Octubre','Noviembre','Diciembre'";}?>
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: ''
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Ventas',
+            <?php echo "data: [$uno[0], $dos[0], $tres[0], $cuatro[0], $cinco[0]]";?>
+
+        },{
+            name: 'Publicaciones',
+            <?php echo "data: [$uno[1], $dos[1], $tres[1], $cuatro[1], $cinco[1]]";?>
+
+        }]
+    });  
+    </script>
+<?php }  
 ?>

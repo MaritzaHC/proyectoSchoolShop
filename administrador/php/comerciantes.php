@@ -26,6 +26,7 @@ include '..\..\paginas\emergentes.html'; ?>
 	</div>
 	<div class="abajo">
 		<?php include 'base/consultasUsuarios.php';
+			  include 'estrellas.php';
 		if (!empty($_GET['buscar'])) {
 			$pag = $_GET['pag'];
 			$x = array();
@@ -51,20 +52,16 @@ include '..\..\paginas\emergentes.html'; ?>
 				}else {
 			foreach ($x as $are) {
 				$nombre = $are['nombre'];
-				$foto = $are['foto'];
 				$idVendedor = $are['idVendedor'];
+				$can = $are['calificacion'];
+				settype($can, 'integer');
 			?>
 			<div class="resultado">
 				<form method="POST" action="base/comerciantes.php">
 				<p onclick="window.location='detalleComerciante.php?i='+<?php echo $idVendedor; ?>"><?php echo $nombre;?></p>
 				<div class="imagen" onclick="popup(1,'seguro',0)" onmouseenter="valor(<?php echo $idVendedor;?>)"><img src="..\..\imagenes/basura.png"></div>
 				<div class="calificacion">
-					<div class="estrellas">
-			   	 	<img src="../../imagenes/estrellaL.png">
-			   	 	<img src="../../imagenes/estrellaL.png">
-			   		<img src="../../imagenes/estrellaL.png">
-			   		<img src="../../imagenes/estrellaL.png">
-					<img src="../../imagenes/estrellaB.png"></div>
+					<?php //calificacionaMostrar($can); ?>
 				</div>
 			</div>
 			

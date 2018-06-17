@@ -27,7 +27,7 @@
 		<input type="password" name="contrasenaC" required="required"><br>
 		<input type="submit" value="Guardar" class="boton">
 	</div>
-	<div class="imagenCuenta"><img src="caja.png"></div></form>
+	<div class="imagenCuenta"><img src=<?php echo"http://servicioss.gearhostpreview.com/img/$foto"; ?>></div></form>
 </div>
 <script type="text/javascript">
 	$(".almacenistas p").css({"background-color":"#fffade", "color":"#af5145"});	

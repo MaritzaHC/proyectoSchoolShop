@@ -14,11 +14,12 @@
 	include '..\..\paginas\emergentes.html';?>
 <div class="contenido">
 	<?php include '..\paginas\menui.html'; ?>
-	<form name="publica" method="post" action="base/cuentaF.php">
+	<?php include "base/cuenta.php"; ?>
+	<form name="publica" method="post" action="base/cuentaF.php" enctype="multipart/form-data">
 	<div class="perfil">
 		<div class="primero">
 			<div class="imagenPerfil">
-				<div class="imagen"><output id="list"><img src="niche.jpg"></output></div>
+				<div class="imagen"><output id="list"><img src=<?php echo "http://servicioss.gearhostpreview.com/img/$foto"; ?>></output></div>
 				<div class="agregar"><input type="file" id="files" name="files" value=" " /></div>
 			</div>
 			<script type="text/javascript">
@@ -29,7 +30,7 @@
 	        document.getElementById('files').addEventListener('change', archivo, false);
 	      </script>
 
-			<?php include "base/cuenta.php"; ?>
+			<?php mostrar(); ?>
 			<p style="margin-top: 15px">Antigua contraseña</p>
 			<input type="password" name="Acontrasena" size="15">
 			<p style="margin-top: 15px">Nueva contraseña</p>

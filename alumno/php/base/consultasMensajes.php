@@ -16,6 +16,7 @@ function conversaGeneral($id){
 		'usuarioU'=>$result["ConversacionModelo"]["usuarioU"],
 		'usuarioD'=>$result["ConversacionModelo"]["usuarioD"]);
 	}else{	
+		$cuantos = @count($result["ConversacionModelo"]);
 		for ($i=0; $i < $cuantos; $i++) { 
 			$losproductos[$i] = array(
 								  'id'=>$result["ConversacionModelo"][$i]["id"],

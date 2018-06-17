@@ -17,7 +17,7 @@
 	<div class="Ventas">
 		<div class="Titulo"><p>Compras</p></div>
 
-			<?php compras();
+			<?php @compras();
 				?>	
 				
 		</div>

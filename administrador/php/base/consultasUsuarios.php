@@ -5,7 +5,7 @@ function alumnosGeneral($pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag, 'cantidad' => 3);
+	$parametro = array('pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("selectAlumnosGeneral", $parametro)["selectAlumnosGeneralResult"];
 	$cuantos = count($result["AlumnoModelo"]);
 	$losproductos = array();
@@ -16,8 +16,10 @@ function alumnosGeneral($pag)
 							  'nombre'=>$result["AlumnoModelo"]["nombre"],
 							  'apellidoP'=>$result["AlumnoModelo"]["apellidoP"],
 							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
-							  'Foto'=>$result["AlumnoModelo"]["Foto"],
+							  'foto'=>$result["AlumnoModelo"]["Foto"],
 							  'usuario'=>$result["AlumnoModelo"]["usuario"],
+							  'calificacionC'=>$result["AlumnoModelo"]["calificacionC"],
+							  'calificacionV'=>$result["AlumnoModelo"]["calificacionV"],
 							  'estado'=>$result["AlumnoModelo"]["estado"],
 							  'correo'=>$result["AlumnoModelo"]["correo"]);
 	}else{
@@ -28,8 +30,10 @@ function alumnosGeneral($pag)
 							  'nombre'=>$result["AlumnoModelo"][$i]["nombre"],
 							  'apellidoP'=>$result["AlumnoModelo"][$i]["apellidoP"],
 							  'apelldioM'=>$result["AlumnoModelo"][$i]["apelldioM"],
-							  'Foto'=>$result["AlumnoModelo"][$i]["Foto"],
+							  'foto'=>$result["AlumnoModelo"][$i]["Foto"],
 							  'usuario'=>$result["AlumnoModelo"][$i]["usuario"],
+							  'calificacionC'=>$result["AlumnoModelo"]["calificacionC"],
+							  'calificacionV'=>$result["AlumnoModelo"]["calificacionV"],
 							  'estado'=>$result["AlumnoModelo"][$i]["estado"],
 							  'correo'=>$result["AlumnoModelo"][$i]["correo"]);
 	}
@@ -48,11 +52,12 @@ function alumnosDeta($id)
 							  'nombre'=>$result["AlumnoModelo"]["nombre"],
 							  'apellidoP'=>$result["AlumnoModelo"]["apellidoP"],
 							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
-							  'Foto'=>$result["AlumnoModelo"]["Foto"],
+							  'foto'=>$result["AlumnoModelo"]["Foto"],
 							  'usuario'=>$result["AlumnoModelo"]["usuario"],
+							  'calificacionC'=>$result["AlumnoModelo"]["calificacionC"],
+							  'calificacionV'=>$result["AlumnoModelo"]["calificacionV"],
 							  'estado'=>$result["AlumnoModelo"]["estado"],
 							  'correo'=>$result["AlumnoModelo"]["correo"]);
-		//falta estado 
 	return $losproductos;
 }
 function almacenistaDeta($id)
@@ -73,7 +78,7 @@ function almacenistaGeneral($pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag, 'cantidad' => 2);
+	$parametro = array('pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("almacenistaConsultaGeneral",$parametro)["almacenistaConsultaGeneralResult"];
 	$cuantos = count($result["AlmacenistaModelo"]);
 	$losproductos = array();
@@ -99,7 +104,7 @@ function consultaGeneralVendedor($pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag, 'cantidad' => 3);
+	$parametro = array('pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("consultaGeneralVendedor",$parametro)["consultaGeneralVendedorResult"];
 
 	$losproductos = array();
@@ -108,18 +113,14 @@ function consultaGeneralVendedor($pag)
 		$losproductos[0] = array(
 			'idVendedor'=>$result["VendedorModelo"]["idVendedor"],
 			'nombre'=>$result["VendedorModelo"]["nombre"],
-			'foto'=>$result["VendedorModelo"]["foto"],
-			'telefono'=>$result["VendedorModelo"]["telefono"],
-			'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
+			'calificacion'=>$result["VendedorModelo"]["calificacion"],
 			'estado'=>$result["VendedorModelo"]["estado"]);
 	}else {
 	for ($i=0; $i < $cuantos; $i++) { 
 		$losproductos[$i] = array(
 								  'idVendedor'=>$result["VendedorModelo"][$i]["idVendedor"],
 								  'nombre'=>$result["VendedorModelo"][$i]["nombre"],
-								  'foto'=>$result["VendedorModelo"][$i]["foto"],
-								  'telefono'=>$result["VendedorModelo"][$i]["telefono"],
-								  'ubicacion'=>$result["VendedorModelo"][$i]["ubicacion"],
+								  'calificacion'=>$result["VendedorModelo"]["calificacion"],
 								  'estado'=>$result["VendedorModelo"][$i]["estado"]);
 	}
 	}
@@ -137,7 +138,8 @@ function consultaDetalleVendedor($id)
 							  'nombre'=>$result["VendedorModelo"]["nombre"],
 							  'telefono'=>$result["VendedorModelo"]["telefono"],
 							  'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
-							  //'foto'=>$result["VendedorModelo"]["foto"],
+							  'calificacion'=>$result["VendedorModelo"]["calificacion"],
+							  'foto'=>$result["VendedorModelo"]["foto"],
 							  'estado'=>$result["VendedorModelo"]["estado"]);
 		//falta estado 
 	return $losproductos;
@@ -146,7 +148,7 @@ function buscarVendedor($busqueda,$pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 3);
+	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("buscarVendedor",$parametro)["buscarVendedorResult"];
 
 	$losproductos = array();
@@ -176,7 +178,7 @@ function buscarAlmacenistaNombre($busqueda,$pag)
 {
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 3);
+	$parametro = array('busqueda' => $busqueda, 'pag' => $pag, 'cantidad' => 10);
 	$result=$client->call("buscarAlmacenistaNombre",$parametro)["buscarAlmacenistaNombreResult"];
 
 	$losproductos = array();
@@ -194,43 +196,6 @@ function buscarAlmacenistaNombre($busqueda,$pag)
 								  'nombre'=>$result["AlmacenistaModelo"][$i]["nombre"],
 								  'foto'=>$result["AlmacenistaModelo"][$i]["foto"],
 								  'ubicacion'=>$result["AlmacenistaModelo"][$i]["ubicacion"]);
-	}
-	}
-	return $losproductos;
-}
-function buscarBloqueado($pag)
-{
-	global $wsdl;
-	$client=new SoapClient($wsdl, true);
-	$parametro = array('pag' => $pag, 'cantidad' => 3);
-	$result=$client->call("selectAlumnosGeneral", $parametro)["selectAlumnosGeneralResult"];
-	$cuantos = count($result["AlumnoModelo"]);
-	$losproductos = array();
-
-	if ($cuantos==1&&$result["AlumnoModelo"]["estado"]==3) {
-		$losproductos[0] = array(
-							  'id'=>$result["AlumnoModelo"]["id"],
-							  'nombre'=>$result["AlumnoModelo"]["nombre"],
-							  'apellidoP'=>$result["AlumnoModelo"]["apellidoP"],
-							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
-							  'Foto'=>$result["AlumnoModelo"]["Foto"],
-							  'usuario'=>$result["AlumnoModelo"]["usuario"],
-							  'estado'=>$result["AlumnoModelo"]["estado"],
-							  'correo'=>$result["AlumnoModelo"]["correo"]);
-	}else{
-
-	for ($i=0; $i < $cuantos; $i++) { 
-		if ($result["AlumnoModelo"][$i]["estado"]==3) {
-		$losproductos[$i] = array(
-							  'id'=>$result["AlumnoModelo"][$i]["id"],
-							  'nombre'=>$result["AlumnoModelo"][$i]["nombre"],
-							  'apellidoP'=>$result["AlumnoModelo"][$i]["apellidoP"],
-							  'apelldioM'=>$result["AlumnoModelo"][$i]["apelldioM"],
-							  'Foto'=>$result["AlumnoModelo"][$i]["Foto"],
-							  'usuario'=>$result["AlumnoModelo"][$i]["usuario"],
-							  'estado'=>$result["AlumnoModelo"][$i]["estado"],
-							  'correo'=>$result["AlumnoModelo"][$i]["correo"]);
-		}
 	}
 	}
 	return $losproductos;

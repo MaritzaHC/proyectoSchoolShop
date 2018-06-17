@@ -1,5 +1,5 @@
 <?php
-require_once '../../nusoap/lib/nusoap.php';
+@require_once '../../nusoap/lib/nusoap.php';
 $wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?wsdl";
 /*Esta funcion retorna un arreglo que contien los productos que estan en la base de datos
 Se solicita el tipo (1-alumno)(2-vendedor)(3-ofertas) y la pagina*/
@@ -157,6 +157,7 @@ function lugaresConsulta(){
 }
 function historialMisVentas($idUsuario){
 	global $wsdl;
+	settype($idUsuario, "integer");
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idUsuario' => $idUsuario);
 	$result=$client->call("historialMisVentas", $parametro)["historialMisVentasResult"];
@@ -169,6 +170,7 @@ function historialMisVentas($idUsuario){
 			'titulo'=>$result["ProductosModelo"]["titulo"],
 			'idProductos'=>$result["ProductosModelo"]["idProductos"],
 			'precio'=>$result["ProductosModelo"]["precio"],
+			'foto'=>$result["ProductosModelo"]["foto"],
 			'estado'=>$result["ProductosModelo"]["estado"]);
 	} else {
 		for ($i=0; $i < $cuantos; $i++) { 
@@ -176,6 +178,7 @@ function historialMisVentas($idUsuario){
 								  'titulo'=>$result["ProductosModelo"][$i]["titulo"],
 								  'idProductos'=>$result["ProductosModelo"][$i]["idProductos"],
 								  'precio'=>$result["ProductosModelo"][$i]["precio"],
+								  'foto'=>$result["ProductosModelo"][$i]["foto"],
 								  'estado'=>$result["ProductosModelo"][$i]["estado"]);
 		}
 	}
@@ -184,7 +187,7 @@ function historialMisVentas($idUsuario){
 function historialMisCompras($idUsuario,$tipo){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('idUsuario' => $idUsuario, 'tipo'=> $tipo, 'pag' => 1, 'cantidad' => 10);
+	$parametro = array('idUsuario' => $idUsuario, 'tipo'=> $tipo);
 	$result=$client->call("historialMisCompras", $parametro)["historialMisComprasResult"];
 
 	$losproductos = array();
@@ -196,6 +199,7 @@ function historialMisCompras($idUsuario,$tipo){
 							  'titulo'=>$result["ProductosModelo"]["titulo"],
 							  'idProductos'=>$result["ProductosModelo"]["idProductos"],
 							  'precio'=>$result["ProductosModelo"]["precio"],
+							  'foto'=>$result["ProductosModelo"]["foto"],
 							  'estado'=>$result["ProductosModelo"]["estado"]);
 	} else{
 		for ($i=0; $i < $cuantos; $i++) { 
@@ -203,6 +207,7 @@ function historialMisCompras($idUsuario,$tipo){
 								  'titulo'=>$result["ProductosModelo"][$i]["titulo"],
 								  'idProductos'=>$result["ProductosModelo"][$i]["idProductos"],
 								  'precio'=>$result["ProductosModelo"][$i]["precio"],
+								  'foto'=>$result["ProductosModelo"][$i]["foto"],
 								  'estado'=>$result["ProductosModelo"][$i]["estado"]);
 		}
 	}
@@ -211,7 +216,7 @@ function historialMisCompras($idUsuario,$tipo){
 function historialObjetosPerdidos($idUsuario){
 	global $wsdl;
 	$client=new SoapClient($wsdl, true);
-	$parametro = array('idUsuario' => $idUsuario,'pag' => 1, 'cantidad' => 10);
+	$parametro = array('idUsuario' => $idUsuario);
 	$result=$client->call("historialObjetosPerdidos", $parametro)["historialObjetosPerdidosResult"];
 
 	$losproductos = array();
@@ -221,6 +226,7 @@ function historialObjetosPerdidos($idUsuario){
 		$losproductos[0] = array(
 			'titulo'=>$result["ObjetoPerdidoModelo"]["titulo"],
 			'idObjetoPerdido'=>$result["ObjetoPerdidoModelo"]["idObjetoPerdido"],
+			'foto'=>$result["ObjetoPerdidoModelo"]["foto"],
 			'estado'=>$result["ObjetoPerdidoModelo"]["estado"]);
 	}
 	else{
@@ -228,6 +234,7 @@ function historialObjetosPerdidos($idUsuario){
 			$losproductos[$i] = array(
 								  'titulo'=>$result["ObjetoPerdidoModelo"][$i]["titulo"],
 								  'idObjetoPerdido'=>$result["ObjetoPerdidoModelo"][$i]["idObjetoPerdido"],
+								  'foto'=>$result["ObjetoPerdidoModelo"][$i]["foto"],
 								  'estado'=>$result["ObjetoPerdidoModelo"][$i]["estado"]);
 		}
 	}
@@ -409,7 +416,7 @@ function consultaGeneralVendedor($pag){
 	return $losproductos;
 }
 function consultaDetalleVendedor($id){
-	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
+	global $wsdl;	
 	$client=new SoapClient($wsdl, true);
 	$parametro = array('idVendedor' => $id);
 	$result=$client->call("consultaDetalleVendedor", $parametro)["consultaDetalleVendedorResult"];
@@ -417,12 +424,44 @@ function consultaDetalleVendedor($id){
 		$losproductos = array(
 							  'idVendedor'=>$result["VendedorModelo"]["idVendedor"],
 							  'nombre'=>$result["VendedorModelo"]["nombre"],
+							  'foto'=>$result["VendedorModelo"]["foto"],
 							  'telefono'=>$result["VendedorModelo"]["telefono"],
 							  'ubicacion'=>$result["VendedorModelo"]["ubicacion"],
-							  //'foto'=>$result["VendedorModelo"]["foto"],
-							  'usuario'=>$result["VendedorModelo"]["usuario"],
+							  'calificacion'=>$result["VendedorModelo"]["calificacion"],
 							  'estado'=>$result["VendedorModelo"]["estado"]);
-		//falta estado 
-		var_dump($losproductos);
+	return $losproductos;
+}
+function ConsultaGeneralProductosPublicador($id){
+	global $wsdl;	
+	$client=new SoapClient($wsdl, true);
+	$parametro = array('idPublicador' => $id);
+	$result=$client->call("ConsultaGeneralProductosPublicador", $parametro)["ConsultaGeneralProductosPublicadorResult"];
+	if ($result=="") {return 0;}
+	$losproductos = array();
+	$cuantos = count($result["ProductosModelo"]);
+	if($cuantos == 1){
+		$losproductos[0] = array(
+			'idProductos'=>$result["ProductosModelo"]["idProductos"],
+			'descripcion'=>$result["ProductosModelo"]["descripcion"],
+			'titulo'=>$result["ProductosModelo"]["titulo"],
+			'tipo'=>$result["ProductosModelo"]["tipo"],
+			'vendedor'=>$result["ProductosModelo"]["vendedor"],
+			'estado'=>$result["ProductosModelo"]["estado"],
+			'foto'=>$result["ProductosModelo"]["foto"],
+			'precio'=>$result["ProductosModelo"]["precio"]);
+	}else{
+
+		for ($i=0; $i < $cuantos; $i++) { 
+			$losproductos[$i] = array(
+									  'idProductos'=>$result["ProductosModelo"][$i]["idProductos"],
+									  'descripcion'=>$result["ProductosModelo"][$i]["descripcion"],
+									  'titulo'=>$result["ProductosModelo"][$i]["titulo"],
+									  'tipo'=>$result["ProductosModelo"][$i]["tipo"],
+									  'vendedor'=>$result["ProductosModelo"][$i]["vendedor"],
+									  'estado'=>$result["ProductosModelo"][$i]["estado"],
+									  'foto'=>$result["ProductosModelo"][$i]["foto"],
+									  'precio'=>$result["ProductosModelo"][$i]["precio"]);
+		}
+	}
 	return $losproductos;
 }

@@ -22,15 +22,16 @@
 	    $_SESSION['idProductos
 	    '] = $resul['idProductos'];
 	    $descripcion = $resul['descripcion'];
-	    $foto =  $resul['foto'];
+	    $foto =  $resul['foto'].".jpg";
 	 ?>
 
-	<form name="publica" method="post" action="base/publicacionModificacion.php">
+	<form name="publica" method="post" action="base/publicacionModificacion.php" enctype="multipart/form-data">
 
 	<input type="" name="id" style="display: none;" value="<?php echo $laid; ?>">
+	<input type="" name="id" style="display: none;" value="<?php echo $foto; ?>">
 	<div class="imagenp" style="background-color: green;">
-		<output id="list"><img src="pay.jpg"<?php $foto; ?>></output>
-		<div class="imagen"><input type="file" id="files" name="files[]" value=" " required="required"/></div>
+		<output id="list"><img src=<?php echo"http://servicioss.gearhostpreview.com/img/$foto";?>></output>
+		<div class="imagen"><input type="file" id="files" name="imagen" value=" "/></div>
 	</div>
 	 <script type="text/javascript">
 		function archivo(evt) {

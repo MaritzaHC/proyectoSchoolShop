@@ -18,7 +18,11 @@
 						"titulo"=>$_POST['titulo']);
 
 	$result=$client->call("solicitarObjetoPerdido",$parameters);
-	var_dump($parameters);
-//	header("Location: ../objetos.php");
+
+	$parameters = array("usuariou"=>$publi, 
+					"usuariod"=>$uu);
+
+	$result=$client->call("insertarConversacion",$parameters);
+	header("Location: ../mensajes.php");
 
 ?>

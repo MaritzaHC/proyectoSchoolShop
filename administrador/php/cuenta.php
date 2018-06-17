@@ -11,25 +11,34 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.php'; ?>
 <div class="contenido">
 	<div class="informacion">
 		<p class="nombre">Nombre de la institucion</p>
-		<div class="telefono">
-			<p>Telefono</p>
-			<input type="text" name="telefono" size="10">
-		</div>
 		<div class="contrasena">
+			<form action="base/cuentaF.php" method="POST">
 			<p style="margin-bottom: 5px">Nueva contraseña:</p>
 			<p>Contraseña anterior</p>
-			<input type="text" name="contrasena">
+			<input type="password" name="contrasena">
 			<p>Nueva contraseña</p>
-			<input type="text" name="contrasenaconu">
+			<input type="password" name="contrasenaconu">
 			<p>Confirmar contraseña</p>
-			<input type="text" name="contrasenacon">
+			<input type="password" name="contrasenacon">	
+		
 		</div>
-		<div class="boton">Guardar</div>
+		<div class="boton" onclick="popup(1,'seguro',0)">Guardar</div>
+		<div id="seguro">
+			   <div class="popup-contenedor">
+			      <p>¿Esta seguro de cambiar de contraseña?</p>
+			      <input type="submit" value="Aceptar" class="boton">
+			      <div class="botonAzul" onclick="quitar()">Cancelar</div>
+			   </div>
+		</div></form>
+<script type="text/javascript">
+	function quitar(){$("#seguro").css({"display": "none"});}
+	</script>
+</html>
 	</div>
-	<div class="imagenCuenta"><img src="caja.png"></div>
+	<div class="imagenCuenta"><img src="http://servicioss.gearhostpreview.com/img/logo.jpg"></div>
 </div>
 </body>

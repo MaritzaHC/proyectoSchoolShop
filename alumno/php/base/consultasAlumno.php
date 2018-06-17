@@ -13,17 +13,18 @@ function alumnosDeta($id)
 							  'nombre'=>$result["AlumnoModelo"]["nombre"],
 							  'apellidoP'=>$result["AlumnoModelo"]["apellidoP"],
 							  'apelldioM'=>$result["AlumnoModelo"]["apelldioM"],
-							  //'foto'=>$result["AlumnoModelo"]["foto"],
+							  'foto'=>$result["AlumnoModelo"]["Foto"],
 							  'usuario'=>$result["AlumnoModelo"]["usuario"],
-							  'usuario'=>$result["AlumnoModelo"]["usuario"],	
-							  'correo'=>$result["AlumnoModelo"]["correo"]);
-		//falta estado 
+							  'calificacionC'=>$result["AlumnoModelo"]["calificacionC"],	
+							  'calificacionV'=>$result["AlumnoModelo"]["calificacionV"],
+							  'correo'=>$result["AlumnoModelo"]["correo"],
+							  'estado'=>$result["AlumnoModelo"]["estado"]);
 	return $losproductos;
 }
 function notificaciones($id){
 	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
 	$client=new SoapClient($wsdl,true);
-	$parametro = array('usuario' => $id,'pag' => 1,'cantidad' => 1);
+	$parametro = array('usuario' => $id);
 	$result=$client->call("consultaGeneralNotificacion", $parametro)["consultaGeneralNotificacionResult"];
 
 	$losproductos = array();

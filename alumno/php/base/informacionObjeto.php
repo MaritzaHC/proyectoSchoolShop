@@ -8,10 +8,10 @@ $resul = objetosDeta($laid);
 	    $id = $resul['idObjetoPerdido'];
 	    $descripcion = $resul['descripcion'];
 	    $publicador = $resul['publicador'];
-	    var_dump($resul);
+	    $foto = $resul['foto'].".jpg";
 
 echo "
-	<div class=\"imagenn\"><img src=\"aa.jpg\"></div>
+	<div class=\"imagenn\"><img src=\"http://servicioss.gearhostpreview.com/img/$foto\"></div>
 	<div class=\"datosObjeto\" style=\"width: 40%\">
 	<div class=\"titulo\"><p>$titulo</p></div>
 		<div class=\"descripcion\">

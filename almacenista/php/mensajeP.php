@@ -6,30 +6,31 @@
 	<link rel="stylesheet" type="text/css" href="..\css\notificaciones.css">
 	<script type="text/javascript" src="..\..\javaScript\jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="..\..\javaScript\general.js"></script>
-	<script type="text/javascript" src="..\javaScript\funcionesEstudiante.js"></script>
+	<script type="text/javascript" src="..\javaScript\funcionesAlmacenista.js"></script>
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.php'; 
-	include '..\..\paginas\emergentes.html';?>
+	<?php include '..\paginas\barraInicio.php'; ?>
 <div class="contenido">
-	<?php include '..\paginas\menui.html';
-		  require_once 'base\notificaciones.php'; ?>
+	<?php include '..\paginas\menu.html'; 
+		  include '..\..\paginas\emergentes.html';
+		  require_once 'consultas.php';
+		  require_once 'mensajes.php'; ?>
 
 	<div class="notificacionesTitulo">
-		<div class="titulo"><p>Notificaciones</p></div>
+		<div class="titulo"><p>Chats</p></div>
 		<div class="lasNotificaciones">
-			<?php @titulos(); ?>
+			<?php titulosMen(); ?>
 		</div> 
 	</div>
 
-	<form name="publica" method="POST" action="base/notificacionesF.php">
-			<?php @contenido(); ?>
+	<form name="publica" method="POST" action="base/notificacionesF.php" onsubmit="return false;">
+			<div id="lasConversaciones"><?php contenidoMen(); ?></div>
 		<div id="seguro">
 			<div class="popup-contenedor">
-			      <p>¿Esta seguro de eliminar esta notificación?</p>
-			      <br>
-			      <input type="submit" value="Aceptar" class="boton">
+			      <p>¿Esta seguro de eliminar este chat?</p>
+			      <br>	
+			      <input type="submit" value="Aceptar" class="boton" onclick="enviarr(1)">
 			     <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
 			     <br>
 		   </div>

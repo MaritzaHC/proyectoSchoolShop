@@ -16,17 +16,32 @@
 	<?php include '..\paginas\primeraBarra.php';
 	  include '..\paginas\segundaBarra.html'; 
 	  include '..\..\paginas\emergentes.html';?>
-	<form method="post" action="base/informacionPedidoF">
+	<form method="post" action="base/informacionPedidoF.php">
 		<?php include_once 'base/informacionPedido.php';?>
+		<div id="seguro">
+	   <div class="popup-contenedor">
+	      <p>¿Esta seguro de realizar esta compra?</p>
+	      <input type="submit" value="Aceptar" class="boton">
+	      <input type="" name="este" style="display: none;">
+	      <script type="text/javascript">
+					var x = variable("id");
+			 		document.este.este.value = x;
+		   </script>
+	      <div class="botonAzul" onclick="popup(2,'seguro')">Cancelar</div>
+	   </div>
+	</div>
 	</form>
 	<script type="text/javascript">
 			vista("pedidos");
 			imprimirValor();	
 			function imprimirValor(){
- 			  var select = $('#producto').val();
- 			  var ladesc = $('#esto').val();
-			  document.getElementById("precio").innerHTML = select.value;
-			  document.getElementById("des").innerHTML = ladesc.value;
+ 			 var resultado = document.getElementById("producto").value;
+			 var parte = resultado.split(',');
+
+			 var foto = "http://servicioss.gearhostpreview.com/img/"+parte[3]+".jpg";
+			  document.getElementById("precio").innerHTML = parte[0];
+			  document.getElementById("des").innerHTML = parte[1];
+			  document.getElementById("foto").src = foto;
 			}		
 	</script>
 </body>

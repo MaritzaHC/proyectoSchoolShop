@@ -28,7 +28,7 @@
 		<input type="submit" value="Guardar" class="boton">
 		</form>
 	</div>
-	<div class="imagenCuenta"><img src="caja.png"></div>
+	<div class="imagenCuenta"><img src=<?php echo "http://servicioss.gearhostpreview.com/img/$foto"; ?>></div>
 </div>
 <script type="text/javascript">
 	$(".comerciantes p").css({"background-color":"#fffade", "color":"#af5145"});	

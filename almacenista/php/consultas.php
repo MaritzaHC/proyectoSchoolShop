@@ -53,7 +53,7 @@ function notificaciones($id){
 	}
 	return $losproductos;
 }
-$uu = 31;//@$_SESSION['username'];
+@$_SESSION['username'];
 settype($uu,'integer');
 $x = array();
 $x = @notificaciones($uu);	
@@ -92,4 +92,18 @@ function contenido()
 		</div>";
 		$i++;
 	}
+}
+function almacenistaConsultaDetalle($id)
+{
+	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
+	$client=new SoapClient($wsdl,true);
+	$parametro = array('id' => $id);
+	$result=$client->call("almacenistaConsultaDetalle", $parametro)["almacenistaConsultaDetalleResult"];
+	var_dump($id);
+		$losproductos = array(
+							  'idAlmacenista'=>$result["AlmacenistaModelo"]["idAlmacenista"],
+							  'nombre'=>$result["AlmacenistaModelo"]["nombre"],
+							  'foto'=>$result["AlmacenistaModelo"]["foto"],
+							  'ubicacion'=>$result["AlmacenistaModelo"]["ubicacion"]);
+	return $losproductos;
 }

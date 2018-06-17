@@ -15,27 +15,18 @@
 		  require 'base\notificaciones.php';?>
 
 <div class="contenido">
+	<?php 
+	include '..\..\paginas\emergentes.html';?>
+
 	<div class="notificacionesTitulo">
-		<div class="titulo"><p>Notificaciones</p><br></div>
-		<div class="tipos">
-			<input type="radio" name="tipos" value="1" onclick="vistaSelec(1)" checked>Urgentes
-			<input type="radio" name="tipos" value="2" onclick="vistaSelec(2)">Normales
-			<br>
+		<div class="titulo"><p>Notificaciones</p></div>
+		<div class="lasNotificaciones">
+			<?php @titulos(); ?>
 		</div>
-
-		<div class="lasNotificaciones" id="ur">
-			<?php titulosImportantes(); ?>
-		</div>
-
-		<div class="lasNotificaciones" id="no">
-			<?php titulos(); ?>
-		</div>
-
 	</div>
 
-	<form name="noti" method="get" action="base/notificacionesF.php">
-		<?php contenidoImportantes();
-			  contenido();?>
+	<form name="publica" method="POST" action="base/notificacionesF.php">
+			<?php @contenido(); ?>
 		<div id="seguro">
 			<div class="popup-contenedor">
 			      <p>¿Esta seguro de eliminar esta notificación?</p>
@@ -46,8 +37,8 @@
 		   </div>
 		</div>
 	</form>
-	
 </div>
+
 <script type="text/javascript">
 	$(".contenidoNoti").css("display","none");
 	$("#no").css("display","none");

@@ -1,6 +1,6 @@
 
 <div id="inicio">
-	<?php // include 'verificacionLogin.php';?>
+	<?php include '../php/base/verificacionLogin.php';?>
 		<div class="logo">
 			<img src="..\..\imagenes\logo.png" onclick="window.location='notificaciones.php'">
 			<p onclick="window.location='notificaciones.php'">SchoolShop</p>

@@ -8,13 +8,14 @@ $client=new SoapClient($wsdl,true);
 	json_encode($parameters);
 	$result=$client->call("validar", $parameters)["validarResult"];
 
-	var_dump($parameters);
-
-	var_dump($result);
-
 	if($result["validarResult"]!=0){
+		$parameters = array("usuario"=> $_POST['nombre']);
+		json_encode($parameters);
+		$bloque=$client->call("obtenerDatosUsuario", $parameters)["obtenerDatosUsuarioResult"];
+
 		if ($result["validarResult"]==1) {
 			@session_start();
+			$_SESSION['estado']=$bloque['LoginModelo']['estado'];
 			$_SESSION['loggedin'] = true;
 	    	$_SESSION['username'] = $_POST['nombre'];
 	    	$_SESSION['tipo'] = 1;

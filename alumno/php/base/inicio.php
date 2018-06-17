@@ -22,13 +22,12 @@ function mostrarProductos($tipo,$pag){
 		    $titulo = $are['titulo'];
 		    $precio = $are['precio'];
 		    $id = $are['idProductos'];
-		    $imagen = $are['foto'];
-		    $foto = "img/".$imagen;
+		    $foto = $are['foto'].".jpg";
 
 			echo "	
 				<a href='informacionCompra.php?id=$id'>
 				<div class='productos'>
-					<img src=$foto>
+					<img src=\"http://servicioss.gearhostpreview.com/img/$foto\">
 					<div class='info'>
 						<div class='titulo'><p>$titulo</p></div>
 						<div class='precio'><p>$$precio</p></div>
@@ -43,7 +42,7 @@ function mostrarProductos($tipo,$pag){
 			  </script>";
 }
 function mostrarPedidos($tipo,$pag){
-	$w = array();
+	/*$w = array();
 	$w = productos(3,$pag);
 $xx = @buscarenProductosComerciante($cadena,($pag+1));
 	if ($xx[0]['idProductos']==null||$xx[0]['idProductos']=="") {
@@ -61,9 +60,10 @@ $xx = @buscarenProductosComerciante($cadena,($pag+1));
 		    $precio = $are['precio'];
 		    $id = $are['idProductos'];
 		    $vendedor = $are['vendedor'];
+		    $foto = $are['foto'].".jpg";
 			echo"
 				<div class='productos' onclick='informacionProducto(\"Oferta\",\"$id\")'>
-					<img src='na.jpg'>
+					<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'><p>$titulo</p></div>
 						<div class='precio'><p>$$precio</p></div>					
@@ -72,14 +72,14 @@ $xx = @buscarenProductosComerciante($cadena,($pag+1));
 			}
 			echo "
 			<div class='productos' onclick='informacionProducto(\"Oferta\",\"$id\")'>
-					<img src='mas.jpg'>
+					<img src='servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'><p>$titulo</p></div>
 						<div class='precio'><p>$$precio</p></div>					
 					</div>
 			</div>
 		</div>";
-	}
+	}*/
 /*----------------------------------------------------------------------------------------*/
 	$y = array();
 	$y =consultaGeneralVendedor($pag);
@@ -87,8 +87,9 @@ $xx = @buscarenProductosComerciante($cadena,($pag+1));
 	    $nombre = $are['nombre'];
 	    $descripcion = $are['descripcion'];
 	    $idVendedor = $are['idVendedor'];
+	    $foto = $are['foto'].".jpg";
 	echo "<div class='productos' onclick='informacionProducto(\"Pedido\",$idVendedor)'>
-					<img src='ga.jpg'>
+					<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'><p>$nombre</p></div>	
 						<!--<div class='descripcion'><p>$descripcion</p></div>-->
@@ -118,10 +119,10 @@ function mostrarObjetos($pag){
 		foreach ($z as $are) {
 	    $titulo = $are['titulo'];
 	    $id = $are['idObjetoPerdido'];
-	   //$foto = $resul['foto']; 
+	   $foto = $are['foto'].".jpg"; 
 	echo "
 				<div class='productos' onclick='informacionProducto(\"Objeto\",$id)'>
-					<img src='aa.jpg'>
+					<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'>
 							<p>$titulo</p>

@@ -11,7 +11,7 @@
 	
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html'; ?>
+	<?php include '..\paginas\barraInicio.php'; ?>
 
 <div class="contenido">
 	<?php include '..\paginas\menu.html'; 
@@ -20,7 +20,7 @@
 
 	<div class="notificacionesTitulo">
 		<div class="titulo"><p>Notificaciones</p></div>
-		<div class="lasNotificaciones"><!--php-->
+		<div class="lasNotificaciones">
 			<?php titulos(); ?>
 		</div>
 	</div>

@@ -18,7 +18,7 @@
 		<p>Contreseña</p>
 		<div class="contrasena"><input type="password" name="contrasena" size="20" placeholder="Contraseña" required="required"></div>
 		<input class="boton" type="submit" name="publicar" value="Ingresar">
-		<div class="olvidar" onclick="window.location='Recuperar.html'"><p>Recuperar contraseña</p></div>
+		<!--<div class="olvidar" onclick="window.location='Recuperar.html'"><p>Recuperar contraseña</p></div>-->
 		</form>
 	</div>
 	</div>

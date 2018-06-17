@@ -19,6 +19,7 @@
 	  $x = almacenistaDeta($id);
 	  $nombre =$x['nombre'];
 	  $ubica=$x['ubicacion'];
+	  $foto = $x['foto'];
 ?>
 
 <div class="contenido">
@@ -32,7 +33,7 @@
 			<input type="submit" value="Modificar" class="boton">
 		</form>
 	</div>
-	<div class="imagenCuenta"><img src="caja.png"></div>
+	<div class="imagenCuenta"><img src=<?php echo"http://servicioss.gearhostpreview.com/img/$foto";?>></div>
 </div>
 <script type="text/javascript">
 	$(".almacenistas p").css({"background-color":"#fffade", "color":"#af5145"});	

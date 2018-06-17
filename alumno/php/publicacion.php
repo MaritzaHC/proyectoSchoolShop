@@ -14,11 +14,11 @@
 	<?php include '..\paginas\primeraBarra.php'; 
 	 ?>
 
-	<form name="publica" method="post" action="base/publicacion.php">
+	<form name="publica" method="post" action="base/publicacion.php" enctype="multipart/form-data">
 
 	<div class="imagenp" style="background-color: green;">
 		<output id="list"><img src="pay.jpg"></output>
-		<div class="imagen"><input type="file" id="files" name="files" value=" " required="required"/></div>
+		<div class="imagen"><input type="file" id="files" name="imagen" value=" " required="required"/></div>
 	</div>
 	 <script type="text/javascript">
 		function archivo(evt) {

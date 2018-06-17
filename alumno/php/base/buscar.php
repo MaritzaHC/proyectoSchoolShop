@@ -25,11 +25,12 @@ if($x)
 		    $titulo = $are['titulo'];
 		    $precio = $are['precio'];
 		    $id = $are['idProductos'];
+		    $foto = $are['foto'].".jpg";
 
 			echo "	
 				<a href='informacionCompra.php?id=$id'>
 				<div class='productos'>
-					<img src='b.jpg'>
+					<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'><p>$titulo</p></div>
 						<div class='precio'><p>$$precio</p></div>
@@ -66,9 +67,10 @@ function buscarPedidos($cadena,$pag)
 			$titulo = $are['titulo'];
 		    $precio = $are['precio'];
 		    $id = $are['idProductos'];
+		    $foto = $are['foto'].".jpg";
 			echo"
 				<div class='productos' onclick='informacionProducto(\"Oferta\",$id)'>
-					<img src='na.jpg'>
+					<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 					<div class='info'>
 						<div class='titulo'><p>$titulo</p></div>
 						<div class='precio'><p>$$precio</p></div>					
@@ -80,7 +82,7 @@ function buscarPedidos($cadena,$pag)
 		    $descripcion = $are['descripcion'];
 		    $id = $are['idProductos'];
 			echo "<div class='productos' onclick='informacionProducto(\"Pedido\",$id)'>
-						<img src='ga.jpg'>
+						<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 						<div class='info'>
 							<div class='titulo'><p>$titulo</p></div>	
 						</div>
@@ -115,10 +117,10 @@ function buscarObjetos($cadena,$pag)
 		$si++;
 	    $titulo = $are['titulo'];
 	    $id = $are['idObjetoPerdido'];
-	   //$foto = $resul['foto']; 
+	    $foto = $resul['foto'].".jpg"; 
 		echo "
 					<div class='productos' onclick='informacionProducto(\"Objeto\",$id)'>
-						<img src='aa.jpg'>
+						<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 						<div class='info'>
 							<div class='titulo'>
 								<p>$titulo</p>
@@ -158,11 +160,12 @@ echo "	<div id='opcompras'>";
 	    $titulo = $are['titulo'];
 	    $precio = $are['precio'];
 	    $id = $are['idProductos'];
+	    $foto = $are['foto'].".jpg";
 
 		echo "	
 			<a href='informacionCompra.php?id=$id'>
 			<div class='productos'>
-				<img src='b.jpg'>
+				<img src='http://servicioss.gearhostpreview.com/img/$foto'>
 				<div class='info'>
 					<div class='titulo'><p>$titulo</p></div>
 					<div class='precio'><p>$$precio</p></div>

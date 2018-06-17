@@ -1,5 +1,3 @@
-
-
 var datos;
 var sid = -1;
 var scant = 0;
@@ -17,14 +15,14 @@ function actualizar(){
 }
 
 function enviarr(tip){
-	$.post( "../php/base/mensajesNF.php",
+	$.post( "../php/base/notificacionesF.php",
 		 {
 			modo: tip,
 			text:  $("#" + sid + "c" + " .tb").val(),
-			id: datos[sid].id
+			id: sid
 		}
 	).done(function(data){
-		 $("#" + sid + "c" + " .tb").val("");
+		 $("#" + sid + "c" + " .tb").val("")
 		actualizar();
 	});
 }
@@ -58,11 +56,11 @@ function titulos(){
 
 	for(var i = 0; i < datos.length; i++){
 		$(notifs).append("<div class=\"notificacion\" id=" +
-		 i + "n onclick=\"smostrar(" + 
-		 i + ", " + datos.length + 
+		 datos[i].id + "n onclick=\"smostrar(" + 
+		 datos[i].id + ", " + datos.length + 
 		 ")\"><p>"+ datos[i].usuarioU + "-" + 
 		 datos[i].usuarioD + "</p></div>");
-		contenido(i, i);
+		contenido(i, datos[i].id);
 	}
 }
 
@@ -71,21 +69,21 @@ function contenido(idx, idConv){
 	$(conv).append("<div class=\"contenidoNoti\" id="+idConv+
 		"c>"
 		);
+	conv = conv + " .contenidoNoti";
 	for(var i = 0; i < datos[idx].mensajes.length; i++){
-		//alert(datos[idx].id + " " + JSON.stringify(datos[idx].mensajes[i]));
 		var act = datos[idx].mensajes[i];
 		if(act.usuario == usuario){
-			$(conv + " .contenidoNoti#" + idConv + "c").append("<div class=\"tues\">" + 
+			$(conv).append("<div class=\"tues\">" + 
 			act.text + "</div><br><br>");	
 		} else {
-			$(conv + " .contenidoNoti#" + idConv + "c").append("<div class=\"tuno\">" + 
+			$(conv).append("<div class=\"tuno\">" + 
 			act.text + "</div><br><br>");	
 		}
 		
 	}
-//alert("out");
-	$(conv + " .contenidoNoti#" + idConv + "c").append("</div><input type=\"hidden\" name=\"idConvo\" value=\""+datos[idConv].id+"\"><input type=\"text\" class=\"tb\" name=\"nuevo\" value=\"\"><input type=\"submit\" name=\"enviar\" value=\"\" class=\"enviar\" onclick=\"enviarr(2)\">");
-		$(conv + " .contenidoNoti#" + idConv + "c").append("<div class=\"boton1\" onclick=\"popup(1,'seguro',0)\">Eliminar</div><input type=\"number\" name=\""+idConv+"\" value="+ datos[idConv].id + " style=\"display: none;\"></div>");
+
+	$(conv).append("</div><input type=\"hidden\" name=\"idConvo\" value=\""+idConv+"\"><input type=\"text\" class=\"tb\" name=\"nuevo\" value=\"\"><input type=\"submit\" name=\"enviar\" value=\"\" class=\"enviar\" onclick=\"enviarr(2)\">");
+		$(conv).append("<div class=\"boton1\" onclick=\"popup(1,'seguro',0)\">Eliminar</div><input type=\"number\" name=\""+idConv+"\" value="+ idConv + " style=\"display: none;\"></div>");
 
 	if(sid != -1){
 		smostrar(sid, scant);
@@ -98,5 +96,3 @@ function contenido(idx, idConv){
 }
 
 actualizar(); 
-
-setInterval(actualizar, 5000);

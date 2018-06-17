@@ -2,13 +2,13 @@
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 echo "<script>var usuario = $uu;</script>";
-function titulos()
+function titulosMen()
 {
 	global $x;
 	$i=1;
 	echo "Cargando...";
 }
-function contenido()
+function contenidoMen()
 {
 	global $x;
 	global $uu;

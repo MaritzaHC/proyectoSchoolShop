@@ -19,22 +19,23 @@ function calificacionaMostrar($can)
 
 function calificacion()
 {
-	echo "<div class=\"estrellas\">";
+
+	echo "<div style=\"width: 180px; padding-left: none;\" class=\"estrellas\">";
 	?>
-	<input id="1r" class="css-checkbox" type="radio" value="1" name="estrella" onclick="cambio(1)">
+	<input id="1r" class="css-checkbox" type="radio" value=1 name="estrella" onclick="cambio(1)">
 	<label class="css-label" for="1r" id="1rr"></label>
-	<input id="2r" class="css-checkbox" type="radio" value="2" name="estrella" onclick="cambio(2)">
+	<input id="2r" class="css-checkbox" type="radio" value=2 name="estrella" onclick="cambio(2)">
 	<label class="css-label" for="2r" id="2rr"></label>
-	<input id="3r" class="css-checkbox" type="radio" value="3" name="estrella" onclick="cambio(3)">
+	<input id="3r" class="css-checkbox" type="radio" value=3 name="estrella" onclick="cambio(3)">
 	<label class="css-label" for="3r" id="3rr"></label>
-	<input id="4r" class="css-checkbox" type="radio" value="4" name="estrella" onclick="cambio(4)">
+	<input id="4r" class="css-checkbox" type="radio" value=4 name="estrella" onclick="cambio(4)">
 	<label class="css-label" for="4r" id="4rr"></label>
-	<input id="5r" class="css-checkbox" type="radio" value="5" name="estrella" onclick="cambio(5)">
+	<input id="5r" class="css-checkbox" type="radio" value=5 name="estrella" onclick="cambio(5)">
 	<label class="css-label" for="5r" id="5rr"></label>
 
 	<?php
 	echo "</div></div>";
-	?>
+	?> 
 <script type="text/javascript">
 	function cambio(i) {
 		for (var x = 1; x <= 5; x++) {

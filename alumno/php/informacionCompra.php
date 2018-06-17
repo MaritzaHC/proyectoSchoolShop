@@ -37,6 +37,23 @@
 	</div>
 	</form>	
 
+	<?php
+
+	if($estado==3){
+		echo "<form method=\"POST\" action=\"base/calificarAlumno.php\">
+		 <input type=\"\" name=\"idProductos\" value=$laid style=\"display: none;\">";
+		 if($vendedor==$uu){
+		 	echo" <input type=\"\" name=\"tipo\" value=\"1\" style=\"display: none;\"> <div class=\"calificacion\">";}
+		 	else{
+		 	echo" <input type=\"\" name=\"tipo\" value=\"vend\" style=\"display: none;\">
+		 	<div class=\"calificacion\">";}		
+	   	 calificacion();
+	   	 echo "</div><br><br><br><br><br><input type=\"submit\" value=\"Calificar\" class=\"boton\">";
+	   	echo "</form>";
+	}
+
+	?>
+
 	<form method="get" action="base/informacionCompraF.php" name="id">
 	<div class="reportar">
 		<div class="boton" onclick="popup(1,'razones');"><img src="..\..\imagenes\reportar.png"><p>Reportar</p></div>

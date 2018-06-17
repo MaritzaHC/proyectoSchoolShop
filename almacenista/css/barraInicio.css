@@ -121,3 +121,11 @@ p{margin: 0px;}
 	background-color: var(--fondo);
 	color: black;
 }
+.cerrar{
+	float: right;
+	display: inline-block;
+	width: 60px;
+	margin-left: 20px;
+	padding-top: 17px;
+	color: white;
+}	

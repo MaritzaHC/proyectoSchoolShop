@@ -8,7 +8,7 @@ $resul = productosDeta($laid);
 	    $vendedor = $resul['vendedor'];
 
 echo "
-	<input type=\"\" name=\"vendedor\" value=$vendedor style=\"display: none;\">
-	<input type=\"\" name=\"titulo\" value=\"$titulo\" style=\"display: none;\">
+	<input type=\"text\" name=\"vendedor\" value=$vendedor style=\"display: none;\">
+	<input type=\"text\" name=\"titulo\" value=\"$titulo\" style=\"display: none;\">
 	";
 ?>

@@ -8,8 +8,9 @@ $resul = productosDeta($laid);
 	    $id = $resul['idProductos'];
 	    $descripcion = $resul['descripcion'];
 	    $vendedor = $resul['vendedor'];
+	    $foto = $resul['foto'].".jpg";
 
-echo "<div class=\"imagenn\"><img src=\"na.jpg\"></div>
+echo "<div class=\"imagenn\"><img src=\"http://servicioss.gearhostpreview.com/img/$foto\"></div>
 	<div class=\"datosPedido\" style=\"width: 40%\">
 	<div class=\"titulo\"><p>$vendedor</p></div>
 		<div class=\"descripcion\">

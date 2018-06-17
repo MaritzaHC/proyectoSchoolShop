@@ -18,36 +18,32 @@ function consultaGeneralRestricciones()
 	}
 	return $losproductos;
 }
-function notificaciones($id){
-	var_dump($id);
+function notificaciones(){
 	$wsdl="http://servicioss.gearhostpreview.com/ServiceSS.asmx?WSDL";
-	$client=new SoapClient($wsdl, true);
-	$parametro = array('usuario' => $id);
+	$client=new SoapClient($wsdl,true);
+	$parametro = array('usuario' => 123456);
 	$result=$client->call("consultaGeneralNotificacion", $parametro)["consultaGeneralNotificacionResult"];
-
+	
 	$losproductos = array();
-	$cuantos = count($result["NotificacionesModelo"]);
-
-	if ($cuantos==1) {
+	$cuantos = @count($result["NotificacionesModelo"]);
+	if($cuantos == 1){
 		$losproductos[0] = array(
-							  'idNotificaciones'=>$result["NotificacionesModelo"][$i]["idNotificaciones"],
-							  'texto'=>$result["NotificacionesModelo"][$i]["texto"],
-							  'titulo'=>$result["NotificacionesModelo"][$i]["titulo"],
-							  'importancia'=>$result["NotificacionesModelo"][$i]["importancia"],
-							  'usuario'=>$result["NotificacionesModelo"][$i]["usuario"]);
+		'idNotificaciones'=>$result["NotificacionesModelo"]["idNotificaciones"],
+		'texto'=>$result["NotificacionesModelo"]["texto"],
+		'titulo'=>$result["NotificacionesModelo"]["titulo"],
+		'usuario'=>$result["NotificacionesModelo"]["usuario"]);
 	}else{
-
-	for ($i=0; $i < $cuantos; $i++) { 
-		$losproductos[$i] = array(
-							  'idNotificaciones'=>$result["NotificacionesModelo"][$i]["idNotificaciones"],
-							  'texto'=>$result["NotificacionesModelo"][$i]["texto"],
-							  'titulo'=>$result["NotificacionesModelo"][$i]["titulo"],
-							  'importancia'=>$result["NotificacionesModelo"][$i]["importancia"],
-							  'usuario'=>$result["NotificacionesModelo"][$i]["usuario"]);
-	}
+		for ($i=0; $i < $cuantos; $i++) { 
+			$losproductos[$i] = array(
+								  'idNotificaciones'=>$result["NotificacionesModelo"][$i]["idNotificaciones"],
+								  'texto'=>$result["NotificacionesModelo"][$i]["texto"],
+								  'titulo'=>$result["NotificacionesModelo"][$i]["titulo"],
+								  'usuario'=>$result["NotificacionesModelo"][$i]["usuario"]);
+		}
 	}
 	return $losproductos;
 }
+
 function categorias()
 {
 	global $wsdl;

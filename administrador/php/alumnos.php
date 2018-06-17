@@ -15,7 +15,6 @@
 		include '..\..\paginas\emergentes.html'; ?>
 <div class="contenido">
 	<div class="arriba">
-		<div class="boton" onclick="window.location='alumnos.php/'">Bloqueados</div>
 		<div class="barraBuscar">
 			<form method="get" action="alumnos.php" name="gg">
 				<input type="text" name="buscar" class="buscar">
@@ -26,13 +25,7 @@
 	</div>
 	<div class="abajo">
 		<?php include 'base/consultasUsuarios.php';
-			if (!empty($_GET['bloqueados'])) {
-				$pag = $_GET['pag'];
-				$x = array();
-				$x = @buscarBloqueado($pag);
-				$xx = @buscarBloqueado(($pag+1));
-			}
-
+		include 'estrellas.php';
 			$pag = $_GET['pag'];
 			$x = @alumnosGeneral($pag);
 			$xx = @alumnosGeneral(($pag+1));
@@ -46,18 +39,24 @@
 			foreach ($x as $are) {
 				$nombre = $are['nombre']." ".$are['apellidoP']." ".$are['apelldioM'];
 				$id = $are['id'];
+				$canV = $are['calificacionV'];
+				settype($canV, "integer");
+				$canC = $are['calificacionC'];
+				settype($canC, "integer");
 		?>
 		<div class="resultado">
 			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $nombre;?></p>
 			<p onclick="window.location='informacionAlumno.php?i='+<?php echo $id; ?>"><?php echo $id;?></p>
+			<!--
 			<div class="calificacion">
-				<div class="estrellas">
-		   	 	<img src="../../imagenes/estrellaL.png">
-		   	 	<img src="../../imagenes/estrellaL.png">
-		   		<img src="../../imagenes/estrellaL.png">
-		   		<img src="../../imagenes/estrellaL.png">
-				<img src="../../imagenes/estrellaB.png"></div>
+				<?php //calificacionaMostrar($canC);?>
 			</div>
+			<p style="float: right;">Comprador</p>
+			<div class="calificacion">
+				<?php //calificacionaMostrar($canV);?>
+			</div>
+			<p style="float: right;">Vendedor</p>
+			-->
 		</div>
 		<?php }?>
 	</div>

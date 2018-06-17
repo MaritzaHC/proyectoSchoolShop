@@ -20,6 +20,7 @@
 	  $nombre =$x['nombre'];
 	  $tele= $x['telefono'];
 	  $ubica=$x['ubicacion'];
+	  $foto = $x['foto'].".jpeg2wbmp(jpegname, wbmpname, dest_height, dest_width, threshold)";
 ?>
 
 <div class="contenido">
@@ -40,7 +41,7 @@
 			echo "<input type=\"submit\" value=\"Desbloquear\" class=\"boton\"  style=\"width: 150px\">";
 		}?>
 	</div></form>
-	<div class="imagenCuenta"><img src="caja.png"></div>
+	<div class="imagenCuenta"><img src=<?php echo "http://servicioss.gearhostpreview.com/img/$foto"; ?>></div>
 </div>
 <script type="text/javascript">
 	$(".comerciantes p").css({"background-color":"#fffade", "color":"#af5145"});

@@ -57,14 +57,6 @@ include '..\..\paginas\emergentes.html'; ?>
 				<form method="POST" action="base/almacenistas.php">
 				<p onclick="window.location='detalleAlmacenista.php?i='+<?php echo $idAlmacenista; ?>"><?php echo $nombre;?></p>
 				<div class="imagen" onclick="popup(1,'seguro',0)" onmouseenter="valor(<?php echo $idAlmacenista;?>)"><img src="..\..\imagenes/basura.png"></div>
-				<div class="calificacion">
-					<div class="estrellas">
-			   	 	<img src="../../imagenes/estrellaL.png">
-			   	 	<img src="../../imagenes/estrellaL.png">
-			   		<img src="../../imagenes/estrellaL.png">
-			   		<img src="../../imagenes/estrellaL.png">
-					<img src="../../imagenes/estrellaB.png"></div>
-				</div>
 			</div>
 			
 			<?php }}?>

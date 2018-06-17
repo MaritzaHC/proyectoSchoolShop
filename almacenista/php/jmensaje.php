@@ -1,12 +1,11 @@
 <?php 
-error_reporting(0);
-
-include 'consultasMensajes.php';
+include '../../alumno/php/base/consultasMensajes.php';
  @session_start();
 $uu = @$_SESSION['username'];
 settype($uu,'integer');
 
-	$x = @conversaGeneral($uu);
+	$x = @conversaGeneral($uu);	
+
 
 	$mijson = array();
 
@@ -31,7 +30,5 @@ settype($uu,'integer');
 
 		$mijson[] = $convo;
 	}
-
 	echo json_encode($mijson);
-	error_reporting(E_ALL);
 ?>

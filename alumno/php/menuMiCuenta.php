@@ -11,11 +11,11 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\primeraBarra.php'; ?>
+	<?php @include '..\paginas\primeraBarra.php'; ?>
 <div class="contenido">
-	<?php include '..\paginas\menui.html'; ?>
+	<?php @include '..\paginas\menui.html'; ?>
 	<div class="cuadros">
-		<?php include 'base\menuMiCuenta.php';?>
+		<?php @include 'base\menuMiCuenta.php';?>
 	</div>
 </div>
 </body>

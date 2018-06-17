@@ -22,8 +22,8 @@
 			 	</script>
 				<input type="text" name="buscar" class="buscar">
 				<img src="..\..\imagenes\buscar.png">
-				<input type="submit" name="i" class="botonbuscar">
-				<script>document.gg.i.value = bus;</script>
-			</form>
+				<input type="hidden" id=iii name="i" class="botonbuscar">
+				<script>$("#iii").val("<?php echo $_GET["i"] ?>");</script>
+			</form>	
 		</div>
 	</div>

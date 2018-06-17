@@ -10,11 +10,11 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php include '..\paginas\barraInicio.html';
+	<?php include '..\paginas\barraInicio.php';
 		  include 'consultas.php'; ?>
 <div class="contenido">
 	<?php include '..\paginas\menu.html'; ?>
-	<form action="publicar.php" method="POST">
+	<form action="publicar.php" method="POST" enctype="multipart/form-data">
 	<div class="imagenp" style="background-color: green;">
 		<output id="list"><img src="pay.jpg"></output>
 		<div class="imagen"><input type="file" id="files" name="files[]" value=" " required="required"/></div>

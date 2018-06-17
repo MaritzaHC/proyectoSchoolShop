@@ -15,11 +15,16 @@
 	<?php include '..\paginas\barraInicio.php'; 
 	include 'base/consultasUsuarios.php';
 	include '../../ejem/grafi.php';
+	include 'estrellas.php';
 	  $x = array();
 	  $id = $_GET['i'];
 	  settype($id,'integer');
 	  $x = @alumnosDeta($id);
 	  $nombre =$x['nombre']." ".$x['apellidoP']." ".$x['apelldioM'];
+	  $canV = $x['calificacionV'];
+	  settype($canV, "integer");
+	  $canC = $x['calificacionC'];
+	  settype($canC, "integer");
 ?>
 <div class="contenido">
 	<div class="informacionAlumnos">
@@ -31,21 +36,11 @@
 		<div class="calificacion">
 			<div class="comprador">
 				<p>Comprador</p>
-	   	 		<div class="estrellas">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-				<img src="..\..\imagenes\estrellaB.png"></div>
+	   	 		<?php calificacionaMostrar($canC);?>
 			</div>
 			<div class="vendedor">
 				<p>Vendedor</p>
-	   	 		<div class="estrellas">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   	 	<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-		   		<img src="..\..\imagenes\estrellaL.png">
-				<img src="..\..\imagenes\estrellaB.png"></div>
+	   	 		<?php calificacionaMostrar($canV);?>
 			</div>
 		</div>
 		<br><br><br><br><br>

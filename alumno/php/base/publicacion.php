@@ -8,8 +8,8 @@
 	$tipo=$_POST['tipo'];
 	settype($tipo,'integer');
 
-	$byte_array = file_get_contents($_FILES["files"]["tmp_name"]);
-	$image = base64_encode($byte_array);
+	$byte_array = file($_FILES["imagen"]["tmp_name"]);
+	$imagef = base64_encode(implode($byte_array));
 
 if($tipo == 1)
 {	
@@ -19,8 +19,8 @@ if($tipo == 1)
 						"precio"=>$_POST['precio'],
 						"tiempo"=>$_POST['tiempoDisponible'],
 						"tipo"=>1,
-						"foto"=>$image,
-						"vendedor"=>$uu);
+						"vendedor"=>$uu,
+						"arregloString"=>$imagef);
 	$result=$client->call("insertarProducto",$parameters);
 	header("Location: ../ventas.php");
 }  
@@ -30,7 +30,8 @@ else{
 	$parameters = array("titulo"=>$_POST['titulo'],
 						"descripcion"=>$_POST['descripcion'],
 						"lugar"=>$_POST['donde'],
-						"publicador"=>$uu);
+						"publicador"=>$uu,
+						"arregloString"=>$imagef);
 	$result=$client->call("insertarObjetoPerdido",$parameters);
 	header("Location: ../objetos.php");
 }

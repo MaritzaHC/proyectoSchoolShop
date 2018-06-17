@@ -23,6 +23,8 @@ if (@$_GET['este']) {//comprar
 
 		$result=$client->call("ComprarProducto", $parametro);
 
+		var_dump($parametro);
+
 		if ($result) header("Location: ../compras.php");
 		else header("Location: ../informacionCompra.php?id=$id&no=no");
 	}
@@ -53,7 +55,7 @@ if (@$_GET['id']) {//reportar
 	$result=$client->call("reportarproducto", $parametro);
 
 	var_dump($parametro);	
-	//header("Location: ../inicio.php?=compras?pag=1");
+	header("Location: ../inicio.php?i=compras?pag=1");
 	exit;
 }
 ?>
